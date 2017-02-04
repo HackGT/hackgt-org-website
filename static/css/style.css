@@ -1,0 +1,21 @@
+.nav {
+	background-color: #05578D;
+	padding-top: 2rem;
+}
+
+.page-header {
+	background-color: #140C2D;
+	text-align: center;
+	color: white;
+	padding-top: 6rem;
+	margin: 0;
+}
+
+.page-header img {
+	width: 100%;
+}
+
+.page-header h1 {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
