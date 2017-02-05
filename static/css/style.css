@@ -1,6 +1,26 @@
 .nav {
 	background-color: #05578D;
-	padding-top: 2rem;
+	padding-top: 3rem;
+	text-align: center;
+	border-bottom: 2px solid #F9DC6D;
+}
+
+.nav ul {
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.nav ul li {
+	list-style: none;
+	display: inline-block;
+	padding-left: 8px;
+	padding-right: 8px;
+	font-size: 16px;
+}
+
+.nav ul li a {
+	color: white;
+	text-transform: uppercase;
 }
 
 .page-header {
@@ -9,6 +29,7 @@
 	color: white;
 	padding-top: 6rem;
 	margin: 0;
+	border-bottom: none;
 }
 
 .page-header img {
@@ -16,6 +37,12 @@
 }
 
 .page-header h1 {
-	padding-top: 2rem;
-	padding-bottom: 2rem;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+#about {
+	padding: 1.5rem 3rem;
+	background-color: #202542;
+	color: white;
 }
