@@ -9,15 +9,35 @@ permalink: /about/
         <h1>Who are we?</h1>
     </div>
     <div id="about">
-        <ul>
+        <table style="width:100%" id="about-table">
+        {% assign num_members = -1 %}
+        {% assign per_row = 3 %}
         {% for member in site.data.members %}
-          <li>
-            Hi I'm {{ member.name }}, {{ member.nickname }}.
-          </li>
-          <li>
-            I'm on {{ member.team }} and {{ member.about }}
-          </li>
+            {% assign num_members = num_members | plus: 1 %}
+            {% assign mod = num_members | modulo:per_row %}
+            {% if mod == 0 %}
+                <tr>
+            {% endif %}
+            <td>
+                <image src="/static/images/members/rick.jpg"/>
+                <br>
+                {{ member.name }}
+                <br>
+                {{ member.nickname }}
+                <br>
+                {{ member.team }}
+                <br>
+                {{ member.about }}
+            </td>
+            {% assign compare = per_row | minus:1 %}
+            {% if mod == compare or forloop.last %}
+                </tr>
+            {% endif %}
         {% endfor %}
-        </ul>
+        </table>
     </div>
 </body>
+
+<script>
+console.log("asdf");
+</script>
