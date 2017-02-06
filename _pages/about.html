@@ -1,0 +1,23 @@
+---
+layout: home
+title: About
+permalink: /about/
+---
+
+<body>
+    <div class="page-header">
+        <h1>Who are we?</h1>
+    </div>
+    <div id="about">
+        <ul>
+        {% for member in site.data.members %}
+          <li>
+            Hi I'm {{ member.name }}, {{ member.nickname }}.
+          </li>
+          <li>
+            I'm on {{ member.team }} and {{ member.about }}
+          </li>
+        {% endfor %}
+        </ul>
+    </div>
+</body>
