@@ -1,3 +1,8 @@
+body {
+	font-family: 'News Cycle', sans-serif;
+	color: #ecf0f1;
+}
+
 .nav {
 	background-color: #05578D;
 	padding-top: 3rem;
@@ -19,14 +24,13 @@
 }
 
 .nav ul li a {
-	color: white;
 	text-transform: uppercase;
+	color: #ecf0f1;
 }
 
 .page-header {
 	background-color: #140C2D;
 	text-align: center;
-	color: white;
 	padding-top: 6rem;
 	margin: 0;
 	border-bottom: none;
@@ -45,4 +49,10 @@
 	padding: 1.5rem 3rem;
 	background-color: #202542;
 	color: white;
+}
+
+#mlh-logo {
+	height: 14rem;
+	position: absolute;
+	margin-left: 1.5rem;
 }
