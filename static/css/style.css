@@ -1,6 +1,7 @@
 body {
 	font-family: 'News Cycle', sans-serif;
 	color: #ecf0f1;
+	background-color: #140C2D;
 }
 
 .nav {
@@ -45,14 +46,12 @@ body {
 	padding-bottom: 3rem;
 }
 
-#about {
-	padding: 1.5rem 3rem;
-	background-color: #202542;
-	color: white;
-}
-
 #mlh-logo {
 	height: 14rem;
 	position: absolute;
 	margin-left: 1.5rem;
+}
+
+.member-description {
+	padding-bottom: 2rem;
 }

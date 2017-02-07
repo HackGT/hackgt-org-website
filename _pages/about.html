@@ -8,7 +8,7 @@ permalink: /about/
     <div class="page-header">
         <h1>Who are we?</h1>
     </div>
-    <div id="about">
+    <div id="about" class="container">
         <table style="width:100%" id="about-table">
         {% assign num_members = -1 %}
         {% assign per_row = 3 %}
@@ -16,13 +16,13 @@ permalink: /about/
             {% assign num_members = num_members | plus: 1 %}
             {% assign mod = num_members | modulo:per_row %}
             {% if mod == 0 %}
-                <tr>
+                <div class="row">
             {% endif %}
-            <td>
+            <div class="col col-lg-4 col-md-4 col-sm-12">
                 <center>
                 <div class="hovereffect">
                     <center>
-                        <img class="img-responsive" src="http://placehold.it/350x200" alt="">
+                        <img class="img-responsive" src="http://placehold.it/300x300" alt="">
                     </center>
                     <div class="overlay">
                         <div class="rotate">
@@ -47,19 +47,21 @@ permalink: /about/
                         </div>
                     </div>
                 </div>
-                <br>
-                {{ member.name }}
-                <br>
-                {{ member.nickname }}
-                <br>
-                {{ member.team }}
-                <br>
-                {{ member.about }}
+                <p class="member-description">
+                    <br>
+                    {{ member.name }}
+                    <br>
+                    {{ member.nickname }}
+                    <br>
+                    {{ member.team }}
+                    <br>
+                    {{ member.about }}
+                </p>
                 </center>
-            </td>
+            </div>
             {% assign compare = per_row | minus:1 %}
             {% if mod == compare or forloop.last %}
-                </tr>
+                </div>
             {% endif %}
         {% endfor %}
         </table>
