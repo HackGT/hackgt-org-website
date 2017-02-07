@@ -1,8 +1,8 @@
-name,nickname,team,about
-Eric Mill,Database Phreak,Tech Team,I like planes and trains
-Parker Moore,Extra Extrovert,Communications,Socialism!
-Liu Fengyun,CAD Abuser,Design,Drawing is my love
-Foo Farley,Logistics Lover,Ops,Get er done
-John Marsh,Python Enthusiast,Tech Team,Go Jacketst!
-Jay Quelin,Money Maker,Ops,Buzz Buzz!
-George Burdell,Icon,Communications,whoami
+name,nickname,team,about,github,mail,website,linkedin
+Eric Mill,Database Phreak,Tech Team,I like planes and trains,https://github.com/failedxyz
+Parker Moore,Extra Extrovert,Communications,Socialism!,https://github.com/jacobj10
+Liu Fengyun,CAD Abuser,Design,Drawing is my love,https://github.com/illegalprime
+Foo Farley,Logistics Lover,Ops,Get er done,https://github.com/zerosteiner
+John Marsh,Python Enthusiast,Tech Team,Go Jacketst!,https://github.com/ehsanmasdar
+Jay Quelin,Money Maker,Ops,Buzz Buzz!,https://github.com/jamcut
+George Burdell,Icon,Communications,whoami,https://github.com/ajliu

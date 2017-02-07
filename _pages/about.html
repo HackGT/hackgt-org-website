@@ -19,7 +19,34 @@ permalink: /about/
                 <tr>
             {% endif %}
             <td>
-                <image src="/static/images/members/rick.jpg"/>
+                <center>
+                <div class="hovereffect">
+                    <center>
+                        <img class="img-responsive" src="http://placehold.it/350x200" alt="">
+                    </center>
+                    <div class="overlay">
+                        <div class="rotate">
+                            <p class="group1">
+                                <a href= {{ member.mail }}  >
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href={{ member.github }}>
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </p>
+                                <hr>
+                                <hr>
+                            <p class="group2">
+                                <a href={{ member.website }}>
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                                <a href={{ member.linkedin }}>
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <br>
                 {{ member.name }}
                 <br>
@@ -28,6 +55,7 @@ permalink: /about/
                 {{ member.team }}
                 <br>
                 {{ member.about }}
+                </center>
             </td>
             {% assign compare = per_row | minus:1 %}
             {% if mod == compare or forloop.last %}
