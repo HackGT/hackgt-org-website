@@ -56,3 +56,12 @@ body {
 .member-description {
 	padding-bottom: 2rem;
 }
+
+.home-section {
+	padding: 1.5rem 12rem;
+	background-color: #202542;
+}
+
+.home-section:last-of-type {
+	padding-bottom: 5rem;
+}
