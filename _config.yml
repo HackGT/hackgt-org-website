@@ -34,3 +34,4 @@ exclude:
   - README.md
 collections:
   - homepage
+  - events
