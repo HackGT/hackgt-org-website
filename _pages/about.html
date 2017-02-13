@@ -22,26 +22,26 @@ permalink: /about/
                 <center>
                 <div class="hovereffect">
                     <center>
-                        <img class="img-responsive" src="http://placehold.it/300x300" alt="">
+                        <img class="img-responsive" src="/static/images/members/{{ member.name }}.jpg" alt="" width="300" height="300">
                     </center>
                     <div class="overlay">
                         <div class="rotate">
                             <p class="group1">
-                                <a href= {{ member.mail }}  >
-                                    <i class="fa fa-twitter"></i>
+                                <a href= {{ member.link1 }}  >
+                                    <i class="fa fa-{{ member.media1 }}"></i>
                                 </a>
-                                <a href={{ member.github }}>
-                                    <i class="fa fa-github"></i>
+                                <a href={{ member.link2 }}>
+                                    <i class="fa fa-{{ member.media2 }}"></i>
                                 </a>
                             </p>
                                 <hr>
                                 <hr>
                             <p class="group2">
-                                <a href={{ member.website }}>
-                                    <i class="fa fa-instagram"></i>
+                                <a href={{ member.link3 }}>
+                                    <i class="fa fa-{{ member.media3 }}"></i>
                                 </a>
-                                <a href={{ member.linkedin }}>
-                                    <i class="fa fa-linkedin"></i>
+                                <a href={{ member.link4 }}>
+                                    <i class="fa fa-{{ member.media4 }}"></i>
                                 </a>
                             </p>
                         </div>
