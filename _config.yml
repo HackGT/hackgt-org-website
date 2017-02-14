@@ -32,6 +32,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - .bundle
+  - vendor
 collections:
   - homepage
   - events

@@ -92,3 +92,10 @@ ENV/
 _site/
 .sass-cache/
 .jekyll-metadata
+
+# Members files
+static/images/members/*
+
+# Bundle
+.bundle
+vendor
