@@ -22,27 +22,57 @@ permalink: /about/
                 <center>
                 <div class="hovereffect">
                     <center>
-                        <img class="img-responsive" src="/static/images/members/{{ member.name }}.jpg" alt="" width="300" height="300">
+                        <img class="img-responsive" src="/static/images/members/{{ member.name }}" alt="" width="300" height="300">
                     </center>
                     <div class="overlay">
                         <div class="rotate">
                             <p class="group1">
-                                <a href= {{ member.link1 }}  >
-                                    <i class="fa fa-{{ member.media1 }}"></i>
-                                </a>
-                                <a href={{ member.link2 }}>
-                                    <i class="fa fa-{{ member.media2 }}"></i>
-                                </a>
+                                {% if member.link1 %}
+                                    <a href= {{ member.link1 }}  >
+                                        <i class="fa fa-{{ member.media1 }}"></i>
+                                    </a>
+                                
+                                {% else %}
+                                    <a href= "#">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                {% endif %}
+
+                                {% if member.link2 %}
+                                    <a href= {{ member.link2 }}  >
+                                        <i class="fa fa-{{ member.media2 }}"></i>
+                                    </a>
+                                
+                                {% else %}
+                                    <a href= "#">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                {% endif %}
                             </p>
                                 <hr>
                                 <hr>
                             <p class="group2">
-                                <a href={{ member.link3 }}>
-                                    <i class="fa fa-{{ member.media3 }}"></i>
-                                </a>
-                                <a href={{ member.link4 }}>
-                                    <i class="fa fa-{{ member.media4 }}"></i>
-                                </a>
+                                {% if member.link3 %}
+                                    <a href= {{ member.link3 }}  >
+                                        <i class="fa fa-{{ member.media3 }}"></i>
+                                    </a>
+                                
+                                {% else %}
+                                    <a href= "#">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                {% endif %}
+
+                                {% if member.link4 %}
+                                    <a href= {{ member.link4 }}  >
+                                        <i class="fa fa-{{ member.media4 }}"></i>
+                                    </a>
+                                
+                                {% else %}
+                                    <a href= "#">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                {% endif %}
                             </p>
                         </div>
                     </div>
