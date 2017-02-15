@@ -79,19 +79,27 @@ permalink: /about/
                 </div>
                 <p class="member-description">
                     <br>
-                    {{ member.name }}
+                    {% if member.name %}
+                        {{ member.name }}
                     <br>
-                    {{ member.nickname }}
+                    {% endif %}
+                    {% if member.nickname %}
+                        {{ member.nickname }}
                     <br>
-                    {{ member.team }}
+                    {% endif %}
+                    {% if member.team %}
+                        {{ member.team }}
                     <br>
+                    {% endif %}
+                    {% if member.about %}
                     {{ member.about }}
+                    {% endif %}
                 </p>
                 </center>
-            </div>
+                </div>
             {% assign compare = per_row | minus:1 %}
             {% if mod == compare or forloop.last %}
-                </div>
+            </div>
             {% endif %}
         {% endfor %}
         </table>

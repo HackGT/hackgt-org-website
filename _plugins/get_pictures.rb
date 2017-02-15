@@ -1,6 +1,7 @@
 require "open-uri"
+require "smartcropper"
 
-PLACEHOLDER = "https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300"
+PLACEHOLDER = "https://unsplash.it/300/?random"
 
 Jekyll::Hooks.register :site, :after_init do |get_pictures|
     FileUtils.rm_rf(Dir.glob('./static/images/members/*'))
@@ -17,6 +18,7 @@ Jekyll::Hooks.register :site, :after_init do |get_pictures|
             File.open(name,"wb") do |file|
                 file.puts f.read
             end
+            SmartCropper.from_file(name).smart_square.write(name)
         }
     end
 end
