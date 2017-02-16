@@ -13,7 +13,7 @@ body {
 
 .nav ul {
 	padding: 0;
-	margin-bottom: 0;
+	margin-bottom: 1;
 }
 
 .nav ul li {
@@ -25,6 +25,7 @@ body {
 }
 
 .nav ul li a {
+	font-size: 1.5em;
 	text-transform: uppercase;
 	color: #ecf0f1;
 }
@@ -69,7 +70,7 @@ body {
 
 .footer {
 	background-color: #05578D;
-	padding-top: 3rem;
+	padding-top: 1rem;
 	text-align: center;
 	border-top: 2px solid #F9DC6D;
 	text-transform: uppercase;
