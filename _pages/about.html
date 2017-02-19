@@ -7,105 +7,207 @@ permalink: /about/
 <body>
     <div class="page-header">
         <h1>Who are we?</h1>
+        <h2>Executive Board</h2>
     </div>
     <div id="about" class="container">
-        <table style="width:100%" id="about-table">
-        {% assign num_members = -1 %}
-        {% assign per_row = 3 %}
-        {% for member in site.data.members %}
-            {% assign num_members = num_members | plus: 1 %}
-            {% assign mod = num_members | modulo:per_row %}
-            {% if mod == 0 %}
-                <div class="row">
-            {% endif %}
-            <div class="col col-lg-4 col-md-4 col-sm-12">
-                <center>
-                <div class="hovereffect">
+        <div id="exec" class="container">
+            <table style="width:100%" id="about-table">
+            {% assign num_members = -1 %}
+            {% assign per_row = 3 %}
+            {% for member in site.data.members %}
+                {% if member.isHead == "Yes" %}
+                {% assign num_members = num_members | plus: 1 %}
+                {% assign mod = num_members | modulo:per_row %}
+                {% if mod == 0 %}
+                    <div class="row">
+                {% endif %}
+                <div class="col col-lg-4 col-md-4 col-sm-12">
                     <center>
-                        <img class="img-responsive" src="/static/images/members/{{ member.name }}" alt="" width="300" height="300">
-                    </center>
-                    <div class="overlay">
-                        <div class="rotate">
-                            <p class="group1">
-                                {% if member.link1 %}
-                                    <a href= {{ member.link1 }}  >
-                                        <i class="fa fa-{{ member.media1 }}"></i>
-                                    </a>
-                                
-                                {% else %}
-                                    <a href= "#">
-                                        <i class="fa fa-minus"></i>
-                                    </a>
-                                {% endif %}
+                    <div class="hovereffect">
+                        <center>
+                            <img class="img-responsive" src="/static/images/members/{{ member.name }}" alt="" width="300" height="300">
+                        </center>
+                        <div class="overlay">
+                            <div class="rotate">
+                                <p class="group1">
+                                    {% if member.link1 %}
+                                        <a href= {{ member.link1 }}  >
+                                            <i class="fa fa-{{ member.media1 }}"></i>
+                                        </a>
+                                    
+                                    {% else %}
+                                        <a href= "#">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    {% endif %}
 
-                                {% if member.link2 %}
-                                    <a href= {{ member.link2 }}  >
-                                        <i class="fa fa-{{ member.media2 }}"></i>
-                                    </a>
-                                
-                                {% else %}
-                                    <a href= "#">
-                                        <i class="fa fa-minus"></i>
-                                    </a>
-                                {% endif %}
-                            </p>
-                                <hr>
-                                <hr>
-                            <p class="group2">
-                                {% if member.link3 %}
-                                    <a href= {{ member.link3 }}  >
-                                        <i class="fa fa-{{ member.media3 }}"></i>
-                                    </a>
-                                
-                                {% else %}
-                                    <a href= "#">
-                                        <i class="fa fa-minus"></i>
-                                    </a>
-                                {% endif %}
+                                    {% if member.link2 %}
+                                        <a href= {{ member.link2 }}  >
+                                            <i class="fa fa-{{ member.media2 }}"></i>
+                                        </a>
+                                    
+                                    {% else %}
+                                        <a href= "#">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    {% endif %}
+                                </p>
+                                    <hr>
+                                    <hr>
+                                <p class="group2">
+                                    {% if member.link3 %}
+                                        <a href= {{ member.link3 }}  >
+                                            <i class="fa fa-{{ member.media3 }}"></i>
+                                        </a>
+                                    
+                                    {% else %}
+                                        <a href= "#">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    {% endif %}
 
-                                {% if member.link4 %}
-                                    <a href= {{ member.link4 }}  >
-                                        <i class="fa fa-{{ member.media4 }}"></i>
-                                    </a>
-                                
-                                {% else %}
-                                    <a href= "#">
-                                        <i class="fa fa-minus"></i>
-                                    </a>
-                                {% endif %}
-                            </p>
+                                    {% if member.link4 %}
+                                        <a href= {{ member.link4 }}  >
+                                            <i class="fa fa-{{ member.media4 }}"></i>
+                                        </a>
+                                    
+                                    {% else %}
+                                        <a href= "#">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    {% endif %}
+                                </p>
+                            </div>
                         </div>
                     </div>
+                    <p class="member-description">
+                        <br>
+                        {% if member.name %}
+                            {{ member.name }}
+                        <br>
+                        {% endif %}
+                        {% if member.nickname %}
+                            {{ member.nickname }}
+                        <br>
+                        {% endif %}
+                        {% if member.team %}
+                            {{ member.team }}
+                        <br>
+                        {% endif %}
+                        {% if member.about %}
+                        {{ member.about }}
+                        {% endif %}
+                    </p>
+                    </center>
+                    </div>
+                {% assign compare = per_row | minus:1 %}
+                {% if mod == compare or forloop.last %}
                 </div>
-                <p class="member-description">
-                    <br>
-                    {% if member.name %}
-                        {{ member.name }}
-                    <br>
-                    {% endif %}
-                    {% if member.nickname %}
-                        {{ member.nickname }}
-                    <br>
-                    {% endif %}
-                    {% if member.team %}
-                        {{ member.team }}
-                    <br>
-                    {% endif %}
-                    {% if member.about %}
-                    {{ member.about }}
-                    {% endif %}
-                </p>
-                </center>
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+            </table>
+        </div>
+        <div class="page-header">
+            <h2>Members</h2>
+        </div>
+        <div id="member" class="container">
+            <table style="width:100%" id="about-table">
+            {% assign num_members = -1 %}
+            {% assign per_row = 3 %}
+            {% for member in site.data.members %}
+                {% if member.isHead == "No" %}
+                {% assign num_members = num_members | plus: 1 %}
+                {% assign mod = num_members | modulo:per_row %}
+                {% if mod == 0 %}
+                    <div class="row">
+                {% endif %}
+                <div class="col col-lg-4 col-md-4 col-sm-12">
+                    <center>
+                    <div class="hovereffect">
+                        <center>
+                            <img class="img-responsive" src="/static/images/members/{{ member.name }}" alt="" width="300" height="300">
+                        </center>
+                        <div class="overlay">
+                            <div class="rotate">
+                                <p class="group1">
+                                    {% if member.link1 %}
+                                        <a href= {{ member.link1 }}  >
+                                            <i class="fa fa-{{ member.media1 }}"></i>
+                                        </a>
+                                    
+                                    {% else %}
+                                        <a href= "#">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    {% endif %}
+
+                                    {% if member.link2 %}
+                                        <a href= {{ member.link2 }}  >
+                                            <i class="fa fa-{{ member.media2 }}"></i>
+                                        </a>
+                                    
+                                    {% else %}
+                                        <a href= "#">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    {% endif %}
+                                </p>
+                                    <hr>
+                                    <hr>
+                                <p class="group2">
+                                    {% if member.link3 %}
+                                        <a href= {{ member.link3 }}  >
+                                            <i class="fa fa-{{ member.media3 }}"></i>
+                                        </a>
+                                    
+                                    {% else %}
+                                        <a href= "#">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    {% endif %}
+
+                                    {% if member.link4 %}
+                                        <a href= {{ member.link4 }}  >
+                                            <i class="fa fa-{{ member.media4 }}"></i>
+                                        </a>
+                                    
+                                    {% else %}
+                                        <a href= "#">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="member-description">
+                        <br>
+                        {% if member.name %}
+                            {{ member.name }}
+                        <br>
+                        {% endif %}
+                        {% if member.nickname %}
+                            {{ member.nickname }}
+                        <br>
+                        {% endif %}
+                        {% if member.team %}
+                            {{ member.team }}
+                        <br>
+                        {% endif %}
+                        {% if member.about %}
+                        {{ member.about }}
+                        {% endif %}
+                    </p>
+                    </center>
+                    </div>
+                {% assign compare = per_row | minus:1 %}
+                {% if mod == compare or forloop.last %}
                 </div>
-            {% assign compare = per_row | minus:1 %}
-            {% if mod == compare or forloop.last %}
-            </div>
-            {% endif %}
-        {% endfor %}
-        </table>
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+            </table>
+        </div>
     </div>
 </body>
-
-<script>
-console.log("asdf");
-</script>
