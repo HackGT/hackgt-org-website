@@ -5,6 +5,8 @@ Stateless, Dateless, Flawless
 ```BASH
 gem --version || sudo gem install ruby
 bundle --version || sudo gem install bundler
+sudo apt-get install imagemagick libmagickwand-dev
+sudo gem install rmagick -v '2.16.0'
 bundle install
 jekyll serve
 ```
