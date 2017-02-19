@@ -4,7 +4,7 @@ Stateless, Dateless, Flawless
 ## Configure Jekyll
 ```BASH
 gem --version || sudo gem install ruby
-bundle --version || sudo gem isntall bundler
+bundle --version || sudo gem install bundler
 bundle install
 jekyll serve
 ```
