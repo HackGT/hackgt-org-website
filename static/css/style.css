@@ -77,4 +77,16 @@ body {
 	color: #ecf0f1;
 }
 
+#nav-logo {
+	position: absolute;
+	top: .5em;
+	width: 3.5em;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.nav ul li:nth-of-type(4) {
+	padding-left: calc(3.5em + 16px);
+}
+
 .social>a{display:inline-block;margin:10px;padding:0;border:none;background:none;vertical-align:middle;position:relative;width:40px;height:40px;color:#05578D!important;border-radius:50%;transition:all 0.3s;text-decoration:none;}.social>a>i{font-size:16px;width:22px;line-height:40px;}.social>a.twitter{background:#DAF7DC;}.social>a.facebook{background:#9EE493;}.social>a.email{background:#2F4858;}.social>a.github{background:#86BBD8;border:1px solid #86BBD8;}
