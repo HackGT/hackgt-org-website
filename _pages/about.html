@@ -6,20 +6,18 @@ permalink: /about/
 
 <body>
     <div class="page-header">
-        <h1>Who are we?</h1>
-        <h2>Executive Board</h2>
+        <h1>Executive Board</h1>
     </div>
     <div id="about" class="container">
         <div id="exec" class="container">
             <table style="width:100%" id="about-table">
             {% assign num_members = -1 %}
             {% assign per_row = 3 %}
-            {% for member in site.data.members %}
-                {% if member.isHead == "Yes" %}
+            {% for member in site.data.exec %}
                 {% assign num_members = num_members | plus: 1 %}
                 {% assign mod = num_members | modulo:per_row %}
                 {% if mod == 0 %}
-                    <div class="row">
+                 <div class="row">
                 {% endif %}
                 <div class="col col-lg-4 col-md-4 col-sm-12">
                     <center>
@@ -81,21 +79,14 @@ permalink: /about/
                         </div>
                     </div>
                     <p class="member-description">
-                        <br>
                         {% if member.name %}
-                            {{ member.name }}
-                        <br>
+                            <h1 class="member_name">{{ member.name }}</h1>
                         {% endif %}
-                        {% if member.nickname %}
-                            {{ member.nickname }}
-                        <br>
-                        {% endif %}
-                        {% if member.team %}
-                            {{ member.team }}
-                        <br>
+                        {% if member.title %}
+                            <h3 class="member_title">{{ member.title }}</h3>
                         {% endif %}
                         {% if member.about %}
-                        {{ member.about }}
+                            {{ member.about }}
                         {% endif %}
                     </p>
                     </center>
@@ -104,19 +95,17 @@ permalink: /about/
                 {% if mod == compare or forloop.last %}
                 </div>
                 {% endif %}
-                {% endif %}
             {% endfor %}
             </table>
         </div>
         <div class="page-header">
-            <h2>Members</h2>
+            <h1>Members</h1>
         </div>
         <div id="member" class="container">
             <table style="width:100%" id="about-table">
             {% assign num_members = -1 %}
             {% assign per_row = 3 %}
             {% for member in site.data.members %}
-                {% if member.isHead == "No" %}
                 {% assign num_members = num_members | plus: 1 %}
                 {% assign mod = num_members | modulo:per_row %}
                 {% if mod == 0 %}
@@ -182,21 +171,14 @@ permalink: /about/
                         </div>
                     </div>
                     <p class="member-description">
-                        <br>
                         {% if member.name %}
-                            {{ member.name }}
-                        <br>
-                        {% endif %}
-                        {% if member.nickname %}
-                            {{ member.nickname }}
-                        <br>
+                            <h2>{{ member.name }}</h2>
                         {% endif %}
                         {% if member.team %}
-                            {{ member.team }}
-                        <br>
+                            <h4>{{ member.team }}</h4>
                         {% endif %}
                         {% if member.about %}
-                        {{ member.about }}
+                            {{ member.about }}
                         {% endif %}
                     </p>
                     </center>
@@ -204,7 +186,6 @@ permalink: /about/
                 {% assign compare = per_row | minus:1 %}
                 {% if mod == compare or forloop.last %}
                 </div>
-                {% endif %}
                 {% endif %}
             {% endfor %}
             </table>

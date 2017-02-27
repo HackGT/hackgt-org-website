@@ -13,7 +13,23 @@ Jekyll::Hooks.register :site, :after_init do |get_pictures|
             row[4] = PLACEHOLDER
         end
         puts row[4]
-        open(row[4]) {|f|
+        open(PLACEHOLDER) {|f|
+            name = "./static/images/members/" + row[1]
+            File.open(name,"wb") do |file|
+                file.puts f.read
+            end
+            SmartCropper.from_file(name).smart_square.write(name)
+        }
+    end
+    CSV.foreach("./_data/exec.csv") do |row|
+        if row[4] == 'image'
+            next
+        end
+        if row[4] == nil or row[4].include? 'linkedin'
+            row[4] = PLACEHOLDER
+        end
+        puts row[4]
+        open(PLACEHOLDER) {|f|
             name = "./static/images/members/" + row[1]
             File.open(name,"wb") do |file|
                 file.puts f.read
