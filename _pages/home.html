@@ -15,4 +15,16 @@ permalink: /
 			<p> {{section.content}}</p>
 		</div>
 	{% endfor %}
+	<div class="home-section">
+		<h2>Upcoming Events</h2>
+		{% for section in site.events limit:2 %}
+		<div class="event">
+			<h3>{{section.title}}</h3>
+			<p>{{section.content}}</p>
+		</div>
+		{% endfor %}
+		<div class="view-more">
+			<p><a href="/events">View more<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+		</div>
+	</div>
 </body>

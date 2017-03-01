@@ -92,6 +92,18 @@ body {
 	z-index: 9000;
 }
 
+.view-more {
+	text-align: right;
+}
+
+.view-more a {
+	color: #F9DC6D;
+}
+
+.view-more i {
+	padding-left: 10px;
+}
+
 @media (min-width: 768px) {
 	.navbar {
 		padding-top: 1.25em;
