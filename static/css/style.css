@@ -23,7 +23,7 @@ body {
 }
 
 .page-header {
-	padding-top: 5.5rem;
+	padding-top: 6rem;
 }
 
 .home-page-header img {
@@ -116,6 +116,10 @@ body {
 	padding-bottom: 2.5rem;
 }
 
+.container {
+	padding-bottom: 3rem;
+}
+
 @media (min-width: 768px) {
 	.navbar {
 		padding-top: 1.25em;
@@ -136,6 +140,10 @@ body {
 	#nav-logo {
 		display: none;
 	}
+}
+
+.container img {
+	padding: 1rem 0;
 }
 
 .social>a{display:inline-block;margin:10px;padding:0;border:none;background:none;vertical-align:middle;position:relative;width:40px;height:40px;color:#05578D!important;border-radius:50%;transition:all 0.3s;text-decoration:none;}.social>a>i{font-size:16px;width:22px;line-height:40px;}.social>a.twitter{background:#DAF7DC;}.social>a.facebook{background:#9EE493;}.social>a.email{background:#2F4858;}.social>a.github{background:#86BBD8;border:1px solid #86BBD8;}

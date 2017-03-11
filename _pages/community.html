@@ -5,10 +5,38 @@ permalink: /community/
 ---
 
 <body>
-	<div class="page-header">
-		<h1>HackGT Community</h1>
-	</div>
-	<div class="container text-center">
-		<h2>Hacker of the Week</h2>
+	<div class="container">
+		<div class="page-header">
+			<h1>HackGT Community</h1>
+		</div>
+		<div class = "row text-center">
+			<h2>Hacker of the Week</h2>
+		</div>
+		<div class = "row">
+			{% for hacker in site.data.hackers limit:1 %}
+			<div class = "col col-lg-6 col-md-6 col-sm-12 text-right">
+				<img src="{{hacker.picture}}">
+			</div>
+			<div class = "col col-lg-6 col-md-6 col-sm-12">
+				<h2>{{hacker.name}}</h2>
+				<h3>{{hacker.week }}</h3>
+				<p>{{hacker.description}}</p>
+			</div>
+			{% endfor %}
+		</div>
+		{% for hacker in site.data.hackers offset:1 %}
+			{% assign mod = forloop.index0 | modulo:4 %}
+			{% if mod == 0%}
+				<div class = "row">
+			{% endif %}
+
+			<div class="col col-lg-3 col-md-3 col-sm-12">
+				<img src="{{hacker.picture}}">
+			</div>
+
+			{% if mod == 3%}
+			</div>
+			{% endif %}
+		{% endfor %}
 	</div>
 </body>
