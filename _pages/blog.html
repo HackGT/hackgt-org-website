@@ -1,0 +1,18 @@
+---
+layout: home
+title: Blog
+permalink: /blog/
+---
+
+<body>
+    <div class="page-header">
+        <h1>BlogGT</h1>
+    </div>
+	{% for section in site.posts %}
+		<div class="home-section">
+			<h2><a href="{{section.url}}">{{section.title}}</a></h2>
+			{{section.content}}
+		</div>
+	{% endfor %}
+</body>
+
