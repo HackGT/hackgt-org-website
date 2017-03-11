@@ -13,13 +13,17 @@ body {
 
 .home-page-header {
 	background-color: #140C2D;
-	padding-top: 6rem;
+	padding-top: 11rem;
 }
 
 .page-header, .home-page-header {
 	margin: 0;
 	border-bottom: none;
 	text-align: center;
+}
+
+.page-header {
+	padding-top: 5.5rem;
 }
 
 .home-page-header img {
