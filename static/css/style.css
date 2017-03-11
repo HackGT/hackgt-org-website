@@ -41,6 +41,7 @@ body {
 	position: absolute;
 	margin-left: 1.5rem;
 	z-index: 90;
+	top: 0;
 }
 
 .member-description {
