@@ -5,14 +5,33 @@ permalink: /blog/
 ---
 
 <body>
-    <div class="page-header">
-        <h1>BlogGT</h1>
-    </div>
-	{% for section in site.posts %}
-		<div class="home-section">
-			<h2><a href="{{section.url}}">{{section.title}}</a></h2>
-			{{section.content}}
-		</div>
-	{% endfor %}
+	<div class="page-header">
+		<h1>BlogGT</h1>
+	</div>
+	<div class="container">
+		<table style="width:100%" id="about-table">
+		{% assign num_members = -1 %}
+		{% assign per_row = 3 %}
+		{% for section in site.posts %}
+			{% assign num_members = num_members | plus: 1 %}
+			{% assign mod = num_members | modulo:per_row %}
+			{% if mod == 0 %}
+			 <div class="row">
+			{% endif %}
+			<div class="col col-lg-4 col-md-4 col-sm-12">
+				<h1><a href="{{section.url}}">{{section.title}}</a></h1>
+				<h4>{{ section.date | date_to_string }}</h4>
+				<h3>
+				{{section.description}}
+				</h3>
+			</div>
+			{% assign compare = per_row | minus:1 %}
+			{% if mod == compare or forloop.last %}
+			</div>
+			{% endif %}
+		{% endfor %}
+		 </table>
+	</div>
+
 </body>
 

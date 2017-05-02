@@ -3,8 +3,14 @@ layout: home
 ---
 
 <center>
-	<h2 class="spacing">{{ page.title }}</h2>
-	<p>{{ page.date }}</p>
-
-	{{ content }}
+    <div class="page-header">
+        <h1>{{ page.title }}</h1>
+        <h3>{{ page.date | date_to_string }}</h3>
+    </div>
 </center>
+<div class="container">
+
+	<h4>
+        {{ content }}
+    </h4>
+</div>
