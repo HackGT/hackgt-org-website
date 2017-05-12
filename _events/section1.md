@@ -1,8 +1,5 @@
 ---
-title: HackGTeeny
+title: Catalyst
 ---
-Lorem ipsum dolor sit amet, eu assum principes consectetuer vim. Possim elaboraret te pro. Facilisis gubergren splendide mea eu, id eos scripta euismod argumentum. Dolore fabulas pri id, pertinax pericula consetetur ut mei, qui ut primis legimus appareat.
 
-Ius id veri decore, eam dolorum habemus eligendi at. Pri affert nonumes patrioque ea. Aeterno habemus duo cu, sed postea consulatu definiebas in, pri ei error populo vituperatoribus. Malis habemus te vim, usu et modus suscipiantur definitiones, vim an zril quando singulis. Sed suas doctus referrentur ad, ius partem persecuti ne. Quem constituto pri ex.
-
-Id vim congue quidam inimicus. Ut aliquid corpora nominavi pri, facer quaestio persecuti has ei, eam posse consul maiestatis at. Pro nihil verear et, mea te ullum salutandi, his ne tritani vivendum. Labore reprimique neglegentur at mel, an duo error disputando. Ex mel eirmod inermis copiosae. Aeque persequeris an eam, libris temporibus efficiantur ne per, ut cibo altera per.
+### HackGT held its first ever high school learnathon designated for students in Atlanta, Clayton, Dekalb, and Cobb county school systems on Saturday, April 15. With the help of our sponsors, we were able to connect over 200+ students with the resources to sample a hackathon. HackGT provided equipment, food, swag, and trained mentors to facilitate a meaningful computer science related experience. Catalyst also gave students the opportunity to interact with current Georgia Tech students and sponsors from companies such as Wordpress, Google, Palantir, and GitHub. Held at Georgia Tech’s Klaus Advanced Computer Science, students were able to explore the facility and familiarize themselves with the campus. 
