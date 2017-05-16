@@ -6,20 +6,20 @@ permalink: /
 
 <body>
 	<div class="home-page-header">
-		<h1>HACKGT</h1>
+		<h1 class="kahuna">HACKGT</h1>
 		<img src="static/images/Cityscape.svg"></img>
 	</div>
 	{% for section in site.homepage %}
 		<div class="home-section">
-			<h2>{{section.title}}</h2>
+			<h1>{{section.title}}</h1>
 			<p> {{section.content}}</p>
 		</div>
 	{% endfor %}
 	<div class="home-section">
-		<h2>Upcoming Events</h2>
+		<h1>What have we been up to?</h1>
 		{% for section in site.events limit:2 %}
 		<div class="event">
-			<h3>{{section.title}}</h3>
+			<h2>{{section.title}}</h2>
 			<p>{{section.content}}</p>
 		</div>
 		{% endfor %}

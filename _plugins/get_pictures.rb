@@ -13,7 +13,7 @@ Jekyll::Hooks.register :site, :after_init do |get_pictures|
             row[4] = PLACEHOLDER
         end
         puts row[4]
-        open(PLACEHOLDER) {|f|
+        open(row[4]) {|f|
             name = "./static/images/members/" + row[1]
             File.open(name,"wb") do |file|
                 file.puts f.read
@@ -22,14 +22,14 @@ Jekyll::Hooks.register :site, :after_init do |get_pictures|
         }
     end
     CSV.foreach("./_data/exec.csv") do |row|
-        if row[4] == 'image'
+        if row[3] == 'image'
             next
         end
-        if row[4] == nil or row[4].include? 'linkedin'
-            row[4] = PLACEHOLDER
+        if row[3] == nil or row[4].include? 'linkedin'
+            row[3] = PLACEHOLDER
         end
-        puts row[4]
-        open(PLACEHOLDER) {|f|
+        puts row[3]
+        open(row[3]) {|f|
             name = "./static/images/members/" + row[1]
             File.open(name,"wb") do |file|
                 file.puts f.read
