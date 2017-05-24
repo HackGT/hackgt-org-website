@@ -125,7 +125,7 @@ body {
 		padding-top: 1.25em;
 	}
 
-	.navbar-nav>li:nth-of-type(5) {
+	.navbar-nav>li:nth-of-type(6) {
 		padding-left: calc(3.2em + 10px);
 	}
 
@@ -133,6 +133,9 @@ body {
 		position: absolute;
 	    width: 3.2em;
 	    top: -.6em;
+	}
+	#mobile-home-link {
+		display: none;
 	}
 }
 
