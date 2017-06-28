@@ -18,10 +18,11 @@ bundle install --path vendor/bundle
 bundle exec jekyll serve
 ```
 
+A Dockerfile is included for convenience.
+
 ## Instructions for Updating Website
 
-
-###Adding/Removing/Editing member of HackGT
+### Adding/Removing/Editing member of HackGT
 Edit `/_data/members.csv` and your changes should be reflected
 
 TBD - Way to specifiy path to image
