@@ -51,6 +51,9 @@ body {
 
 .home-section {
 	padding: 1.5rem 12rem;
+}
+
+.community, .home-section {
 	background-color: #202542;
 }
 
@@ -165,4 +168,35 @@ body {
     font-size: 500%;
 }
 
+.hacker-main-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;'
+	flex-wrap: wrap;
+}
 
+.hacker-main-row .hacker-description {
+	width: 30%;
+	padding-left: 2em;
+}
+
+.hacker-past {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 0 1em;
+}
+
+.hacker-past a {
+	margin: 1em;
+}
+
+.modal-dialog {
+	color: #202542;
+}
+
+.modal-header h6 {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
