@@ -13,7 +13,7 @@ permalink: /community/
     <div class="community">
 
 		<div class="container">
-	    	<div class = "row text-center">
+	    	<div class = "row text-center subheader">
 				<h2>Hacker of the Week</h2>
 			</div>
 			<div class = "hacker-main-row">
@@ -58,10 +58,47 @@ permalink: /community/
 				{% endfor %}
 			</div>
 
-			<div class = "row text-center">
+			<div class = "row text-center subheader">
 				<h2>Hacker Map</h2>
+				<div id="hacker-map"></div>
 			</div>
 		</div>
 	</div>
 
 </body>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var width = 960;
+var height = 500;
+
+var svg = d3.select("#hacker-map")
+			.append("svg")
+			.attr("height", "100%")
+			.attr("width", "100%")
+			.attr("viewBox", "0 0 " + width + " " + height)
+			.attr("preserveAspectRatio", "xMidYMid meet");
+
+var projection = d3.geoAlbersUsa()
+				   .translate([width/2, height/2])
+				   .scale([1000]);
+
+var path = d3.geoPath()
+			 .projection(projection);
+
+d3.json("/static/js/us_states.json", function(error, data) {
+		if (error) { throw error; }
+
+		var features = data.features;
+
+		var map = svg.selectAll(".states")
+					 .data(features)
+					 .enter()
+					 .append("path")
+					 .attr("class", "states")
+					 .attr("d", path);
+});
+
+
+</script>
