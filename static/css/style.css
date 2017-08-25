@@ -168,6 +168,14 @@ body {
     font-size: 500%;
 }
 
+.community .subheader {
+	margin-top: 4rem;
+}
+
+.community .subheader:first-of-type {
+	margin-top: 2rem;
+}
+
 .hacker-main-row {
 	display: flex;
 	flex-direction: row;
@@ -229,4 +237,10 @@ body {
 
 .overlay:hover .overlay-description {
 	top: 0;
+}
+
+#hacker-map .states {
+	fill: none;
+	stroke: #ecf0f1;
+	stroke-width: 2px;
 }
