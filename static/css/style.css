@@ -176,7 +176,6 @@ body {
 }
 
 .hacker-main-row .hacker-description {
-	width: 30%;
 	padding-left: 2em;
 }
 
@@ -192,6 +191,10 @@ body {
 	margin: 1em;
 }
 
+.hacker-past img {
+	padding: 0;
+}
+
 .modal-dialog {
 	color: #202542;
 }
@@ -199,4 +202,31 @@ body {
 .modal-header h6 {
 	margin-top: 2px;
 	margin-bottom: 2px;
+}
+
+.overlay {
+	overflow: hidden;
+	position: relative;
+}
+
+.overlay-description {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 1;
+	top: 100%;
+	padding: 15px 20px;
+   	transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+	background: rgba(32, 37, 66, .7);
+	color: #ecf0f1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.overlay:hover .overlay-description {
+	top: 0;
 }

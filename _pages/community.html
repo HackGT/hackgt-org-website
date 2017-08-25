@@ -22,15 +22,23 @@ permalink: /community/
 					<img src="{{hacker.picture}}" class="img-fluid">
 				</div>
 				<div class = "hacker-description">
-					<h2>{{hacker.name}}</h2>
-					<h3>{{hacker.week }}</h3>
+					<h3>{{hacker.name}}</h3>
+					<h4>{{hacker.week }}</h4>
 					<p>{{hacker.description}}</p>
 				</div>
 				{% endfor %}
 			</div>
 			<div class="hacker-past">
 				{% for hacker in site.data.hackers offset:1 %}
-						<a href="#hacker{{forloop.index0}}" data-toggle="modal"><img src="{{hacker.picture}}" class="img-fluid"></a>
+						<a href="#hacker{{forloop.index0}}" data-toggle="modal">
+							<div class="overlay">
+								<img src="{{hacker.picture}}" class="img-fluid">
+								<div class="overlay-description text-center">
+									<h4>{{ hacker.name }}</h4>
+									<p>Click to see more..</p>
+								</div>
+							</div>
+						</a>
 
 						<!-- modal -->
 						<div id="hacker{{forloop.index0}}" class="modal fade">
@@ -49,6 +57,11 @@ permalink: /community/
 						</div>
 				{% endfor %}
 			</div>
+
+			<div class = "row text-center">
+				<h2>Hacker Map</h2>
+			</div>
 		</div>
 	</div>
+
 </body>
