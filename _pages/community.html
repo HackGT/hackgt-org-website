@@ -10,38 +10,45 @@ permalink: /community/
 			<h1>HackGT Community</h1>
 		</div>
     </div>
-    <div class="home-section">
-	<div class="container">
-    <div class = "row text-center">
-			<h2>Hacker of the Week</h2>
-		</div>
-		<div class = "row">
-			{% for hacker in site.data.hackers limit:1 %}
-			<div class = "col col-lg-6 col-md-6 col-sm-12 text-right">
-				<img src="{{hacker.picture}}">
-			</div>
-			<div class = "col col-lg-6 col-md-6 col-sm-12">
-				<h2>{{hacker.name}}</h2>
-				<h3>{{hacker.week }}</h3>
-				<p>{{hacker.description}}</p>
-			</div>
-			{% endfor %}
-		</div>
-		{% for hacker in site.data.hackers offset:1 %}
-			{% assign mod = forloop.index0 | modulo:4 %}
-			{% if mod == 0%}
-				<div class = "row">
-			{% endif %}
+    <div class="community">
 
-			<div class="col col-lg-3 col-md-3 col-sm-12">
-				<img src="{{hacker.picture}}">
+		<div class="container">
+	    	<div class = "row text-center">
+				<h2>Hacker of the Week</h2>
 			</div>
+			<div class = "hacker-main-row">
+				{% for hacker in site.data.hackers limit:1 %}
+				<div class = "hacker-main">
+					<img src="{{hacker.picture}}" class="img-fluid">
+				</div>
+				<div class = "hacker-description">
+					<h2>{{hacker.name}}</h2>
+					<h3>{{hacker.week }}</h3>
+					<p>{{hacker.description}}</p>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="hacker-past">
+				{% for hacker in site.data.hackers offset:1 %}
+						<a href="#hacker{{forloop.index0}}" data-toggle="modal"><img src="{{hacker.picture}}" class="img-fluid"></a>
 
-			{% if mod == 3%}
+						<!-- modal -->
+						<div id="hacker{{forloop.index0}}" class="modal fade">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+                						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						                <h4 class="modal-title">{{hacker.name}}</h4>
+						                <h6>{{hacker.week}}</h6>
+						            </div>
+									<div class="modal-body">
+										<p>{{hacker.description}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+				{% endfor %}
 			</div>
-			{% endif %}
-		{% endfor %}
+		</div>
 	</div>
-    </div>
-    </div>
 </body>
