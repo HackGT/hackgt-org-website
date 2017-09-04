@@ -87,7 +87,31 @@ var projection = d3.geoAlbersUsa()
 var path = d3.geoPath()
 			 .projection(projection);
 
-d3.json("/static/js/us_states.json", function(error, data) {
+var tooltip = d3.select("#hacker-map").append("div")
+				 .style("position", "absolute")
+				 .style("z-index", "100")
+				 .style("pointer-events", "none")
+				 .attr("class", "d3-tip")
+				 .style("display", "none");
+
+var tipShow = function(d) {
+    console.log(d);
+  	var html  = d.name + "<br/>Number of GT Hackers: " + d.participants;
+  	tooltip.html(html)
+           .style("left", (d3.event.pageX + 15) + "px")
+           .style("top", (d3.event.pageY - 28) + "px")
+           .transition()
+           .duration(200) 
+           .style("display", null)
+};
+
+var tipHide = function(d) {
+	tooltip.transition()
+	       .duration(200)
+	       .style("display", "none");
+}
+
+d3.json("/static/data/us_states.json", function(error, data) {
 		if (error) { throw error; }
 
 		var features = data.features;
@@ -98,6 +122,26 @@ d3.json("/static/js/us_states.json", function(error, data) {
 					 .append("path")
 					 .attr("class", "states")
 					 .attr("d", path);
+});
+
+d3.json("/static/data/map-locations.json", function(error, data) {
+	if (error) throw error;
+
+	data.forEach(function(d) {
+		d.participants = +d.participants;
+	});
+
+	var points = svg.selectAll(".points")
+				    .data(data)
+				    .enter()
+				    .append("circle")
+				    .attr("class", "points")
+				    .attr("cx", function(d) { console.log(projection(d.location)); return projection(d.location)[0]; })
+				    .attr("cy", function(d) { return projection(d.location)[1]; })
+				    .attr("r", 4)
+				    .on("mouseover", tipShow)
+				    .on("mouseout", tipHide);
+
 });
 
 
