@@ -245,16 +245,17 @@ body {
 }
 
 #hacker-map .states {
-	fill: none;
-	stroke: #ecf0f1;
+	stroke: #140C2D;
+	fill: #ecf0f1;
 	stroke-width: 1px;
-	opacity: .7;
+	opacity: .8;
+	pointer-events: none;
 }
 
 #hacker-map .points {
 	stroke: #ecf0f1;
-	fill: #ecf0f1;
-	z-index: 100;
+	fill: #05578D;
+	fill-opacity: .8;
 }
 
 .d3-tip {
@@ -323,7 +324,7 @@ body {
 
 @media only screen and (min-width: 767px) {
 	.events-container .panel {
-		flex: 0 0 33%;
+		flex: 0 0 calc(33% - 2rem);
 	}
 }
 
