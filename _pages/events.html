@@ -5,13 +5,21 @@ permalink: /events/
 ---
 
 <body>
-	<div class="page-header">
-		<h1>Past Events</h1>
-	</div>
-	{% for section in site.events %}
-		<div class="home-section events">
-			<h2>{{section.title}}</h2>
-			<p> {{section.content}}</p>
+	<div class="container">
+		<div class="page-header">
+			<h1>Past Events</h1>
 		</div>
-	{% endfor %}
+		<div class="events-container">
+			{% for section in site.events %}
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">{{ section.title }}</h3>
+				  </div>
+				  <div class="panel-body">
+				    {{ section.content }}
+				  </div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
 </body>

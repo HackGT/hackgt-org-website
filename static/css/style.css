@@ -140,11 +140,16 @@ body {
 	#mobile-home-link {
 		display: none;
 	}
+
 }
 
 @media (max-width: 768px) {
 	#nav-logo {
 		display: none;
+	}
+
+	.events-container .panel {
+		max-width: 100% !important; 
 	}
 }
 
@@ -309,3 +314,35 @@ body {
   left: 100%;
 }
 
+.events-container .panel {
+	background: none;
+	margin: 1rem;
+	flex: 0 0 100%;
+	border-color: #ecf0f1;
+}
+
+@media only screen and (min-width: 767px) {
+	.events-container .panel {
+		flex: 0 0 33%;
+	}
+}
+
+.events-container .panel-heading {
+	background-color: #ecf0f1;
+	color: #140C2D;
+}
+
+.events-container .panel-heading h3 {
+	font-weight: bold;
+}
+
+.events-container .panel .panel-body h3{
+	font-size: 16px;
+}
+
+.events-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
