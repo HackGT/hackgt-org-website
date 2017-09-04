@@ -51,10 +51,7 @@ body {
 
 .home-section {
 	padding: 1.5rem 12rem;
-}
-
-.community, .home-section {
-	background-color: #202542;
+    background-color: #202542;
 }
 
 .home-section:last-of-type {

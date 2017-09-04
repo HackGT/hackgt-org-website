@@ -9,59 +9,54 @@ permalink: /community/
 		<div class="page-header">
 			<h1>HackGT Community</h1>
 		</div>
-    </div>
-    <div class="community">
-
-		<div class="container">
-	    	<div class = "row text-center subheader">
-				<h2>Hacker of the Week</h2>
+    	<div class = "row text-center subheader">
+			<h2>Hacker of the Week</h2>
+		</div>
+		<div class = "hacker-main-row">
+			{% for hacker in site.data.hackers limit:1 %}
+			<div class = "hacker-main">
+				<img src="{{hacker.picture}}" class="img-fluid">
 			</div>
-			<div class = "hacker-main-row">
-				{% for hacker in site.data.hackers limit:1 %}
-				<div class = "hacker-main">
-					<img src="{{hacker.picture}}" class="img-fluid">
-				</div>
-				<div class = "hacker-description">
-					<h3>{{hacker.name}}</h3>
-					<h4>{{hacker.week }}</h4>
-					<p>{{hacker.description}}</p>
-				</div>
-				{% endfor %}
+			<div class = "hacker-description">
+				<h3>{{hacker.name}}</h3>
+				<h4>{{hacker.week }}</h4>
+				<p>{{hacker.description}}</p>
 			</div>
-			<div class="hacker-past">
-				{% for hacker in site.data.hackers offset:1 %}
-						<a href="#hacker{{forloop.index0}}" data-toggle="modal">
-							<div class="overlay">
-								<img src="{{hacker.picture}}" class="img-fluid">
-								<div class="overlay-description text-center">
-									<h4>{{ hacker.name }}</h4>
-									<p>Click to see more..</p>
-								</div>
+			{% endfor %}
+		</div>
+		<div class="hacker-past">
+			{% for hacker in site.data.hackers offset:1 %}
+					<a href="#hacker{{forloop.index0}}" data-toggle="modal">
+						<div class="overlay">
+							<img src="{{hacker.picture}}" class="img-fluid">
+							<div class="overlay-description text-center">
+								<h4>{{ hacker.name }}</h4>
+								<p>Click to see more..</p>
 							</div>
-						</a>
+						</div>
+					</a>
 
-						<!-- modal -->
-						<div id="hacker{{forloop.index0}}" class="modal fade">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-                						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						                <h4 class="modal-title">{{hacker.name}}</h4>
-						                <h6>{{hacker.week}}</h6>
-						            </div>
-									<div class="modal-body">
-										<p>{{hacker.description}}</p>
-									</div>
+					<!-- modal -->
+					<div id="hacker{{forloop.index0}}" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+            						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					                <h4 class="modal-title">{{hacker.name}}</h4>
+					                <h6>{{hacker.week}}</h6>
+					            </div>
+								<div class="modal-body">
+									<p>{{hacker.description}}</p>
 								</div>
 							</div>
 						</div>
-				{% endfor %}
-			</div>
+					</div>
+			{% endfor %}
+		</div>
 
-			<div class = "row text-center subheader">
-				<h2>Hacker Map</h2>
-				<div id="hacker-map"></div>
-			</div>
+		<div class = "row text-center subheader">
+			<h2>Hacker Map</h2>
+			<div id="hacker-map"></div>
 		</div>
 	</div>
 
