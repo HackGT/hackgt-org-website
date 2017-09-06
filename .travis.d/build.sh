@@ -240,7 +240,7 @@ END
     # Check if there's a different one already set
     local duplicate_exists
     duplicate_exists=$(echo "${dns_records}" \
-        | jq '.result[] | select(.name == '"${name_downcase}"')')
+        | jq '.result[] | select(.name == "'"${name_downcase}"'")')
     if [[ -n $duplicate_exists ]]; then
         echo "Record with the same host exists, will not overwrite!"
         exit 64
