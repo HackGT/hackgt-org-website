@@ -1,17 +1,17 @@
 FROM debian:8
 
-WORKDIR /code
-ADD . /code
+WORKDIR /src
+ADD . /src
 
 RUN apt-get update && apt-get install -y \
     build-essential \
     imagemagick \
     libmagickwand-dev \
     curl
-RUN \curl -L https://get.rvm.io | bash -s stable
+RUN curl -L https://get.rvm.io | bash -s stable
 RUN /bin/bash -l -c "rvm install 2.4.1"
-RUN /bin/bash -l -c "gem install bundler && bundle install --path vendor/bundle"
+RUN ls
 
-EXPOSE 4000
-CMD ["/bin/bash", "-l", "-c", "bundle", "exec", "jekyll", "serve", "--host=0.0.0.0", "--watch", "--incremental"]
+RUN /bin/bash -l -c "gem install bundler && bundle install --path vendor/bundle"
+CMD ["/bin/bash", "-l", "-c", "bundle", "exec", "jekyll", "build"]
 
