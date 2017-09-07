@@ -1,17 +1,19 @@
-FROM debian:8
+FROM nginx:alpine
 
 WORKDIR /src
 ADD . /src
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    imagemagick \
-    libmagickwand-dev \
-    curl
-RUN curl -L https://get.rvm.io | bash -s stable
-RUN /bin/bash -l -c "rvm install 2.4.1"
-RUN ls
+ENV BUILD_PACKAGES bash curl-dev ruby-dev build-base libffi-dev imagemagick-dev
+ENV RUBY_PACKAGES ruby ruby-io-console ruby-bundler ruby-rdoc ruby-irb
+
+# Update and install all of the required packages.
+# At the end, remove the apk cache
+RUN apk update && \
+    apk upgrade && \
+    apk add $BUILD_PACKAGES && \
+    apk add $RUBY_PACKAGES && \
+    rm -rf /var/cache/apk/*
 
 RUN /bin/bash -l -c "gem install bundler && bundle install --path vendor/bundle"
-CMD ["/bin/bash", "-l", "-c", "bundle", "exec", "jekyll", "build"]
 
+RUN /bin/bash -l -c "bundle exec jekyll build"

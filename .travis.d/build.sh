@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # HACKGPROJECT VERSION: 302160909a4f927434ad22a9e372242e15648e7c
 set -euo pipefail
-PROJECT_TYPE="static"
+PROJECT_TYPE="deployment"
 ORG_NAME="hackgt"
 SOURCE_DIR=$(readlink -f "${BASH_SOURCE[0]}")
 SOURCE_DIR=$(dirname "$SOURCE_DIR")
@@ -28,7 +28,6 @@ build_project_source() {
         local build_image_name
         build_image_name="$(basename "$(pwd)")-build"
         $docker build -f Dockerfile.build --rm -t "$build_image_name" .
-        $docker run -w '/src' -v "$(pwd):/src" "$build_image_name"
         sudo chown -R "$(id -u):$(id -g)" .
     fi
 }
