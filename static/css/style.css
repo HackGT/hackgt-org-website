@@ -1,7 +1,14 @@
+html {
+	height: 100vh;
+}
+
 body {
 	font-family: 'News Cycle', sans-serif;
 	color: #ecf0f1;
 	background-color: #140C2D; 
+	min-height: 100%;
+	position: relative;
+	padding-bottom: 14rem; /*leave room for footer*/
 }
 
 .navbar {
@@ -65,6 +72,9 @@ body {
 	border-top: 2px solid #F9DC6D;
 	text-transform: uppercase;
 	color: #ecf0f1;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 
 .navbar {
