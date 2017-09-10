@@ -10,13 +10,15 @@ permalink: /events/
 			<h1>Past Events</h1>
 		</div>
 		<div class="events-container">
-			{% for section in site.events %}
+			{% for section in site.events reversed %}
 				<div class="panel panel-default">
-				  <div class="panel-heading">
-				    <h3 class="panel-title">{{ section.title }}</h3>
+				  <div class="panel-img">
+				  	<img src="{{ section.image }}">
 				  </div>
 				  <div class="panel-body">
-				    {{ section.content }}
+				  	<h4 class="panel-title">{{section.title}}</h4>
+				  	<h5 class="panel-date">{{section.date | date: "%b %d %Y"}}</h5>
+				  	<p>{{ section.output }}</p>
 				  </div>
 				</div>
 			{% endfor %}

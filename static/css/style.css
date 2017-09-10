@@ -335,22 +335,34 @@ body {
 	}
 }
 
-.events-container .panel-heading {
-	background-color: #ecf0f1;
-	color: #140C2D;
-}
-
-.events-container .panel-heading h3 {
-	font-weight: bold;
-}
-
-.events-container .panel .panel-body h3{
-	font-size: 16px;
-}
-
 .events-container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
+}
+
+div.panel-img img {
+	max-width: 100%;
+	max-height: 20rem;
+}
+
+div.panel-img {
+	height: 20rem;
+	width: 100%;
+	text-align: center;
+	background-color: #ecf0f1;
+}
+
+div.panel-body .panel-title {
+	font-weight: bold;
+	text-align: center;
+	font-size: 20px;
+}
+
+div.panel-body .panel-date {
+	text-align: center;
+	text-transform: uppercase;
+	font-style: italic;
+	margin-top: 3px;
 }
