@@ -17,14 +17,29 @@ permalink: /
 	{% endfor %}
 	<div class="home-section">
 		<h1>What have we been up to?</h1>
-		{% for section in site.events limit:2 %}
-		<div class="event">
-			<h2>{{section.title}}</h2>
-			<p>{{section.content}}</p>
-		</div>
-		{% endfor %}
+		<div class="events-container home">
+			{% for section in site.events reversed limit:4 %}
+				<div class="panel panel-default">
+				  <div class="panel-img {% if section.color %}{{ section.color }}{% endif %}">
+				  	<img class="img-fluid" src="{{ section.image }}">
+				  </div>
+				  <div class="panel-body">
+				  	<h4 class="panel-title">{{section.title}}</h4>
+				  	<h5 class="panel-date">{% if section.end %} {{section.date | date: "%b %d"}} - {{section.end | date: "%b %d %Y" }}{% else %}{{section.date | date: "%b %d %Y"}}{% endif %}</h5>
+				  </div>
+				  <div class="panel-btn">
+				  	{% if section.website %}
+				  		<a class="btn btn-register" href="{{ section.website }}">Register</a>
+				  	{% endif %}
+				  	{% if section.event %}
+				  		<a class="btn btn-event" href="{{ section.event }}"><i class="fa fa-facebook" aria-hidden="true"></i> Event</a>
+				  	{% endif %}
+				  </div>
+				</div>
+			{% endfor %}
+		</div> 
 		<div class="view-more">
-			<p><a href="../events">View more<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+			<p><a href="../events">More information<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
 		</div>
 	</div>
 </body>

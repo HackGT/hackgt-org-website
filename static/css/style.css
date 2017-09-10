@@ -327,11 +327,17 @@ body {
 	margin: 1rem;
 	flex: 0 0 100%;
 	border-color: #ecf0f1;
+	padding-bottom: 4rem;
+	position: relative;
 }
 
 @media only screen and (min-width: 767px) {
 	.events-container .panel {
 		flex: 0 0 calc(33% - 2rem);
+	}
+
+	.events-container.home .panel {
+		flex: 0 0 calc(25% - 2rem);
 	}
 }
 
@@ -345,6 +351,7 @@ body {
 div.panel-img img {
 	max-width: 100%;
 	max-height: 20rem;
+	padding: 0;
 }
 
 div.panel-img {
@@ -352,6 +359,7 @@ div.panel-img {
 	width: 100%;
 	text-align: center;
 	background-color: #ecf0f1;
+	line-height: 20rem;
 }
 
 div.panel-body .panel-title {
@@ -365,4 +373,42 @@ div.panel-body .panel-date {
 	text-transform: uppercase;
 	font-style: italic;
 	margin-top: 3px;
+	opacity: .85;
+}
+
+.page-header.past-events {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+div.panel-img.gray-background {
+	background-color: #1E1E1E;
+}
+
+div.panel-btn {
+	position: absolute;
+	bottom: 1rem;
+	width: 100%;
+	text-align: center;
+	padding: 0 10px;
+}
+
+div.panel a.btn-register {
+	background-color: #ecf0f1;
+	color: #140C2D;
+	border-radius: 5px;
+}
+
+div.panel a.btn-event {
+	background-color: #4267B2;
+	border-radius: 5px;
+	color: #ecf0f1;
+}
+
+div.panel a.btn {
+	margin: 0 5px;
+}
+
+div.panel p.soon {
+	font-style: italic;
 }

@@ -6,21 +6,64 @@ permalink: /events/
 
 <body>
 	<div class="container">
+		{% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
 		<div class="page-header">
+			<h1>Upcoming Events</h1>
+		</div>
+		<div class="events-container">
+			{% for section in site.events %}
+				{% capture eventtime %}{{section.date | date: '%s'}}{% endcapture %}
+				{% if eventtime >= nowunix %}
+					<div class="panel panel-default">
+					  <div class="panel-img {% if section.color %}{{ section.color }}{% endif %}">
+					  	<img class="img-fluid" src="{{ section.image }}">
+					  </div>
+					  <div class="panel-body">
+					  	<h4 class="panel-title">{{section.title}}</h4>
+					  	<h5 class="panel-date">{% if section.end %} {{section.date | date: "%b %d"}} - {{section.end | date: "%b %d %Y" }}{% else %}{{section.date | date: "%b %d %Y"}}{% endif %}</h5>
+					  	<p>{{ section.output }}</p>
+					  </div>
+					  <div class="panel-btn">
+					  	{% if section.website %}
+					  		<a class="btn btn-register" href="{{ section.website }}">Register</a>
+					  	{% endif %}
+					  	{% if section.event %}
+					  		<a class="btn btn-event" href="{{ section.event }}"><i class="fa fa-facebook" aria-hidden="true"></i> Event</a>
+					  	{% endif %}
+					  	{% unless section.event and section.website %}
+					  		<p class="soon">More information coming soon!</p>
+					  	{% endunless %}
+					  </div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="page-header past-events">
 			<h1>Past Events</h1>
 		</div>
 		<div class="events-container">
 			{% for section in site.events reversed %}
-				<div class="panel panel-default">
-				  <div class="panel-img">
-				  	<img src="{{ section.image }}">
-				  </div>
-				  <div class="panel-body">
-				  	<h4 class="panel-title">{{section.title}}</h4>
-				  	<h5 class="panel-date">{{section.date | date: "%b %d %Y"}}</h5>
-				  	<p>{{ section.output }}</p>
-				  </div>
-				</div>
+				{% capture eventtime %}{{section.date | date: '%s'}}{% endcapture %}
+				{% if eventtime < nowunix %}
+					<div class="panel panel-default">
+					  <div class="panel-img">
+					  	<img class="img-fluid" src="{{ section.image }}">
+					  </div>
+					  <div class="panel-body">
+					  	<h4 class="panel-title">{{section.title}}</h4>
+					  	<h5 class="panel-date">{% if section.end %} {{section.date | date: "%b %d"}} - {{section.end | date: "%b %d %Y" }}{% else %}{{section.date | date: "%b %d %Y"}}{% endif %}</h5>
+					  	<p>{{ section.output }}</p>
+					  </div>
+					  <div class="panel-btn">
+					  	{% if section.website %}
+					  		<a class="btn btn-register" href="{{ section.website }}">Website</a>
+					  	{% endif %}
+					  	{% if section.event %}
+					  		<a class="btn btn-event" href="{{ section.event }}"><i class="fa fa-facebook" aria-hidden="true"></i> Event</a>
+					  	{% endif %}
+					  </div>
+					</div>
+				{% endif %}
 			{% endfor %}
 		</div>
 	</div>
