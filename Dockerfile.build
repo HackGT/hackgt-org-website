@@ -1,6 +1,5 @@
 FROM nginx:alpine
 
-WORKDIR /src
 ADD . /src
 
 ENV BUILD_PACKAGES bash curl-dev ruby-dev build-base libffi-dev imagemagick-dev
@@ -15,5 +14,4 @@ RUN apk update && \
     rm -rf /var/cache/apk/*
 
 RUN /bin/bash -l -c "gem install bundler && bundle install --path vendor/bundle"
-
-RUN /bin/bash -l -c "bundle exec jekyll build"
+CMD ["/bin/bash", "-l", "-c", "bundle", "exec", "jekyll", "build"]

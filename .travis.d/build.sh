@@ -28,6 +28,7 @@ build_project_source() {
         local build_image_name
         build_image_name="$(basename "$(pwd)")-build"
         $docker build -f Dockerfile.build --rm -t "$build_image_name" .
+        $docker run -w '/src' -v "$(pwd):/src" "$build_image_name"
         sudo chown -R "$(id -u):$(id -g)" .
     fi
 }
@@ -43,7 +44,7 @@ test_project_source() {
 }
 
 build_project_container() {
-    $docker build -f Dockerfile --rm -t "$image_name" .
+    $docker build  -f Dockerfile --rm -t "$image_name" .
 }
 
 git_branch() {
