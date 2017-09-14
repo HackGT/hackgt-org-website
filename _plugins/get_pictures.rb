@@ -1,5 +1,4 @@
 require "open-uri"
-require "smartcropper"
 require 'csv'
 
 PLACEHOLDER = "https://unsplash.it/300/?random"
