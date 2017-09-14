@@ -3,4 +3,4 @@ FROM ruby:2.4.1
 ADD . /src
 
 WORKDIR /src
-CMD "./build/build.sh"
+CMD "./docker_resources/build.sh"
