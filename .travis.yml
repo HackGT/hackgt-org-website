@@ -9,7 +9,8 @@ services:
 
 script: |
   .travis.d/build.sh &&
-  cd .travis.d && bundle install --path vendor/bundle &&
+  cd .travis.d &&
+  bundle install --gemfile=Gemfile --path vendor/bundle &&
   bundle exec ruby pr_autodeploy.rb
 
 env:
