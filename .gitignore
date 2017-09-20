@@ -99,3 +99,5 @@ static/images/members/*
 # Bundle
 .bundle
 vendor
+.travis.d/Gemfile.lock
+
