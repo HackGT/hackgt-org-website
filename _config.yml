@@ -19,6 +19,10 @@ exclude:
   - README.md
   - .bundle
   - vendor
+  - Dockerfile
+  - .dockerignore
+  - .gitignore
+
 collections:
   - homepage
   - events
