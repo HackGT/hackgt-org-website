@@ -20,12 +20,12 @@ permalink: /about/
                 {% endif %}
                 <div class="col col-lg-4 col-md-4 col-sm-12">
                     <center>
-                    <div class="hovereffect">
+                    <div class="hovereffect background-profile" style="background-image: url('/static/images/members/{{ member.name }}');">
                         <center>
                             <div class="crop">
-                            <img class="img-responsive" src="/static/images/members/{{ member.name }}" alt="" width="300" height="300">
                             </div>
                         </center>
+                        {% if member.link1 or member.link2 or member.link3 or member.link4 %}
                         <div class="overlay">
                             <div class="rotate">
                                 <p class="group1">
@@ -78,6 +78,7 @@ permalink: /about/
                                 </p>
                             </div>
                         </div>
+                        {% endif %}
                     </div>
                     <p class="member-description">
                         {% if member.name %}
