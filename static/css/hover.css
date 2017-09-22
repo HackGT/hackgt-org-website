@@ -17,25 +17,6 @@
   left: 0;
 }
 
-.hovereffect img {
-  display: block;
-  position: relative;
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-  -webkit-transition: all 0.35s;
-  transition: all 0.35s;
-}
-
-.hovereffect:hover img {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.7" /><feFuncG type="linear" slope="0.7" /><feFuncB type="linear" slope="0.7" /></feComponentTransfer></filter></svg>#filter');
-  filter: brightness(0.7);
-  -webkit-filter: brightness(0.7);
-}
-
 .hovereffect h2 {
   text-transform: uppercase;
   color: #fff;
