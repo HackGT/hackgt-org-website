@@ -22,6 +22,10 @@ exclude:
   - Dockerfile
   - .dockerignore
   - .gitignore
+  - docker_resources
+  - deployment.yaml
+  - precheck.rb
+  - LICENSE
 
 collections:
   - homepage
