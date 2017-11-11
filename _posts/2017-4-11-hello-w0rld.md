@@ -5,14 +5,4 @@ categories: blog posts
 description: Hello World!
 ---
 
-### Well, this post is mainly for testing that the markdown parses nicely with our website.
-
-## But also, it serves as a good way to introduce this lovely new website, that I will emphasize
-
-## (mostly to just test out the bold), is **under construction**
-
-### Thank you so much for the support you've shown these past few years, and get ready for
-
-# HACKG4
-
-### -Josh
+So at this point you're wondering how well blog posts can be written in markdown, well I guess this is a good opporunity to find out. A well written blog should be good and also well written while also being succint and well written. Furthermore, this should truncate at 50 words so I will just keep typing and I'm not really using a word count so we'll see right? I should probably be using Lorem Ipsum but its ok.

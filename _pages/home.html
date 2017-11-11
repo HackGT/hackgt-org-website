@@ -5,26 +5,77 @@ permalink: /
 ---
 
 <body>
-	<div class="home-page-header">
-		<h1 class="kahuna">HACKGT</h1>
-		<img src="static/images/Cityscape.svg"></img>
-	</div>
-	{% for section in site.homepage %}
-		<div class="home-section">
-			<h1>{{section.title}}</h1>
-			<p> {{section.content}}</p>
+	<section id="main">
+		<div class="home-page-header">
+			<h1 class="kahuna">HACKGT</h1>
+			<img src="static/images/Cityscape.svg"></img>
 		</div>
-	{% endfor %}
-	<div class="home-section">
-		<h1>What have we been up to?</h1>
-		{% for section in site.events limit:2 %}
-		<div class="event">
-			<h2>{{section.title}}</h2>
-			<p>{{section.content}}</p>
+		{% for section in site.homepage %}
+		<div class="text-center">
+			<div class="home-section-title">{{section.title}}</div>
+			<div class="home-section-content"> {{section.content}}</div>
 		</div>
 		{% endfor %}
-		<div class="view-more">
-			<p><a href="/events">View more<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
+	</section>
+	<section id="events">
+		<div class="text-center">
+			<div class="home-section-title">What We Do</div>
+			<div class="home-section-content">
+				We do hackathons and stuff, additionally that stuff should be approximately this long. Here are some things we've been up to recently
+			</div>
 		</div>
-	</div>
+		<div class="events-container">
+			{% for section in site.events %}
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">{{ section.title }}</h3>
+				  </div>
+				  <div class="panel-body">
+				  	<img src="http://placehold.it/700x300">
+				  </div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+	<section id="about">
+		<div class="text-center">
+			<div class="home-section-title">Who We Are</div>
+			<div class="home-section-content">
+			We are HackGT, HackGT we are, nice something about the team or something.
+			</div>	
+			<img src="http://placehold.it/1280x500">
+		</div>
+	</section>
+
+	<section id="blog">
+		<div class="text-center">
+			<div class="home-section-title">Why We Do It</div>
+			<div class="home-section-content">
+			We are HackGT, HackGT we are, nice something about the team or something.
+			</div>	
+		  <div class="home-section-content">
+			{% for section in site.posts limit:2%}
+			<div class="homepage-blog-preview">
+			<h4>{{ section.date | date_to_string }}</h4>
+			<h1><a  class="blog-url" href="{{section.url}}">{{section.title}}</a></h1>
+			<h3>
+			{{section.content | truncatewords:50}}
+			</h3>
+			</div>
+			{% endfor %}
+		  </div>
+		</div>
+	</section>
+
+	<section id="community">
+		<div class="text-center">
+			<div class="home-section-title">And Most Importantly, Who We Do It For</div>
+			<div class="home-section-content">
+			We are HACKGT, we are nothing without all the hackers that hack the mainframe and such.
+			</div>
+		  <div class="home-section-content">
+			<img src="http://placehold.it/780x500">
+		  </div>
+		</div>
+	</section>
 </body>
