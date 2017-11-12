@@ -3,7 +3,7 @@ $(document).ready(function() {
   var startPos = 0,
       endPos = 3*$(window).height(),
       startColor = [20,12,45],
-      endColor = [32,78,160],
+      endColor = [5,87,141],
       diffColor = [endColor[0] - startColor[0], endColor[1] - startColor[1], endColor[2] - startColor[2]];
 
   $(document).scroll(function() {

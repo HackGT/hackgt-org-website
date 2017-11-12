@@ -1,5 +1,5 @@
 body {
-	font-family: 'News Cycle', sans-serif;
+	font-family: 'Noto', sans-serif;
 	color: #ecf0f1;
 	background-color: #140C2D; 
 }
@@ -66,19 +66,19 @@ section {
 }
 
 #events {
-	padding-top: 25vh;
+	padding-top: 15vh;
 }
 
 #about {
-	padding-top: 25vh;
+	padding-top: 15vh;
 }
 
 #blog {
-	padding-top: 25vh;
+	padding-top: 15vh;
 }
 
 #community {
-	padding-top: 25vh;
+	padding-top: 15vh;
 }
 
 .homepage-blog-preview {
