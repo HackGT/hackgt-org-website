@@ -55,6 +55,11 @@ body {
 	padding-bottom: 1.5rem;
 }
 
+.home-section-title a {
+	text-decoration: none;
+	color: #ecf0f1;
+}
+
 .home-section-content {
 	font-size: 2.5rem;
 	padding-bottom: 5rem;
