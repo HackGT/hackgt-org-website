@@ -2,6 +2,7 @@ title: HackGT
 email: hello@hack.gt
 description: > # this means to ignore newlines until "baseurl:"
   HackGT Organization Website
+
 baseurl: ""
 url: "hack.gt"
 twitter_username: TheHackGT
@@ -12,7 +13,9 @@ markdown: kramdown
 #theme: minima
 gems:
   - jekyll-feed
+
 include: ['_pages']
+
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -31,3 +34,5 @@ collections:
   - homepage
   - events
   - members
+
+stylesheet: "vanilla"
