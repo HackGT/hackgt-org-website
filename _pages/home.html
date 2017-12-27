@@ -17,7 +17,7 @@ permalink: /
 	{% endfor %}
 	<div class="home-section">
 		<h1>What have we been up to?</h1>
-		{% for section in site.events limit:2 %}
+		{% for section in site.updates limit:2 %}
 		<div class="event">
 			<h2>{{section.title}}</h2>
 			<p>{{section.content}}</p>
