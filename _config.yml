@@ -30,13 +30,13 @@ exclude:
   - precheck.rb
   - LICENSE
 
-collections_dir: content
+# collections_dir: content
 
 collections:
   - homepage
   - events
   - members
-  - updates
+  - frontpage_updates
   - teams
 
 stylesheet: "vanilla"
