@@ -1,0 +1,1181 @@
+/*@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto+Slab');*/
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,600,700');
+
+body {
+    margin: 0;
+    /*font-family: 'Roboto Condensed', sans-serif;*/
+    font-family: 'Barlow', sans-serif;
+    color: #333;
+    background-color: #0C0D18;
+    height: 100%;
+    width: 100%;
+}
+
+section {
+    min-height: 100%;
+    background-color: white;
+    position: relative;
+    padding: 1em;
+}
+
+section:first-of-type {
+    background: none;
+    padding: 0;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-color: #0D1020;
+}
+
+#slogan {
+    position: absolute;
+    left: 50%;
+    bottom: 7.5%;
+    text-align: center;
+    color: white;
+}
+
+#slogan > * {
+    transform: translate(-50%, 0%);
+}
+
+#slogan > h1 {
+    font-weight: 400;
+}
+
+#slogan > h3 {
+    font-weight: 300;
+}
+
+footer {
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+}
+/*
+footer {
+    border-image: linear-gradient(to right, #4AC8EF, #8B54A2);
+    border-top: 4px solid transparent;
+    border-image-slice: 1;
+    box-sizing: border-box;
+    -webkit-border-image: -webkit-linear-gradient(to right, #4AC8EF, #8B54A2);
+    -webkit-border-top: 4px solid transparent;
+    -webkit-border-image-slice: 1;
+    -webkit-box-sizing: border-box;
+}*/
+
+#splash-nav {
+    width: 100%;
+    color: white;
+    display: inline-block;
+}
+
+#splash-nav > h1 {
+    float: left;
+    position: relative;
+    margin: 0.5em;
+    font-weight: 400;
+}
+
+#splash-nav > h1 > a {
+    color: white;
+    text-decoration: none;
+}
+
+#splash-nav > h1 > a::after {
+    height: 4px;
+}
+
+#splash-nav > ul {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    justify-content: space-evenly;
+    /* TODO: add a breakpoint where we just display as column;*/
+    /*flex-wrap: wrap;*/
+    float: right;
+}
+
+/*breakpoint at w=633*/
+
+#splash-nav > ul > li {
+    display: inline-block;
+    text-align: center;
+    padding: 1em 0;
+    margin: 0 1em;
+    position: relative;
+    overflow: hidden;
+}
+
+#splash-nav > ul > li:last-of-type {
+    margin-right: 2em;
+}
+
+#splash-nav > ul > li > a {
+    text-decoration: none;
+    font-size: 1em;
+    color: #bbb;
+    position: relative;
+    transition: 0.5s all;
+}
+
+#splash-nav > ul > li > a::after {
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+    height: 2px;
+    position: absolute;
+    bottom: -4px;
+    left: -100%;
+    width: 100%;
+    content: "";
+    transition: 0.5s all;
+}
+
+#splash-nav > ul > li > a:hover {
+    color: white;
+    transition: 0.5s all;
+}
+
+#splash-nav > ul > li > a:hover::after {
+    transition: 0.3s all;
+    left: 0%;
+
+}
+
+#year-selector li.active > a, .gradient-text {
+    position: relative;
+    color: white;
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.gradient-underline::after {
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+    height: 2px;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    content: "";
+    transition: 0.1s all;
+    transition-timing-function: linear;
+}
+
+.border-jump.gradient-text:hover::after {
+    bottom: -1px;
+}
+
+.chevron::before {
+    position: absolute;
+    border-style: solid;
+    border-width: 0.125em 0.125em 0 0;
+    content: '';
+    display: inline-block;
+    height: 0.6em;
+    left: 0.15em;
+    position: relative;
+    top: 0.15em;
+    transform: rotate(135deg);
+    vertical-align: top;
+    width: 0.6em;
+
+    animation-name: bob;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes bob {
+    from {
+        top: 0px;
+    } to {
+        top: 8px;
+    }
+}
+
+h2 {
+    font-family: 'Roboto Slab', serif;
+}
+
+.full-col {
+    padding: 0;
+    margin: 0;
+}
+
+.full-col > h1 {
+    margin-top: 0;
+}
+
+.article {
+    margin-top: 2em;
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+.article:nth-child(odd) > .article-img {
+    float: left;
+    margin-left: -1em;
+}
+
+.article:nth-child(even) > .article-img {
+    float: right;
+    margin-right: -1em;
+}
+
+.article-img {
+    position: relative;
+}
+
+.article-img > img {
+    width: 100%;
+    box-shadow: 4px 4px 16px 1px #aaa;
+}
+
+.article h1 {
+    font-weight: 600;
+}
+
+.gradient-box {
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+    color: white;
+    padding: 0.2em 0.4em;
+}
+
+#new-events {
+    position: absolute;
+    right: 0;
+    top: 6em;
+    width: 12em;
+}
+
+#new-events h3 {
+    font-weight: 400;
+}
+
+#new-events a, #new-events img {
+    width: 100%;
+    position: relative;
+    transition: 0.3s all;
+}
+
+#new-events a:hover {
+    transform: scale(1.1) rotate(2deg);
+}
+
+#new-events .col-10 {
+    float: right;
+}
+
+#new-events .col-10 > a {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+#new-events .gradient-box {
+    margin-bottom: 0;
+}
+
+#recent-posts {
+    color: white;
+    position: absolute;
+    bottom: 2em;
+    padding-left: 2em;
+    max-width: 30%;
+}
+
+#recent-posts h3 {
+    font-weight: 400;
+    position: relative;
+    margin-bottom: 0.5em;
+}
+
+#recent-posts h3::before {
+    content: "";
+    position: absolute;
+    left: -2.5em;
+    top: 0;
+    height: 100%;
+    width: 2em;
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+}
+
+#recent-posts a {
+    display: block;
+    color: white;
+}
+
+.small {
+    font-size: 0.75em;
+}
+
+footer {
+    background-color: #0D1020;
+    width: 100%;
+    min-height: 8em;
+    color: #fefefe;
+    padding-bottom: 0.5em;
+}
+
+.flex-row {
+    display: flex;
+}
+
+footer a {
+    color: #bbb;
+    text-decoration: none;
+    font-weight: 300;
+    line-height: 4px;
+}
+
+.footer-col {
+    margin-top: 1em;
+    padding: 0 5%;
+}
+
+.footer-col:first-of-type {
+    margin-top: 0;
+}
+
+.heart {
+    text-align: right;
+    padding-right: 1em;
+    margin: 0;
+}
+
+.blink-heart::before {
+    content: '\2661';
+    animation: blink 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0% {
+        content: '\2661';
+    } 50% {
+        content: '\2665';
+    }
+}
+
+.about-slogan {
+    color: white;
+    padding: 0 1.5em;
+    margin: 0;
+    font-weight: 400;
+}
+
+.big {
+    font-size: 3em;
+}
+
+.kinda-big {
+    font-size: 2em;
+}
+
+#transition-buttons {
+    width: 100%;
+    /*text-align: center;*/
+    text-align: left;
+    display: inline-block;
+    z-index: 100;
+    position: relative;
+}
+
+#transition-buttons > div {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 0.25em;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#transition-buttons > div.active-button {
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+}
+
+.info {
+    color: white;
+}
+
+.info {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2em;
+}
+
+.info h1 {
+    font-weight: 400;
+}
+
+.info p {
+    margin-left: 0.25em;
+}
+
+.info > div {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+}
+
+.we-are {
+    text-align: right;
+    width: 40%;
+    float: left;
+}
+
+.what-we-are {
+    margin-bottom: 0;
+}
+
+.info-chunk {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: 0.5s all;
+}
+
+.info-container {
+    position: relative;
+    width: 60%;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.hexagon-img {
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
+    height: 128px;
+    width: 100px;
+    background-size: cover;
+
+    position: absolute;
+}
+
+#glyphs {
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+section.light {
+    background-color: white;
+}
+
+section.light * {
+    color: #0D1020;
+}
+
+section.dark {
+    background-color: #0C0D18;
+}
+
+section.dark * {
+    color: white;
+}
+
+.light > #splash-nav * {
+    color: #0D1020;
+}
+
+.light > #splash-nav > ul > li > a:hover {
+    color: #0D1020;
+    transition: 0.5s all;
+}
+
+#code .about-slogan {
+    font-weight: 400;
+    padding-bottom: 2em;
+    max-width: 40%;
+}
+
+.code-project h1 {
+    font-weight: 400;
+}
+
+.link-div a {
+    width: 100%;
+    display: block;
+    text-align: right;
+}
+
+.link-div {
+    text-align: right;
+}
+
+.code-project > img {
+    width: 100%;
+    box-shadow: 4px 4px 16px 1px #aaa;
+}
+
+.row > .code-project {
+    margin-bottom: 6em;
+}
+
+.explore {
+    position: relative;
+    margin-top: 2em;
+    float: right;
+    width: 100%;
+}
+
+.bar {
+    text-align: right;
+    position: relative;
+}
+
+.bar > a {
+    background-color: white;
+    padding-left: 0.5em;
+
+    /*
+        this is hacky af, forgive me, but z-index wasn't working with ::after's and shit
+    */
+
+    position: relative;
+    right: 0;
+    top: -0.75em;
+    z-index: 10;
+}
+
+.bar::after {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+    position: absolute;
+    left: 0px;
+    top: -0.2em;
+    content: '';
+    /*display: inline-block;*/
+}
+
+.code-projects {
+    margin: 0 2em;
+}
+
+a.gradient-text.gradient-underline.border-jump {
+    text-decoration: none;
+}
+
+/* blog page css */
+.featured-post {
+    overflow: hidden;
+    position: relative;
+    min-height: 400px !important; /*maybe shouldn't hardcode this?*/
+}
+
+.featured-post > img {
+    max-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+.featured-post .author, .featured-post .title {
+    position: relative;
+    width: 75%;
+    z-index: 2;
+}
+
+.featured-post .title {
+    padding: 7% 5% 15% 5%;
+}
+
+.featured-post .author {
+    position: absolute;
+    padding: 0 5%;
+    bottom: 0;
+}
+
+.featured-post .title {
+    font-size: 2.4em;
+}
+
+/* pseudo-element for the white overlay on images */
+.featured-post::after {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 85%;
+    height: 100%;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* pseudo-element for the accent line on images */
+.featured-post::before {
+    height: 10px;
+    width: 80%;
+    position: absolute;
+    left: 0;
+    top: 7%;
+    background: linear-gradient(to right, #4AC8EF,  #8B54A2 34%, #fff 65%);
+    background-size: 300% 100%;
+    background-position:right bottom;
+    transition:all .8s ease;   
+    content: ""; 
+    z-index: 2;
+}
+
+.featured-post:hover:before {
+    background-position:left bottom;
+}
+
+.blog-post {
+    margin-bottom: 2em;
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #4AC8EF, #8B54A2);
+    border-image-slice: 1;
+}
+
+.blog-post > img {
+    width: 100%;
+}
+
+.blog-post .preview {
+    padding: 0 .5em;
+}
+
+.blog-post .preview .title {
+    margin-bottom: 5px;
+}
+
+.blog-post .preview .title a {
+    text-decoration: none;
+}
+
+.blog-post .preview .title a:hover {
+    text-decoration: underline;
+}
+
+.blog-post .preview .description {
+    margin-top: 0;
+}
+
+#blog-topics::after {
+    position: absolute;
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+    height: 2px;
+    width: 96%;
+    content: "";
+    left: 2%; 
+    bottom: 15%;   
+}
+
+.topic a {
+    text-decoration: none;
+}
+
+#blog {
+    margin: 0 2em;
+}
+
+/* contact page css */
+#contact {
+    margin: 0 2em;
+    color: white;
+}
+
+.contact-text, .contact-email {
+    min-height: 28em !important; /* kind of just guessed this height ?? */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.contact-email {
+    align-items: center;
+    position: relative;
+}
+
+.contact-email #hexagon {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.contact-email a {
+    z-index: 1;
+    color: white;
+    text-decoration: none;
+}
+
+.icons > a {
+    margin: 0 1.5em 2em 0;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.icons > a > span {
+    display: inline-block;
+}
+
+.icons > a > span > object {
+    height: 2.7em;
+    z-index: -1;
+    position: relative;
+}
+
+.icons #facebook {
+    height: 2.8em;
+}
+
+
+/* media queries */
+
+@media (max-width:633px) {
+    /* manually found this breakpoint by trial/error */
+    /* make navbar look good and not overflowy */
+    #splash-nav > ul {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+@media (max-width:480px) {
+    /* smartphones, Android phones, landscape iPhone */
+    body {
+        /* make font readable */
+        font-size: 125%;
+    }
+
+    .featured-post .title {
+        /* smaller font so it's easier to fit the whole title on a phone */
+        font-size: 2em;
+    }
+
+    section {
+        min-height: 125%;
+    }
+
+    .we-are h1, .info-chunk h1 {
+        font-size: 150%;
+    }
+
+    .we-are p, .info-chunk p {
+        font-size: 100%;
+    }
+
+    .contact-email {
+        min-height: 20em !important;
+    }
+
+    .contact-email h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width:320px) {
+    /* super small phones */
+    body {
+        /* make font readabler */
+        font-size: 150%;
+    }
+
+    #contact {
+        margin: 0 .5em;
+    }
+}
+
+@media (max-width: 719px) {
+    /* when columns collapse into one column */
+
+    .topic h2 {
+        margin: 0;
+    }
+
+    .topic:last-of-type h2 {
+        margin-bottom: 1em;
+    }
+
+    #blog-topics {
+        margin-bottom: 0;
+    }
+
+    #blog-topics::after {
+        bottom: 5%;
+    }
+
+    #blog {
+        margin: 0;
+    }
+
+    .contact-text {
+        min-height: 0 !important;
+    }
+}
+
+.events-preview > h2 {
+    position: relative;
+}
+
+.events-preview > .gradient-underline::after, .current-year > .gradient-underline::after {
+    height: 4px;
+}
+
+.upcoming-events {
+    text-align: center;
+}
+
+.upcoming-event > a > img {
+    max-width: 50%;
+    z-index: 5;
+    position: relative;
+    box-shadow: 8px 8px 32px 1px #666;
+}
+
+.upcoming-event {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.upcoming-event::before {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    content: "\00a0\00a0" attr(event-date);
+    text-transform: uppercase;
+    text-align: left;
+    white-space: pre;
+    color: white;
+    position: absolute;
+    width: 25%;
+    height: 4em;
+    line-height: 4em;
+    /*
+    ^ the hacky way we have to vertically center the text, because vertical-align doesn't do the trick
+    */
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: linear-gradient(to left, #4AC8EF, #8B54A2);
+    z-index: 0;
+    transition: 0.5s;
+}
+
+.upcoming-event:hover::before {
+    width: 100%;
+}
+
+.year-info, .current-year {
+    position: relative;
+}
+
+.year-info h1.gradient-text {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: 0.5em;
+    font-weight: 400;
+}
+
+.year-info h3 {
+    font-weight: 400;
+}
+
+.year-info h3.board {
+    margin-top: 0.5em;
+}
+
+.current-year {
+    text-align: right;
+}
+
+.current-year > h2::before {
+    /* this way we don't need to put the same year in the id as in the h2 body, bc we need it in id for scroll */
+    content: attr(id);
+}
+
+.exec-member {
+    /*line-height: 0.5em;*/
+    text-align: center;
+}
+
+
+.exec-member-img {
+    -webkit-clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
+    clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
+
+    width: 100%;
+    background-size: cover;
+}
+
+@media (min-width:720px) {
+    .exec-member:first-of-type {
+        margin-left: -0.25em;
+    }
+}
+
+.chevron-container {
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+.chevron-container > .chevron {
+    position: relative;
+    top: 0;
+}
+
+.chevron-container > .chevron::before {
+    border-image: linear-gradient(-45deg, #4AC8EF, #8B54A2);
+    border-image-slice: 1;
+    box-sizing: border-box;
+
+    border-width: 0.2em 0.2em 0 0;
+    height: 1.2em;
+    left: 0.3em;
+    top: 0.3em;
+    width: 1.2em;
+}
+
+.events {
+    margin-left: -2.5em;
+    padding-left: 2em !important;
+}
+
+.event img {
+    width: 100%;
+}
+
+.event-info {
+    position: relative;
+}
+
+.event-info a {
+    text-decoration: none;
+}
+
+.left-gradient-border {
+    padding-left: 0.75em;
+    position: relative;
+}
+
+.left-gradient-border::after {
+    background: linear-gradient(to bottom, #4AC8EF, #8B54A2);
+    height: 100%;
+    width: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    transition: 0.1s all;
+    transition-timing-function: linear;
+}
+
+.thick-left.left-gradient-border::after {
+    width: 6px;
+    left: -2px;
+}
+
+.event > h1 {
+    font-weight: 400;
+}
+
+.event:first-of-type .event-title, .event:first-of-type .event-title > h1 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.event-title {
+    position: relative;
+}
+
+.event-title > h3 {
+    margin: 0;
+    font-weight: 400;
+    /* so the left float for gradient fix doesn't muck up the h2 positioning*/
+    clear: both;
+    position: absolute;
+    bottom: 0.25em;
+    left: -13.5em;
+    text-align: right;
+    width: 10em;
+    color: #8A55A1;
+}
+
+.event-title > h1 {
+    margin-bottom: 0;
+    position: relative;
+    /* so the gradient doesn't fake extend over the side*/
+    float: left;
+    overflow: visible;
+    z-index: 2;
+    font-weight: 400;
+}
+
+
+.event-title > h1::before {
+    content: "\2B22";
+    color: white;
+    position: absolute;
+    left: -1.65em;
+    top: -0.1em;
+    z-index: 10;
+
+    font-size: 1em;
+
+    color: white;
+    background: linear-gradient(to top right, #4AC8EF, #8B54A2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.event-title > h1::after {
+    content: "\2B22";
+    color: #0D1020;
+    position: absolute;
+    left: -2.05em;
+    top: 0.18em;
+    z-index: 11;
+    font-size: 0.75em;
+}
+
+.event .row > div {
+    margin-left: 0.5em;
+}
+
+.blurbs h2, .events-preview h2 {
+    font-family: 'Barlow', sans-serif;
+}
+
+.blurbs h2 {
+    font-weight: 600;
+}
+
+.events-preview h2 {
+    font-weight: 700;
+}
+
+.blurbs {
+    color: #676767;
+}
+
+#year-selector {
+    position: fixed;
+    right: 5%;
+    top: 2em;
+    z-index: 10;
+}
+
+#year-selector ul {
+    padding-left: 0;
+}
+
+#year-selector li {
+    list-style: none;
+}
+
+#year-selector li > a {
+    text-decoration: none;
+    color: #aaa;
+}
+
+#year-selector li.active > a {
+    font-weight: 400;
+}
+
+#year-selector li::before {
+    content: "\2B22";
+    font-size: 0.5em;
+    color: #aaa;
+    position: relative;
+    top: -0.3em;
+    left: -0.5em;
+}
+
+#year-selector li.active::before {
+    position: relative;
+    color: white;
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+#events {
+    z-index: 11;
+}
+
+#events p {
+    color: #676767;
+}
+
+@media (max-width: 719px) {
+
+    .article-img {
+        margin: 0 auto !important;
+        float: none !important;
+        clear: both;
+        text-align: center;
+    }
+
+    .full-col > h1 {
+        margin-top: 1em;
+    }
+
+    #new-events, #recent-posts {
+        display: none;
+    }
+
+    #year-selector {
+        display: none;
+    }
+
+    /* the size at which columns start wrapping */
+    .events {
+        margin-left: 0;
+    }
+
+
+    .event-title > h3 {
+        margin: 0;
+        font-weight: 400;
+        /* so the left float for gradient fix doesn't muck up the h2 positioning*/
+        clear: both;
+        
+        position: static;
+        width: auto;
+        text-align: left;
+    }
+
+    .exec-member {
+        width: 25%;
+    }
+
+    #splash-nav > h1.big {
+        text-align: center;
+        float: none;
+    }
+
+    #splash-nav > ul {
+        width: 100%;
+        text-align: center;
+    }
+
+}

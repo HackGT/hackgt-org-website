@@ -38,5 +38,4 @@ collections:
   - members
   - frontpage_updates
   - teams
-
-stylesheet: "vanilla"
+  - projects
