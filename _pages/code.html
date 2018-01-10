@@ -1,0 +1,37 @@
+---
+layout: main
+title: Code
+slogan: Open source projects...
+theme: light
+id: code
+permalink: /code/
+css: 
+    - home
+js:
+    - snap-min
+---
+
+<div class="code-projects">
+    {% assign num_members = -1 %}
+    {% assign per_row = 2 %}
+    {% for project in site.projects %}
+        {% assign num_members = num_members | plus: 1 %}
+        {% assign mod = num_members | modulo:per_row %}
+        {% if mod == 0 %}
+         <div class="row">
+        {% endif %}
+            <div class="col-6 code-project">
+                <img src="/assets/{{ project.title | downcase | replace: ' ', '-' }}.png"/>
+                <h1>{{ project.title }}</h1>
+                {{ project.content }}
+
+                <div class="explore">
+                    <p class="bar"><a href="{{ project.link }}">Explore on GitHub</a></p>
+                </div>
+            </div>
+        {% assign compare = per_row | minus:1 %}
+        {% if mod == compare or forloop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}   
+</div>
