@@ -8,5 +8,7 @@
 	  	{{content}}
 	 </section>
 	 {% include footer.html %}
+    {% if page.footer-js %}{% for script in page.footer-js %}<script src="/js/{{ script }}.js"></script>
+	{% endfor %}{% endif %}
 	</body>
 </html>

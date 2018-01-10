@@ -223,9 +223,7 @@ h2 {
 }
 
 .article {
-    margin-top: 2em;
-    max-width: 75%;
-    margin: 0 auto;
+    margin: 1em auto;
 }
 
 .article:nth-child(odd) > .article-img {
