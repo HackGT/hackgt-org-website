@@ -11,9 +11,14 @@ var width = height = null;
 
 updateWidthAndHeight(canvasDiv);
 
-var radiusMin = Math.max(width / 8, height / 8);
+// var radiusMinRatio = 8;
+// var radiusMaxRatio = 2;
+var radiusMinRatio = 3;
+var radiusMaxRatio = 1.2;
 
-var radiusMax = Math.min(width / 2, height / 2);
+var radiusMin = Math.max(width / radiusMinRatio, height / radiusMinRatio);
+
+var radiusMax = Math.min(width / radiusMaxRatio, height / radiusMaxRatio);
 
 var center = {x: width / 2, y: height / 2};
 
@@ -32,13 +37,18 @@ var scrollAmount = 0;
 
 var fps = 80;
 var intervalSpeed = 1000/fps;
-var baseDeltaT = 0.02;
-var deltaDeltaT = -0.02;
+// var baseDeltaT = 0.02;
+// var deltaDeltaT = -0.02;
+
+var baseDeltaT = 0.005;
+var deltaDeltaT = -0.005;
 
 var logo = null;
 
+var logoColor = "#e5fbff";
+
 var shadow = s.filter(Snap.filter.shadow(0,0,8,"#dddddd",0.9));
-var lightShadow = s.filter(Snap.filter.shadow(0,0,4,"#dddddd",0.9));
+var logoShadow = s.filter(Snap.filter.shadow(0,0,16,logoColor,0.9));
 
 // the shadows actually skullfuck your battery life, so probs not gonna use them bc my fan get so loud
 var useFilters = false;
@@ -105,9 +115,9 @@ function onResize(e) {
 
     updateWidthAndHeight(canvasDiv);
 
-    radiusMin = Math.max(width / 8, height / 8);
+    radiusMin = Math.max(width / radiusMinRatio, height / radiusMinRatio);
 
-    radiusMax = Math.min(width / 2, height / 2);
+    radiusMax = Math.min(width / radiusMaxRatio, height / radiusMaxRatio);
 
     center = {x: width / 2, y: height / 2};
 
@@ -176,7 +186,9 @@ function init() {
         Snap.load('./assets/hackgt.svg', function(loadedFragment) {
             s.append(loadedFragment);
             logo = s.select('#hackgt');
-            useFilters && logo.attr({filter: lightShadow});
+            // useFilters && logo.attr({filter: lightShadow});
+            logo.attr({filter: logoShadow});
+            logo.attr({fill: logoColor});
             centerLogo();
         });
     } else {
