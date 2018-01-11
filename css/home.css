@@ -725,7 +725,7 @@ a.gradient-text.gradient-underline.border-jump {
 }
 
 .icons > a {
-    margin: 0 1.5em 2em 0;
+    margin: 0 1.5em .5em 0;
     display: inline-block;
     position: relative;
     z-index: 1;
@@ -743,6 +743,10 @@ a.gradient-text.gradient-underline.border-jump {
 
 .icons #facebook {
     height: 2.8em;
+}
+
+#community-link {
+    display: inline-block;
 }
 
 
