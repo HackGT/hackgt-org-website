@@ -1,25 +1,132 @@
 ---
-layout: home
-title: HackGT
+layout: main
+title: Events
 permalink: /events/
+theme: light
+id: events
+css: 
+    - home
+js:
+    - animatedScrollTo
+footer-js:
+    - events
 ---
 
-<body>
-	<div class="container">
-		<div class="page-header">
-			<h1>Past Events</h1>
-		</div>
-		<div class="events-container">
-			{% for section in site.events %}
-				<div class="panel panel-default">
-				  <div class="panel-heading">
-				    <h3 class="panel-title">{{ section.title }}</h3>
-				  </div>
-				  <div class="panel-body">
-				    {{ section.content }}
-				  </div>
-				</div>
-			{% endfor %}
-		</div>
-	</div>
-</body>
+           <div>
+                <div class="row">
+                    <div class="col-7 blurbs">
+                        {% for blurb in site.event_blurbs %}
+                        <h2>{{blurb.title}}</h2>
+                        {{blurb.content}}
+                        {% endfor %}
+                    </div>
+
+                    {% assign sorted_upcoming = (site.upcoming_events | sort: 'event_date' | reverse) %}
+                    <div class="col-5 events-preview">
+                        <h2 class="gradient-underline">Upcoming Events</h2>
+                        <div class="upcoming-events">
+                            {% for event in sorted_upcoming limit:2 %}
+
+                            <div class="upcoming-event" event-date="{{ event.event_date | date: '%B %d' }}">
+                            <!-- we have to make another div instead of simply an image/a tag here because img's don't work with after tags bc w3 is trash -->
+                                <a href="{{ event.website }}">
+                                    <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="chevron-container"><span class="chevron"></span></p>
+
+        </section>
+
+        <section class="dark">
+            <div id="year-selector">
+                <ul>
+                    {% assign sorted_events = (site.events | sort: 'event_date') %}
+                    {% for event in sorted_events reversed %}
+                    {% assign year_int = event.event_date | date: '%Y' | plus: 0 %}
+                     {% if year_int != current_year_selector %}
+                        <li {% unless current_year_selector %}class="active"{% endunless %}><a href="#{{ year_int }}">{{ year_int }}</a></li>
+                       {% assign current_year_selector = year_int %}
+                      {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% assign sorted_events = (site.events | sort: 'event_date') %}
+        {% for event in sorted_events reversed %}
+        {% assign year_int = event.event_date | date: '%Y' | plus: 0 %}
+         {% if year_int != current_year %}
+           {% if current_year %}
+                    </div>
+                </div> 
+           </div><!-- text editors hate this man, find out why !-->
+           {% endif %}
+           {% assign current_year = year_int %}
+           <div class="row year-in-review">
+                <div class="col-3 current-year">
+                    <h2 class="gradient-underline" id="{{ current_year }}"></h2>
+                </div>
+                <div class="col-8 year-info">
+                    <h1 class="gradient-text">Year In Review</h1>
+                {% assign csv_name = current_year | append: '-exec' %}
+                {% if site.data[csv_name] %}
+                    <h3 class="board">Exec board</h3>
+                    <div class="row">
+                    {% for exec in site.data[csv_name] %}
+                        <div class="col-2 exec-member">
+                            <img class="exec-member-img" src="{{ exec.image }}"/>
+                            <p>{{ exec.name}} <br/> {{ exec.title }}</p>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% endif %}
+
+                <h3>Highlights</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <div class="events left-gradient-border thick-left">
+
+         {% endif %}
+                       <div class="event">
+                            
+                            <div class="row">
+                                <div class="col-12 event-title">
+                                    <h1>{{ event.title }}</h1>
+                                    <h3>{{ event.event_date | date: '%B %d' }}</h3>
+                                </div>
+
+                                <div class="col-6">
+                                    <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>
+                                </div>
+
+                                <div class="col-6 event-info">
+                                    <div class="left-gradient-border">
+                                        {% if event.website %}<a href="{{ event.website }}">Website</a><br/>{% endif %}
+                                        {% if event.photos %}<a href="{{ event.photos }}">Photos</a><br/>{% endif %}
+                                        {% if event.devpost %}<a href="{{ event.devpost }}">Devpost</a>{% endif %}
+                                    </div>
+
+                                    {{ event.content }}
+                                </div>
+
+                                {% if event.press %}
+                                <div class="col-12">
+                                    {% for article in event.press %}
+                                    <a href="{{ article[1] }}">{{ article[0] }}</a>
+                                    <br/>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+        {% endfor %}
+                   </div><!-- text editors hate this even more man, find out why !-->
+                </div>
+
+            </div>
