@@ -1,15 +1,28 @@
 // modified from https://gist.github.com/andjosh/6764939
 
-function scrollTo(element, to, duration) {
-    var start = element.scrollTop,
+function scrollTo(to, duration) {
+
+    var element = document.body;
+    var start = window.scrollY,
         change = to - start,
         currentTime = 0,
-        increment = 20;
-        
+        increment = 10;
+
+    var val = start;
+
+    var easing = function(t) {
+        // t value from 0 to 1
+        return Math.sin(t * Math.PI / 2);
+    }
+
     var animateScroll = function(){        
+        var ease = easing(currentTime / duration);
         currentTime += increment;
-        var val = Math.easeInOutQuad(currentTime, start, change, duration);
-        element.scrollTop = val;
+
+        var delta = ease * change;
+
+        window.scroll(0, delta + start);
+
         if(currentTime < duration) {
             setTimeout(animateScroll, increment);
         }
@@ -17,27 +30,9 @@ function scrollTo(element, to, duration) {
     animateScroll();
 }
 
-//t = current time
-//b = start value
-//c = change in value
-//d = duration
-Math.easeInOutQuad = function (t, b, c, d) {
-  t /= d/2;
-    if (t < 1) return c/2*t*t + b;
-    t--;
-    return -c/2 * (t*(t-2) - 1) + b;
-};
+function getVerticalDisplacement(element) {
+    var bodyRect = document.body.getBoundingClientRect(),
+    elemRect = element.getBoundingClientRect();
 
-// from https://stackoverflow.com/questions/11805955/how-to-get-the-distance-from-the-top-for-an-element
-function getPosition(element) {
-    var xPosition = 0;
-    var yPosition = 0;
-
-    while(element) {
-        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
-        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
-        element = element.offsetParent;
-    }
-
-    return { x: xPosition, y: yPosition };
+    return elemRect.top - bodyRect.top;
 }

@@ -2,7 +2,7 @@ var yearSelector = document.getElementById('year-selector');
 
 var listElements = yearSelector.querySelectorAll('li');
 
-var scrollTime = 1000;
+var scrollTime = 750;
 
 var margin = 8;
 
@@ -23,9 +23,7 @@ yearSelector.querySelectorAll('a').forEach(function(link, index) {
             
             var element = yearSectionElements[index];
 
-            var pos = getPosition(element);
-
-            var displacement = pos.y + window.scrollY;
+            var displacement = getVerticalDisplacement(element) - margin * 0.5;
 
             scrolling = true;
             clearTimeout(currentTimeout);
@@ -34,7 +32,7 @@ yearSelector.querySelectorAll('a').forEach(function(link, index) {
                 scrolling = false;
             }, scrollTime);
 
-            scrollTo(document.body, displacement, scrollTime);
+            scrollTo(displacement, scrollTime);
 
             activateLink(index);
         };
@@ -71,7 +69,10 @@ window.onscroll = function(e) {
 
     for (var i = yearSectionElements.length - 1; i >= 0; i--) {
         var element = yearSectionElements[i];
-        if (getPosition(element).y < margin) {
+        var displacement = getVerticalDisplacement(element);
+        displacement = window.scrollY - displacement;
+
+        if (displacement >= -margin) {
             return activateLink(i);
         }
     }
