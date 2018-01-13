@@ -24,6 +24,10 @@ section:first-of-type {
     padding: 0;
 }
 
+.blog-page {
+    color: white;
+}
+
 #canvas {
     width: 100%;
     height: 100%;

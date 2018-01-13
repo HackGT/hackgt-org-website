@@ -35,7 +35,10 @@ exclude:
 collections:
   - homepage
   - events
+  - upcoming_events
+  - event_blurbs
   - members
   - frontpage_updates
   - teams
   - projects
+  - highlights
