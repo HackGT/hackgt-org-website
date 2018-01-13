@@ -1,103 +1,38 @@
 ---
-layout: home
+layout: main
 title: About
 permalink: /about/
+slogan: We create environments that help attendees challenge the limits of innovation, creativity, application, and opportunity.
+js:
+    - poisson-disc-sampler
+    - snap-min
+    - util
+footer-js:
+    - about
 ---
-
-<body>
-    <div class="page-header">
-        <h1>About Us</h1>
+<div class="info">
+    <div id="glyphs">
+        {% for member in site.data.members %}
+            <img src="/assets/members/{{ member.name | downcase | replace: ' ', '-' }}.jpg" class="hexagon-img"/>
+        {% endfor %}
     </div>
-    <div class="container">
-    	<table style="width:100%" id="about-table">
-            {% assign num_members = -1 %}
-            {% assign per_row = 3 %}
-            {% for member in site.data.members %}
-                {% assign num_members = num_members | plus: 1 %}
-                {% assign mod = num_members | modulo:per_row %}
-                {% if mod == 0 %}
-                 <div class="row">
-                {% endif %}
-                <div class="col col-lg-4 col-md-4 col-sm-12">
-                    <center>
-                    <div class="hovereffect background-profile" style="background-image: url('/static/images/members/{{ member.name }}');">
-                        <center>
-                            <div class="crop">
-                            </div>
-                        </center>
-                        {% if member.link1 or member.link2 or member.link3 or member.link4 %}
-                        <div class="overlay">
-                            <div class="rotate">
-                                <p class="group1">
-                                    {% if member.link1 %}
-                                        <a href= {{ member.link1 }}  >
-                                            <i class="fa fa-{{ member.media1 }}"></i>
-                                        </a>
-                                    
-                                    {% else %}
-                                        <a href= "#">
-                                            <i class="fa fa-minus"></i>
-                                        </a>
-                                    {% endif %}
 
-                                    {% if member.link2 %}
-                                        <a href= {{ member.link2 }}  >
-                                            <i class="fa fa-{{ member.media2 }}"></i>
-                                        </a>
-                                    
-                                    {% else %}
-                                        <a href= "#">
-                                            <i class="fa fa-minus"></i>
-                                        </a>
-                                    {% endif %}
-                                </p>
-                                    <hr>
-                                    <hr>
-                                <p class="group2">
-                                    {% if member.link3 %}
-                                        <a href= {{ member.link3 }}  >
-                                            <i class="fa fa-{{ member.media3 }}"></i>
-                                        </a>
-                                    
-                                    {% else %}
-                                        <a href= "#">
-                                            <i class="fa fa-minus"></i>
-                                        </a>
-                                    {% endif %}
+    <div class="we-are">
+        <h1 class="kinda-big">We are&nbsp;</h1>
+    </div>
+    <div class="info-container">
 
-                                    {% if member.link4 %}
-                                        <a href= {{ member.link4 }}  >
-                                            <i class="fa fa-{{ member.media4 }}"></i>
-                                        </a>
-                                    
-                                    {% else %}
-                                        <a href= "#">
-                                            <i class="fa fa-minus"></i>
-                                        </a>
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <p class="member-description">
-                        {% if member.name %}
-                            <h1 class="member_name">{{ member.name }}</h1>
-                        {% endif %}
-                        {% if member.title %}
-                            <h3 class="member_title">{{ member.title }}</h3>
-                        {% endif %}
-                        {% if member.about %}
-                            {{ member.about }}
-                        {% endif %}
-                    </p>
-                    </center>
-                    </div>
-                {% assign compare = per_row | minus:1 %}
-                {% if mod == compare or forloop.last %}
-                </div>
-                {% endif %}
-            {% endfor %}
-		</table>
-	</div>
-=</body>
+        {% for blurb in site.data.about_blurbs %}
+        <div class="info-chunk">
+            <h1 class="kinda-big gradient-text what-we-are">{{ blurb.who }}</h1>
+            <p>{{ blurb.what }}</p>
+        </div>
+        {% endfor %}
+
+        <div id="transition-buttons">
+
+            <!-- procedurally append divs here for each info-chunk-->
+        </div>
+    </div>
+
+</div>
