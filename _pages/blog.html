@@ -1,38 +1,64 @@
 ---
-layout: home
+layout: main
 title: Blog
+theme: light
 permalink: /blog/
+js:
+    - snap-min
 ---
+<div id="blog">
 
-<body>
-	<div class="page-header">
-		<h1>BlogGT</h1>
-	</div>
-    <div class="home-section">
-	<div class="container">
-		<table style="width:100%" id="about-table">
-		{% assign num_members = -1 %}
-		{% assign per_row = 3 %}
-		{% for section in site.posts %}
-			{% assign num_members = num_members | plus: 1 %}
-			{% assign mod = num_members | modulo:per_row %}
-			{% if mod == 0 %}
-			 <div class="row">
-			{% endif %}
-			<div class="col col-lg-4 col-md-4 col-sm-12">
-				<h1><a  class="blog-url" href="{{section.url}}">{{section.title}}</a></h1>
-				<h4>{{ section.date | date_to_string }}</h4>
-				<h3>
-				{{section.description}}
-				</h3>
-			</div>
-			{% assign compare = per_row | minus:1 %}
-			{% if mod == compare or forloop.last %}
-			</div>
-			{% endif %}
-		{% endfor %}
-		 </table>
-	</div>
+    <div class="row">
+    	{% for featured_post in site.posts limit: 2 %}
+        <a href="{{ featured_post.url }}">
+            <div class="col-6 featured-post">
+                <img src="/assets/blog/{{ featured_post.image }}">
+                <h1 class="title">{{ featured_post.title }}</h1>
+                <h3 class="author">{{ featured_post.author}}</h3>
+            </div>
+        </a>
+        {% endfor %}
     </div>
-</body>
+    <div class="row">
 
+        <div class="col-4">
+            <h2 id="blog-topics">Explore some HackGTopics</h2>
+        </div>
+
+        <div class="col-2 topic">
+            <h2><a href="#">Tech</a></h2>
+        </div>
+
+        <div class="col-2 topic">
+            <h2><a href="#">Design</a></h2>
+        </div>
+
+        <div class="col-2 topic">
+            <h2><a href="#">Operations</a></h2>
+        </div>
+
+    </div>
+        {% assign size = site.posts | size %}
+        {% assign columns = 3 %}
+        <div class="row">
+            {% for column_counter in (0..columns) %}
+            <div class="col-4">
+            {% assign counter = 0 %}
+            {% for post in site.posts %}
+            {% assign mod = counter | modulo: 3 %}
+            {% if mod == column_counter %}
+                <div class="blog-post">
+                <img src="/assets/blog/{{ post.image }}"/>
+                <div class="preview">
+                    <h2 class="title"><a href="{{ post.url }}">{{ post.title}}</a></h2>
+                    <p class="description">{{ post.content | truncatewords: 50 }} </p>
+                    <h3>{{ post.author }}</h3>
+                </div>
+            </div>
+            {% endif %}
+            {% assign counter = counter | plus: 1 %}
+            {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+</div>
