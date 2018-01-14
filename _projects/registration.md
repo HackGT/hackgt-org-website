@@ -1,6 +1,7 @@
 ---
-name: Registration
+name: Beehive
 link: https://github.com/HackGT/registration
+priority: 0
 ---
 
-Thank you, Ryan, for making a super awesome registration platform. Thank you, Andrew, for making some random O(n!) operation happen and nuking everything. Thank you, Jason, for stealing all of the resumes. Thank you, EhsanDB, for powering all database operations behind registration.
+Beehive is a powerful registration system for hackathons and other large events. Users can easily sign up with Google, Github, or Facebook, submit event registrations, create or join teams, and confirm attendance. Admins can also view relevant metrics, read application responses, accept applicants, and send emails to participants. 
