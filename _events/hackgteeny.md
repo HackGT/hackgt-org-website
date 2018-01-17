@@ -1,7 +1,7 @@
 ---
 title: HackGTeeny
-event_date: 2015-11-14
-website: https://www.facebook.com/events/191244334543238/
+event_date: 2014-11-01
+website: https://www.facebook.com/events/378622375626869/
 ---
 
-HackGT’s first ever small-scale hackathon focused on the development of skills needed to create full-stack projects!
+HackGT’s inaugural HackGTeeny, a hackathon geared towards beginners.
