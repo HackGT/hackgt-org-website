@@ -1,12 +1,10 @@
 ---
 title: Catalyst
-event_date: 2017-06-02
+event_date: 2017-04-15
 website: https://catalyst.hack.gt/
-photos: https://imgur.com/
-devpost: https://devpost.com/
+photos: https://www.facebook.com/pg/HackGT/photos/?tab=album&album_id=1012272148872631
 press:
-    Why Sir Topham Hatt is literally the worst, by Thomas: https://breitbart.com/
-    Matthew done with his trashy train puns? I'm a-freight not!: https://cnn.com/
+    HackGT's New 'Catalyst' Brings Computer Skills to the Underserved: http://www.techsquareatl.com/stories/hackgtcatalyst
 ---
 
-HackGT held its first ever high school learnathon designated for students in Atlanta, Clayton, Dekalb, and Cobb county school systems on Saturday, April 15. With the help of our sponsors, we were able to connect over 200+ students with the resources to sample a hackathon. HackGT provided equipment, food, swag, and trained mentors to facilitate a meaningful computer science related experience. Catalyst also gave students the opportunity to interact with current Georgia Tech students and sponsors from companies such as Wordpress, Google, Palantir, and GitHub. Held at Georgia Tech’s Klaus Advanced Computer Science, students were able to explore the facility and familiarize themselves with the campus. 
+HackGT’s first ever day of Computer Science exposure for more than 400 underserved high school students in the Metro Atlanta Area. The day consisted of workshops in HTML, CSS, and Android Development in addition to mentor pairing that helped students learn new technologies. Ultimately, each student went home with at least 3 projects to call their own. 
