@@ -1,6 +1,6 @@
 ---
 name: Beehive
-link: https://github.com/HackGT/checkin2
+link: https://github.com/HackGT/biodomes
 priority: 1
 ---
 
