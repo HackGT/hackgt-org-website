@@ -1,6 +1,5 @@
 ---
-title: The secret to throwing a deop Hackathon
+title: What we do
 ---
 
-A bomb-ass ops team, and the souls of 400 dead succulents. But real talk, the actual secret is lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
+HackGT throws events for collegiate and high school students with the goal of allowing our participants to bring any of their ideas to life. From the most serious to the most hilarious, we empower our participants by cultivating a resource-rich and inspiring environment.  
