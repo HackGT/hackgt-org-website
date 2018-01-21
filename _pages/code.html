@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Code
-slogan: Open source projects...
+slogan: At HackGT, we build the technology behind hackathons. We believe in making our solutions available through open source projects on <a href="https://github.com/HackGT" target="_blank">Github</a>.
 theme: light
 id: code
 permalink: /code/
@@ -12,15 +12,16 @@ js:
 <div class="code-projects">
     {% assign num_members = -1 %}
     {% assign per_row = 2 %}
-    {% for project in site.projects %}
+    {% assign projects = site.projects | sort:"priority" %}
+    {% for project in projects  %}
         {% assign num_members = num_members | plus: 1 %}
         {% assign mod = num_members | modulo:per_row %}
         {% if mod == 0 %}
          <div class="row">
         {% endif %}
             <div class="col-6 code-project">
-                <img src="/assets/{{ project.title | downcase | replace: ' ', '-' }}.png"/>
-                <h1>{{ project.title }}</h1>
+                <img src="/assets/projects/{{ project.title | downcase | replace: ' ', '-' }}.png"/>
+                <h1>{{ project.name }}</h1>
                 {{ project.content }}
 
                 <div class="explore">

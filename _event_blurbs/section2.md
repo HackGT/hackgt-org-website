@@ -1,5 +1,5 @@
 ---
-title: This man became a YAML developer, you'll never believe what happened next...
+title: The secret to hackathons
 ---
 
-Nothing. Absolutely nothing.
+Hackathons are located at the intersection of technology and creativity. At the event, participants are given the liberty, resources, and support to bring any of their ideas to life. 

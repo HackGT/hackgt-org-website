@@ -1,30 +1,54 @@
 ---
-layout: home
+layout: main
 title: HackGT
 permalink: /
+js:
+    - util
+    - snap-min
+footer-js:
+    - home
+main-event: 5.hack.gt
 ---
+            <div id="slogan">
+                <h3>Organize. Serve. <br/> Make an Impact. Repeat.</h3>
+                <h3><a class="gradient-text gradient-underline border-jump" href="https://{{ page.main-event }}/">Attend!</a></h3>
+                <p><span class="chevron"></span></p>
+            </div>
+           <div id="new-events">
+                <h3 class="gradient-box">Upcoming Events</h3>
+                <div class="row">
+                    <div class="col-10">
+                        {% assign sorted_upcoming = (site.upcoming_events | sort: 'event_date' | reverse) %}
+                        {% for event in sorted_upcoming %}
+                        <a href="{{event.website}}">
+                            <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
 
-<body>
-	<div class="home-page-header">
-		<h1 class="kahuna">HACKGT</h1>
-		<img src="static/images/Cityscape.svg"></img>
-	</div>
-	{% for section in site.homepage %}
-		<div class="home-section">
-			<h1>{{section.title}}</h1>
-			<p> {{section.content}}</p>
-		</div>
-	{% endfor %}
-	<div class="home-section">
-		<h1>What have we been up to?</h1>
-		{% for section in site.frontpage_updates limit:2 %}
-		<div class="event">
-			<h2>{{section.title}}</h2>
-			<p>{{section.content}}</p>
-		</div>
-		{% endfor %}
-		<div class="view-more">
-			<p><a href="/events">View more<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></p>
-		</div>
-	</div>
-</body>
+            <div id="recent-posts">
+                {% for featured_post in site.posts limit: 3 %}
+                <a href="{{ featured_post.url}}">{{ featured_post.title }}</a>
+                {% endfor %}
+            </div>
+
+
+            <svg id="canvas" width="100%" height="100%"></svg>
+        </section>
+       <section id="about">
+            {% for blurb in site.frontpage_blurbs %}
+            <div class="article row">
+                <div class="col-7 article-img">
+                    <img src="/assets/frontpage/{{ blurb.linkto}}.jpg"/>
+                </div>
+
+                <div class="col-5 full-col">
+                    <h1>{{ blurb.title }}<span class="gradient-text">{{ blurb.kahuna }}</span></h1>
+                    {{ blurb.content }}
+                    <h3><a class="gradient-text gradient-underline small" href="/{{ blurb.linkto }}">{{ blurb.linkmessage }} &rarr;</a></h3>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
