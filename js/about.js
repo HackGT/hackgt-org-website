@@ -3,7 +3,13 @@ var transitionButtons = document.getElementById('transition-buttons');
 var chunks = document.getElementsByClassName('info-chunk');
 
 var hexagonContainer = document.getElementById('glyphs');
-var hexagons = document.getElementsByClassName('hexagon-img');
+
+var teams = document.getElementsByClassName('team-glyphs');
+var hexagonTeamPairs = [].slice.call(teams).map(function(e){
+    return e.getElementsByClassName('hexagon-img');
+});
+
+
 
 var footer = document.getElementsByTagName('footer')[0];
 
@@ -21,6 +27,22 @@ var chunkAnimationTime = 4 * 1000;
 var width = 0;
 var height = 0;
 
+var scaleFactor = 0.9;
+
+var hexagonOffset = 4;
+
+var rotationAmount = 15;
+
+var maxAttempts = 10;
+
+var hexagonSize = getHexagonSize(hexagonTeamPairs[0][0]);
+var lastIndex = 0;
+
+
+var widthOffsetRatio = 0.4;
+
+var distanceFactor = 1.05;
+
 updateHexagonContainerHeight();
 
 function updateHexagonContainerHeight() {
@@ -30,6 +52,11 @@ function updateHexagonContainerHeight() {
 
 
 initializeChunks();
+
+for (var i = 0; i < hexagonTeamPairs.length; i++) {
+    placeHexagons(i);
+}
+
 
 function initializeChunks() {
     for (var i = 0; i < chunks.length; i++) {
@@ -41,6 +68,7 @@ function initializeChunks() {
 
         (function(i){
             button.onclick = function() {
+                lastIndex = currentIndex;
                 revealChunk(i);
 
                 clearInterval(chunkInterval);
@@ -82,9 +110,24 @@ function revealChunk(chunkNum) {
             button.classList.add('active-button');
         }
     }
+
+    for (var i = 0; i < teams.length; i++) {
+        var team = teams[i];
+
+        if (i == chunkNum) {
+            team.classList.add('team-glyphs-active');
+        } else {
+            team.classList.remove('team-glyphs-active');
+        }
+
+        if (i != lastIndex && i != chunkNum) {
+            placeHexagons(i);
+        }
+    }
 }
 
 function scrollChunks(keyCode) {
+    lastIndex = currentIndex;
     if (keyCode == 37) {
         // left
         currentIndex--;
@@ -110,60 +153,15 @@ function handleKeypress(e) {
 
 document.onkeydown = handleKeypress;
 
-// hexagon stuff
-
-// how much we will scale the images down by if we can't fit them all
-var scaleFactor = 0.9;
-
-var hexagonOffset = 4;
-
-var rotationAmount = 15;
-
-var maxAttempts = 10;
-
-var hexagonSize = getHexagonSize(hexagons[0]);
-
-var longestSide = Math.max(hexagonSize.x, hexagonSize.y);
-var shortestSide = Math.min(hexagonSize.x, hexagonSize.y);
-
-var widthOffsetRatio = 0.4;
-
-var distanceFactor = 1.05;
-
-function placeHexagons() {
+function placeHexagons(i) {
     
 
-    updateHexagonContainerHeight
-    // // will not work with like 13 ppl sooo
+    var hexagons = hexagonTeamPairs[i];
 
-    // var heightForHexagons = document.body.clientHeight - hexagonContainer.offsetTop;
-    // var widthForHexagons = hexagonContainer.clientWidth;
-    // var center = getHexagonContainerCenter();
-    // console.log(center);
+    updateHexagonContainerHeight();
 
-    // moveHexagonToPosition(hexagons[0], sub(center, scalarMultiply(getHexagonSize(hexagons[0]), 1/2)));
-
-    // randomlyRotateHexagon(hexagons[0]);
-
-    // var hexagonSize = getHexagonSize(hexagons[0]);
-
-    // var longestSide = Math.max(hexagonSize.x, hexagonSize.y);
-    // var shortestSide = Math.min(hexagonSize.x, hexagonSize.y);
-
-    // var sizeDelta = longestSide - shortestSide;
-
-    // for (var i = 1; i < hexagons.length; i++) {
-
-    //     if (i <= 6) {
-    //         var newPosition = add(scalarMultiply(angleToUnitVector(i * 60), longestSide + sizeDelta), getHexagonPosition(hexagons[0]));
-
-    //         moveHexagonToPosition(hexagons[i], newPosition);
-
-    //         randomlyRotateHexagon(hexagons[i]);
-    //     }
-    // }
-
-    // console.log(hexagons.length)
+    var longestSide = Math.max(hexagonSize.x, hexagonSize.y);
+    var shortestSide = Math.min(hexagonSize.x, hexagonSize.y);
 
     var rowCount = colCount = Math.sqrt(hexagons.length);
 
@@ -171,7 +169,6 @@ function placeHexagons() {
     var offset = containerWidth * widthOffsetRatio / 2;
     containerWidth -= 2 * offset;
 
-    // console.log("a",offset)
 
     var containerHeight = footer.offsetTop - hexagonContainer.offsetTop;
 
@@ -184,6 +181,7 @@ function placeHexagons() {
     var currentScale = 1;
 
     while (!fits) {
+        console.log('uhhh')
 
         currentScale *= scaleFactor;
 
@@ -208,29 +206,6 @@ function placeHexagons() {
         }
     }
 
-    // console.log(numRows, numCols, hexagons.length, cellHeight, cellWidth);
-    
-    // var cells = generateRandomCellOrder(numRows, numCols);
-    // // rowCount = Math.ceil(rowCount * height / width);
-    // // colCount = Math.ceil(colCount * width / height);
-
-    // // console.log(rowCount, colCount)
-
-    // // var maxHeight = height / rowCount;
-    // // var maxWidth = width / colCount;
-
-    // // console.log(maxHeight, maxWidth)
-
-
-    // // TODO, find a better way to position these pseudo-randomly without just randomly putting shit down lmao
-    // for (var i = 0; i < hexagons.length; i++) {
-    //     var hexagon = hexagons[i];
-    //     var cell = cells[i];
-
-    //     // moveHexagonToPosition(hexagon, getRandomPosition());
-    //     moveHexagonToRandomPositionInCell(cellWidth, cellHeight, cell, offset, hexagon);
-    //     randomlyRotateHexagon(hexagon);
-    // }
 
     var distance = longestSide * distanceFactor;
     var sampler = poissonDiscSampler(width - longestSide, height - longestSide, distance);
@@ -256,30 +231,13 @@ function placeHexagons() {
     console.log(samples);
 
     for (var i = 0; i < samples.length; i++) {
-        randomlyRotateHexagon(hexagons[i]);
+        // randomlyRotateHexagon(hexagons[i]);
         moveHexagonToPosition(hexagons[i], {
             x: samples[i][0],
             y: samples[i][1]
         });
     }
 
-    // for (var i = 0; i < hexagons.length; i++) {
-    //     var hexagon = hexagons[i];
-    //     moveHexagonToPosition(hexagon, getRandomPosition());
-
-    //     var colliding = false;
-
-    //     for (var j = 0; j < i; j++) {
-    //         var target = hexagons[j];
-
-    //         var currentAttempts = 0;
-
-    //         while (intersectRect(hexagon.getBoundingClientRect(), target.getBoundingClientRect()) && currentAttempts < maxAttempts) {
-    //             moveHexagonToPosition(hexagon, getRandomPosition());
-    //             currentAttempts++;
-    //         }
-    //     }
-    // }
 
 }
 
@@ -329,13 +287,6 @@ function getHexagonContainerCenter() {
         y: document.body.clientHeight / 2 * containerHeightModifier};
 }
 
-function getRandomPosition() {
-    return {
-        x: Math.random() * (hexagonContainer.clientWidth - longestSide),
-        y: Math.random() * (footer.offsetTop - hexagonContainer.offsetTop - longestSide)
-    }
-}
-
 function generateRandomCellOrder(numRows, numCols) {
     var cells = [];
 
@@ -349,8 +300,6 @@ function generateRandomCellOrder(numRows, numCols) {
 
     return cells;
 }
-
-placeHexagons()
 
 function intersectRect (rectA, rectB) {
     // from https://github.com/Barry127/intersect-rect

@@ -1,5 +1,6 @@
 ---
-title: Tech Team
+title: Tech
+who: 1336 hackers
 ---
 
-### The Best
+we build things

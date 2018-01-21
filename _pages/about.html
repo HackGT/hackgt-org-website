@@ -12,23 +12,39 @@ footer-js:
 ---
 <div class="info">
     <div id="glyphs">
-        {% for member in site.data.members %}
-            <img src="/assets/members/{{ member.name | downcase | replace: ' ', '-' }}.jpg" class="hexagon-img"/>
+        {% assign who_list = "" %}
+        {% assign what_list = "" %}
+        {% assign first = 0 %}
+        {% for team in site.teams %}
+        {% assign team_data = team.title | downcase %}
+        {% if first != 0 %}
+            {% assign who_list = who_list | append: ',' %} 
+            {% assign what_list = what_list | append: ',' %} 
+        {% endif %}
+        {% assign who_list = who_list | append: team.who %}
+        {% assign what_list = what_list | append: team.content %}
+        <div class="team-glyphs {% if first == 0 %}team-glyphs-active{% assign first = 1 %}{% endif %}">
+                {% for member in site.data[team_data] %}
+                    <img src="/assets/members/{{ team.title | downcase }}/{{ member.name | downcase | replace: ' ', '-' }}.jpg" class="hexagon-img"/>
+                {% endfor %}
+        </div>
         {% endfor %}
     </div>
-
     <div class="we-are">
         <h1 class="kinda-big">We are&nbsp;</h1>
     </div>
     <div class="info-container">
 
-        {% for blurb in site.data.about_blurbs %}
+        {% assign counter = 0 %}
+        {% assign who_list_parsed = who_list | split: ',' %}
+        {% assign what_list_parsed = what_list | split: ',' %}
+        {% for who in who_list_parsed %}
         <div class="info-chunk">
-            <h1 class="kinda-big gradient-text what-we-are">{{ blurb.who }}</h1>
-            <p>{{ blurb.what }}</p>
+            <h1 class="kinda-big gradient-text what-we-are">{{ who }}</h1>
+            <p>{{ what_list_parsed[counter] }}</p>
         </div>
+        {% assign counter = counter | plus: 1 %}
         {% endfor %}
-
         <div id="transition-buttons">
 
             <!-- procedurally append divs here for each info-chunk-->
