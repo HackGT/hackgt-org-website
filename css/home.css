@@ -458,7 +458,7 @@ footer a {
 .info-chunk {
     position: absolute;
     left: 0;
-    top: 0;
+    top: -0.5em;
     transition: 0.5s all;
 }
 
