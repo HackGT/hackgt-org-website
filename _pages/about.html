@@ -19,7 +19,7 @@ footer-js:
         {% assign team_data = team.title | downcase %}
         {% if first != 0 %}
             {% assign who_list = who_list | append: ',' %} 
-            {% assign what_list = what_list | append: ',' %} 
+            {% assign what_list = what_list | append: '|' %} 
         {% endif %}
         {% assign who_list = who_list | append: team.who %}
         {% assign what_list = what_list | append: team.content %}
@@ -37,7 +37,7 @@ footer-js:
 
         {% assign counter = 0 %}
         {% assign who_list_parsed = who_list | split: ',' %}
-        {% assign what_list_parsed = what_list | split: ',' %}
+        {% assign what_list_parsed = what_list | split: '|' %}
         {% for who in who_list_parsed %}
         <div class="info-chunk">
             <h1 class="kinda-big gradient-text what-we-are">{{ who }}</h1>
