@@ -476,7 +476,7 @@ footer a {
     clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
 
     height: 128px;
-    width: 100px;
+    width: 128px;
     background-size: cover;
 
     position: absolute;
