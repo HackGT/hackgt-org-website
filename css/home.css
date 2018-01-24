@@ -453,6 +453,7 @@ footer a {
 
 .what-we-are {
     margin-bottom: 0;
+    display: inline-block;
 }
 
 .info-chunk {
