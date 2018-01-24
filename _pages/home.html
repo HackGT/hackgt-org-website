@@ -14,19 +14,21 @@ main-event: 5.hack.gt
                 <h3><a class="gradient-text gradient-underline border-jump" href="https://{{ page.main-event }}/">Attend!</a></h3>
                 <p><span class="chevron"></span></p>
             </div>
-           <div id="new-events">
-                <h3 class="gradient-box">Upcoming Events</h3>
-                <div class="row">
-                    <div class="col-10">
-                        {% assign sorted_upcoming = (site.upcoming_events | sort: 'event_date' | reverse) %}
-                        {% for event in sorted_upcoming %}
-                        <a href="{{event.website}}">
-                            <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>
-                        </a>
-                        {% endfor %}
+           {% if site.upcoming_events.size > 0 %}
+               <div id="new-events">
+                    <h3 class="gradient-box">Upcoming Events</h3>
+                    <div class="row">
+                        <div class="col-10">
+                            {% assign sorted_upcoming = (site.upcoming_events | sort: 'event_date' | reverse) %}
+                            {% for event in sorted_upcoming %}
+                            <a href="{{event.website}}">
+                                <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>
+                            </a>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
 
             <div id="recent-posts">
                 {% for featured_post in site.posts limit: 3 %}
