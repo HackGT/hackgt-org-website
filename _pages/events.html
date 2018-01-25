@@ -19,22 +19,24 @@ footer-js:
                         {% endfor %}
                     </div>
 
-                    {% assign sorted_upcoming = (site.upcoming_events | sort: 'event_date' | reverse) %}
-                    <div class="col-5 events-preview">
-                        <h2 class="gradient-underline">Upcoming Events</h2>
-                        <div class="upcoming-events">
-                            {% for event in sorted_upcoming limit:2 %}
+                    {% if site.upcoming_events.size > 0 %}
+                        {% assign sorted_upcoming = (site.upcoming_events | sort: 'event_date' | reverse) %}
+                        <div class="col-5 events-preview">
+                            <h2 class="gradient-underline">Upcoming Events</h2>
+                            <div class="upcoming-events">
+                                {% for event in sorted_upcoming limit:2 %}
 
-                            <div class="upcoming-event" event-date="{{ event.event_date | date: '%B %d' }}">
-                            <!-- we have to make another div instead of simply an image/a tag here because img's don't work with after tags bc w3 is trash -->
-                                <a href="{{ event.website }}">
-                                    <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>
-                                </a>
+                                <div class="upcoming-event" event-date="{{ event.event_date | date: '%B %d' }}">
+                                <!-- we have to make another div instead of simply an image/a tag here because img's don't work with after tags bc w3 is trash -->
+                                    <a href="{{ event.website }}">
+                                        <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>
+                                    </a>
+                                </div>
+                                {% endfor %}
                             </div>
-                            {% endfor %}
-                        </div>
 
-                    </div>
+                        </div>
+                    {% endif %}
                 </div>
 
             </div>
