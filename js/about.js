@@ -6,7 +6,7 @@ var hexagonContainer = document.getElementById('glyphs');
 
 var teams = document.getElementsByClassName('team-glyphs');
 var hexagonTeamPairs = [].slice.call(teams).map(function(e){
-    return e.getElementsByClassName('hexagon-img');
+    return [].slice.call(e.getElementsByClassName('hexagon-img'));
 });
 
 
@@ -95,7 +95,8 @@ function revealChunk(chunkNum) {
         var button = transitionButtons.children[i];
 
         if (i != chunkNum) {
-            chunk.classList.add('hidden');
+            // chunk.classList.add('hidden');
+            chunk.classList.remove('visible-info-chunk');
             button.classList.remove('active-button');
         } else {
             clearTimeout(currentTimeout);
@@ -103,7 +104,8 @@ function revealChunk(chunkNum) {
                 var chunk = chunks[i];
 
                 currentTimeout = setTimeout(function() {
-                    chunk.classList.remove('hidden');    
+                    // chunk.classList.remove('hidden');    
+                    chunk.classList.add('visible-info-chunk');
                 }, animationTime * animationWaitRatio);
             })(i);
             
@@ -155,6 +157,8 @@ document.onkeydown = handleKeypress;
 
 function placeHexagons(i) {
     
+    // we'll do cool hexagon stuff l8r
+    return;
 
     var hexagons = hexagonTeamPairs[i];
 
@@ -166,8 +170,8 @@ function placeHexagons(i) {
     var rowCount = colCount = Math.sqrt(hexagons.length);
 
     var containerWidth = hexagonContainer.clientWidth;
-    var offset = containerWidth * widthOffsetRatio / 2;
-    containerWidth -= 2 * offset;
+    // var offset = containerWidth * widthOffsetRatio / 2;
+    // containerWidth -= 2 * offset;
 
 
     var containerHeight = footer.offsetTop - hexagonContainer.offsetTop;
@@ -180,16 +184,15 @@ function placeHexagons(i) {
 
     var currentScale = 1;
 
-    while (!fits) {
-        console.log('uhhh')
+    // while (!fits) {
 
-        currentScale *= scaleFactor;
+    //     currentScale *= scaleFactor;
 
-        numCols = Math.floor(containerWidth / longestSide / currentScale);
-        numRows = Math.floor(containerHeight / longestSide / currentScale);
+    //     numCols = Math.floor(containerWidth / longestSide / currentScale);
+    //     numRows = Math.floor(containerHeight / longestSide / currentScale);
 
-        fits = ((numCols * numRows) >= hexagons.length);
-    }
+    //     fits = ((numCols * numRows) >= hexagons.length);
+    // }
 
     var cellHeight = containerHeight / numRows;
     var cellWidth = containerWidth / numCols;
@@ -197,46 +200,51 @@ function placeHexagons(i) {
     longestSide *= currentScale;
     shortestSide *= currentScale;
 
-    if (currentScale != 1) {
-        // resize hexagons if we need to, in order to make them all fit without overlap
-        for (var i = 0; i < hexagons.length; i++) {
-            var hexagon = hexagons[i];
-            hexagon.style.width = hexagon.width * currentScale;
-            hexagon.style.height = hexagon.height * currentScale;
-        }
-    }
+    // if (currentScale != 1) {
+    //     // resize hexagons if we need to, in order to make them all fit without overlap
+    //     for (var i = 0; i < hexagons.length; i++) {
+    //         var hexagon = hexagons[i];
+    //         hexagon.style.width = hexagon.width * currentScale;
+    //         hexagon.style.height = hexagon.height * currentScale;
+    //     }
+    // }
 
 
     var distance = longestSide * distanceFactor;
-    var sampler = poissonDiscSampler(width - longestSide, height - longestSide, distance);
-    console.log(width, height, distance)
+    // var sampler = poissonDiscSampler(width - longestSide, height - longestSide, distance);
 
-    var leftCenterPoint = [width / 3 - longestSide / 2, height / 3 - longestSide / 2];
-    var rightCenterPoint = [width * 2 / 3 - longestSide / 2, height * 2 / 3 - longestSide / 2];
+    // var leftCenterPoint = [width / 3 - longestSide / 2, height / 3 - longestSide / 2];
+    // var rightCenterPoint = [width * 2 / 3 - longestSide / 2, height * 2 / 3 - longestSide / 2];
 
-    sampler.sample(leftCenterPoint[0], leftCenterPoint[1]);
-    sampler.sample(rightCenterPoint[0], rightCenterPoint[1]);
+    // sampler.sample(leftCenterPoint[0], leftCenterPoint[1]);
+    // sampler.sample(rightCenterPoint[0], rightCenterPoint[1]);
 
-    var generatedSamples = 2;
+    // var generatedSamples = 2;
 
-    var sample;
+    // var sample;
 
-    var samples = [leftCenterPoint, rightCenterPoint];
+    // var samples = [leftCenterPoint, rightCenterPoint];
 
-    while ((sample = sampler.generate()) && generatedSamples < hexagons.length) {
-        samples.push(sample);
-        generatedSamples++;
-    }
+    // while ((sample = sampler.generate()) && generatedSamples < hexagons.length) {
+    //     samples.push(sample);
+    //     generatedSamples++;
+    // }
 
-    console.log(samples);
+    // console.log(samples);
+    // console.log("H")
+    // console.log(hexagons)
+    // shuffle(hexagons);
 
-    for (var i = 0; i < samples.length; i++) {
-        // randomlyRotateHexagon(hexagons[i]);
-        moveHexagonToPosition(hexagons[i], {
-            x: samples[i][0],
-            y: samples[i][1]
-        });
-    }
+    // for (var i = 0; i < samples.length; i++) {
+    //     // randomlyRotateHexagon(hexagons[i]);
+    //     moveHexagonToPosition(hexagons[i], {
+    //         x: samples[i][0],
+    //         y: samples[i][1]
+    //     });
+    // }
+
+    // console.log(containerWidth, containerHeight)
+    moveHexagonToPosition(hexagons[0], {x: containerWidth / 2, y: containerHeight / 2})
 
 
 }
@@ -260,10 +268,13 @@ function moveHexagonToRandomPositionInCell(cellWidth, cellHeight, rowColArray, o
     hexagon.style.top = yPosition;
 }
 
-function moveHexagonToPosition(hexagonImageElement, position) {
+function moveHexagonToPosition(hexagonImageElement, position, fromCenter) {
+    if (fromCenter === undefined) {
+        fromCenter = true;
+    }
 
-    hexagonImageElement.style.left = position.x;
-    hexagonImageElement.style.top = position.y;
+    hexagonImageElement.style.left = position.x - (fromCenter ? hexagonImageElement.width / 2 : 0);
+    hexagonImageElement.style.top = position.y - (fromCenter ? hexagonImageElement.width / 2 : 0);
 }
 
 function getHexagonSize(hexagonImageElement) {

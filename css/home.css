@@ -427,6 +427,7 @@ footer a {
 
 .info {
     width: 80%;
+    min-height: 50%;
     margin: 0 auto;
     margin-top: 2em;
 }
@@ -461,6 +462,7 @@ footer a {
     left: 0;
     top: -0.5em;
     transition: 0.5s all;
+    opacity: 0;
 }
 
 .info-container {
@@ -468,8 +470,8 @@ footer a {
     width: 60%;
 }
 
-.hidden {
-    opacity: 0;
+.visible-info-chunk {
+    opacity: 1;
 }
 
 .hexagon-img {
@@ -481,6 +483,8 @@ footer a {
     background-size: cover;
 
     position: absolute;
+
+    display: none;
 }
 
 #glyphs {
