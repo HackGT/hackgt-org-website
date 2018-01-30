@@ -1,5 +1,5 @@
 ---
-title: The secret to hackathons
+title: What is a hackathon?
 ---
 
-Hackathons are located at the intersection of technology and creativity. At the event, participants are given the liberty, resources, and support to bring any of their ideas to life. 
+A "Hack" is the innovation and coordination of multiple technologies to form a creative and challenging proof of concept - be it through software or hardware. Hackathons are events where teams of students spend a weekend utilizing resources and support that we provide to bring their ideas to life. These projects range from mobile applications to drones to embedded hardware and more. Finally, the most important part of hackathons is that it provides the community with the opportunity to grow, create, and impact.
