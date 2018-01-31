@@ -24,10 +24,6 @@ section:first-of-type {
     padding: 0;
 }
 
-.blog-page {
-    color: white;
-}
-
 #canvas {
     width: 100%;
     height: 100%;
@@ -166,6 +162,19 @@ footer {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
+
+    /*
+        ok so safari has this wild bug where it is bad at clipping around text, so the solution here is
+        to add padding and reduce the background's size, so that none of it 'spills over', even though it shouldn't
+        if browsers weren't trash at clipping *cough* safari *cough*
+    */
+
+    padding: 0.25em;
+    margin-left: -0.25em;
+    margin-right: -0.25em;
+    background-size: 98% 95%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .gradient-underline::after {
@@ -418,6 +427,7 @@ footer a {
 
 .info {
     width: 80%;
+    min-height: 50%;
     margin: 0 auto;
     margin-top: 2em;
 }
@@ -444,13 +454,15 @@ footer a {
 
 .what-we-are {
     margin-bottom: 0;
+    display: inline-block;
 }
 
 .info-chunk {
     position: absolute;
     left: 0;
-    top: 0;
+    top: -0.5em;
     transition: 0.5s all;
+    opacity: 0;
 }
 
 .info-container {
@@ -458,19 +470,21 @@ footer a {
     width: 60%;
 }
 
-.hidden {
-    opacity: 0;
+.visible-info-chunk {
+    opacity: 1;
 }
 
 .hexagon-img {
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
 
     height: 128px;
-    width: 100px;
+    width: 128px;
     background-size: cover;
 
     position: absolute;
+
+    display: none;
 }
 
 #glyphs {
@@ -1035,31 +1049,16 @@ a.gradient-text.gradient-underline.border-jump {
     font-weight: 400;
 }
 
-
 .event-title > h1::before {
-    content: "\2B22";
-    color: white;
+    content: "";
+    background-image: url('../assets/timeline-glyph.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
     position: absolute;
-    left: -1.65em;
-    top: -0.1em;
-    z-index: 10;
-
-    font-size: 1em;
-
-    color: white;
-    background: linear-gradient(to top right, #4AC8EF, #8B54A2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.event-title > h1::after {
-    content: "\2B22";
-    color: #0D1020;
-    position: absolute;
-    left: -2.05em;
-    top: 0.18em;
-    z-index: 11;
-    font-size: 0.75em;
+    left: -1.55em;
+    top: 0.3em;
 }
 
 .event .row > div {
@@ -1132,6 +1131,72 @@ a.gradient-text.gradient-underline.border-jump {
     color: #676767;
 }
 
+.team-glyphs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 0.25s all;
+}
+
+.team-glyphs.team-glyphs-active {
+    opacity: 1;
+}
+
+div.post * {
+    color: #333;
+}
+
+.post > p.tag {
+    background-color: #333;
+    color: white;
+    display: inline-block;
+    padding: 0.125em 0.5em;
+    margin-right: 0.5em;
+
+}
+
+.post > h1 {
+    font-weight: 600;
+    font-size: 2.75em;
+    margin-top: 0;
+}
+
+.post-image > img {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+
+.post-image > .caption {
+    text-align: center;
+    font-style: italic;
+}
+
+.post-image {
+    margin: 2em 0;
+}
+
+.article-links > a > img {
+    text-align: right;
+    width: 25%;
+    filter: brightness(0);
+}
+
+.article-links > a.fb > img {
+    width: 15%;
+}
+
+.article-links > a {
+    display: block;
+    text-align: right;
+    margin: 1em 0;
+}
+
+.author {
+    margin-bottom: 2em;
+}
+
 @media (max-width: 719px) {
 
     .article-img {
@@ -1182,6 +1247,19 @@ a.gradient-text.gradient-underline.border-jump {
     #splash-nav > ul {
         width: 100%;
         text-align: center;
+    }
+
+    .article-links {
+        text-align: center;
+    }
+
+    .article-links > a > img, .article-links > a.fb > img  {
+        height: 5%;
+        text-align: center;
+    }
+
+    .article-links > a {
+        display: inline;
     }
 
 }

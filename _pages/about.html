@@ -1,103 +1,54 @@
 ---
-layout: home
+layout: main
 title: About
 permalink: /about/
+slogan: HackGT is a 501(c)(4) nonprofit and student organization consisting of Georgia Tech undergraduate students focused on being the drivers of computer science outreach in the Georgia Tech, state, and national communities. Through throwing large-scale collegiate hackathons of upwards of 1000 people to small-scale hackathons and workshops, our organization aims to spread the spirit of application, innovation, and creativity in computer science education. <br> <br> By partnering with companies and organizations large and small, we are able to cultivate environments that bring value to the lives of the communities we serve all at no cost to the participants. The motivation behind throwing free events is to allow for any person of any background to have the capacity to take full advantage of a positive experience. Our organization strives to provide a resource-rich environment that ultimately ends up in allowing a participant to learn and apply new skills, connect with other like-minded innovate individuals, and bring any of their ideas to life.
+js:
+    - poisson-disc-sampler
+    - snap-min
+    - util
+footer-js:
+    - about
 ---
-
-<body>
-    <div class="page-header">
-        <h1>About Us</h1>
+<div class="info">
+    <div id="glyphs">
+        {% assign who_list = "" %}
+        {% assign what_list = "" %}
+        {% assign first = 0 %}
+        {% for team in site.teams %}
+        {% assign team_data = team.title | downcase %}
+        {% if first != 0 %}
+            {% assign who_list = who_list | append: ',' %} 
+            {% assign what_list = what_list | append: '|' %} 
+        {% endif %}
+        {% assign who_list = who_list | append: team.who %}
+        {% assign what_list = what_list | append: team.content %}
+        <div class="team-glyphs {% if first == 0 %}team-glyphs-active{% assign first = 1 %}{% endif %}">
+                {% for member in site.data[team_data] %}
+                    <img src="/assets/members/{{ team.title | downcase }}/{{ member.name | downcase | replace: ' ', '-' }}.jpg" class="hexagon-img"/>
+                {% endfor %}
+        </div>
+        {% endfor %}
     </div>
-    <div class="container">
-    	<table style="width:100%" id="about-table">
-            {% assign num_members = -1 %}
-            {% assign per_row = 3 %}
-            {% for member in site.data.members %}
-                {% assign num_members = num_members | plus: 1 %}
-                {% assign mod = num_members | modulo:per_row %}
-                {% if mod == 0 %}
-                 <div class="row">
-                {% endif %}
-                <div class="col col-lg-4 col-md-4 col-sm-12">
-                    <center>
-                    <div class="hovereffect background-profile" style="background-image: url('/static/images/members/{{ member.name }}');">
-                        <center>
-                            <div class="crop">
-                            </div>
-                        </center>
-                        {% if member.link1 or member.link2 or member.link3 or member.link4 %}
-                        <div class="overlay">
-                            <div class="rotate">
-                                <p class="group1">
-                                    {% if member.link1 %}
-                                        <a href= {{ member.link1 }}  >
-                                            <i class="fa fa-{{ member.media1 }}"></i>
-                                        </a>
-                                    
-                                    {% else %}
-                                        <a href= "#">
-                                            <i class="fa fa-minus"></i>
-                                        </a>
-                                    {% endif %}
+    <div class="we-are">
+        <h1 class="kinda-big">We are&nbsp;</h1>
+    </div>
+    <div class="info-container">
 
-                                    {% if member.link2 %}
-                                        <a href= {{ member.link2 }}  >
-                                            <i class="fa fa-{{ member.media2 }}"></i>
-                                        </a>
-                                    
-                                    {% else %}
-                                        <a href= "#">
-                                            <i class="fa fa-minus"></i>
-                                        </a>
-                                    {% endif %}
-                                </p>
-                                    <hr>
-                                    <hr>
-                                <p class="group2">
-                                    {% if member.link3 %}
-                                        <a href= {{ member.link3 }}  >
-                                            <i class="fa fa-{{ member.media3 }}"></i>
-                                        </a>
-                                    
-                                    {% else %}
-                                        <a href= "#">
-                                            <i class="fa fa-minus"></i>
-                                        </a>
-                                    {% endif %}
+        {% assign counter = 0 %}
+        {% assign who_list_parsed = who_list | split: ',' %}
+        {% assign what_list_parsed = what_list | split: '|' %}
+        {% for who in who_list_parsed %}
+        <div class="info-chunk">
+            <h1 class="kinda-big gradient-text what-we-are">{{ who }}</h1>
+            <p>{{ what_list_parsed[counter] }}</p>
+        </div>
+        {% assign counter = counter | plus: 1 %}
+        {% endfor %}
+        <div id="transition-buttons">
 
-                                    {% if member.link4 %}
-                                        <a href= {{ member.link4 }}  >
-                                            <i class="fa fa-{{ member.media4 }}"></i>
-                                        </a>
-                                    
-                                    {% else %}
-                                        <a href= "#">
-                                            <i class="fa fa-minus"></i>
-                                        </a>
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <p class="member-description">
-                        {% if member.name %}
-                            <h1 class="member_name">{{ member.name }}</h1>
-                        {% endif %}
-                        {% if member.title %}
-                            <h3 class="member_title">{{ member.title }}</h3>
-                        {% endif %}
-                        {% if member.about %}
-                            {{ member.about }}
-                        {% endif %}
-                    </p>
-                    </center>
-                    </div>
-                {% assign compare = per_row | minus:1 %}
-                {% if mod == compare or forloop.last %}
-                </div>
-                {% endif %}
-            {% endfor %}
-		</table>
-	</div>
-=</body>
+            <!-- procedurally append divs here for each info-chunk-->
+        </div>
+    </div>
+
+</div>
