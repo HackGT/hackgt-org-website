@@ -714,6 +714,10 @@ a.gradient-text.gradient-underline.border-jump {
     color: white;
 }
 
+#contact h2 {
+    font-family: 'Barlow', sans-serif;
+}
+
 .contact-text, .contact-email {
     min-height: 28em !important; /* kind of just guessed this height ?? */
     display: flex;
