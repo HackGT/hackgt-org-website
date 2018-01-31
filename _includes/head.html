@@ -10,4 +10,9 @@
 	    {% endfor %}{% endif %}
 	    {% if page.js %}{% for script in page.js %}<script src="/js/{{ script }}.js"></script>
 		{% endfor %}{% endif %}
+
+		{% if jekyll.environment == "production" %}
+			{% include analytics.html %}
+		{% endif %}
+
 </head>
