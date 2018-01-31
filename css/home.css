@@ -465,6 +465,10 @@ footer a {
     opacity: 0;
 }
 
+.info-chunk p {
+    font-size: 1.17em;
+}
+
 .info-container {
     position: relative;
     width: 60%;
