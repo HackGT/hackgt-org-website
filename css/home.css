@@ -385,7 +385,7 @@ footer a {
 
 .about-slogan {
     color: white;
-    padding: 0 1.5em;
+    padding: 0 3em;
     margin: 0;
     font-weight: 400;
 }
@@ -945,10 +945,6 @@ a.gradient-text.gradient-underline.border-jump {
     text-align: center;
 }
 
-.exec-member p {
-    overflow-wrap: break-word;
-}
-
 .exec-member-img {
     -webkit-clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
     clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
@@ -1248,6 +1244,10 @@ div.post * {
 
     .exec-member {
         width: 25%;
+    }
+
+    .exec-member p {
+        overflow-wrap: break-word;
     }
 
     #splash-nav > h1.big {
