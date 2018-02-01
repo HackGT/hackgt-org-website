@@ -1,13 +1,15 @@
 <head>
-		<title>HackGT</title>
-		<meta charset="utf-8">
+        <title>HackGT</title>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="/css/normalize.css"/>
         <link rel="stylesheet" href="/css/simple-grid.min.css"/>
         <link rel="stylesheet" href="/css/home.css"/>
-		{% if page.css %}{% for stylesheet in page.css %}<link rel="stylesheet" href="/css/{{ stylesheet }}.css" media="screen" type="text/css">
-	    {% endfor %}{% endif %}
-	    {% if page.js %}{% for script in page.js %}<script src="/js/{{ script }}.js"></script>
-		{% endfor %}{% endif %}
+        {% if page.css %}{% for stylesheet in page.css %}<link rel="stylesheet" href="/css/{{ stylesheet }}.css" media="screen" type="text/css">
+        {% endfor %}{% endif %}
+        {% if page.js %}{% for script in page.js %}<script src="/js/{{ script }}.js"></script>
+        {% endfor %}{% endif %}
+
+        {% include analytics.html %}
 </head>
