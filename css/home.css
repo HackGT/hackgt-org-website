@@ -800,10 +800,6 @@ a.gradient-text.gradient-underline.border-jump {
         font-size: 2em;
     }
 
-    section {
-        min-height: 125%;
-    }
-
     .we-are h1, .info-chunk h1 {
         font-size: 150%;
     }
@@ -1271,6 +1267,10 @@ div.post * {
 
     .article-links > a {
         display: inline;
+    }
+
+    #slogan {
+        bottom: 5%;
     }
 
 }
