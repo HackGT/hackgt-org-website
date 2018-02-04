@@ -1131,7 +1131,7 @@ a.gradient-text.gradient-underline.border-jump {
 }
 
 #events p {
-    color: #676767;
+    font-size: 1.05em;
 }
 
 .team-glyphs {
@@ -1273,4 +1273,26 @@ div.post * {
         bottom: 5%;
     }
 
+}
+
+@media (min-width: 720px) {
+    /*event page changes for larger screens*/
+    #events h2 {
+        font-size: 1.8em;
+    }
+
+    #events p {
+        font-size: 1.15em;
+    }
+
+    #events {
+        position: relative;
+    }
+
+    #events .chevron-container {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
 }
