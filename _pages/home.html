@@ -10,7 +10,11 @@ footer-js:
 ---
             <div id="slogan">
                 <h3>Organize. Serve. <br/> Make an Impact. Repeat.</h3>
-                <h3><a class="gradient-text gradient-underline border-jump" href="{% if page.main-event %} https://{{ page.main-event }}/ {% else %} /events {%endif%}">Attend!</a></h3>
+                {% if page.main-event %} 
+                    <h3><a class="gradient-text gradient-underline border-jump" href="https://{{ page.main-event }}/">Attend!</a></h3>
+                {% else %}
+                    <h3><a class="gradient-text gradient-underline border-jump" href="/events">Learn More!</a></h3>
+                {% endif %}
                 <p><span class="chevron"></span></p>
             </div>
            {% if site.upcoming_events.size > 0 %}
