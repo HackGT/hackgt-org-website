@@ -1087,6 +1087,20 @@ a.gradient-text.gradient-underline.border-jump {
     color: #676767;
 }
 
+#events .row {
+    width: 100%;
+}
+
+.col-7.blurbs {
+    display: block;
+    max-width: 100%;
+}
+
+#events .col-7.blurbs * {
+    width: 90%;
+    padding-left: 1rem;
+}
+
 #year-selector {
     position: fixed;
     right: 5%;
