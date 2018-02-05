@@ -7,11 +7,10 @@ js:
     - snap-min
 footer-js:
     - home
-main-event: 5.hack.gt
 ---
             <div id="slogan">
                 <h3>Organize. Serve. <br/> Make an Impact. Repeat.</h3>
-                <h3><a class="gradient-text gradient-underline border-jump" href="https://{{ page.main-event }}/">Attend!</a></h3>
+                <h3><a class="gradient-text gradient-underline border-jump" href="{% if page.main-event %} https://{{ page.main-event }}/ {% else %} /events {%endif%}">Attend!</a></h3>
                 <p><span class="chevron"></span></p>
             </div>
            {% if site.upcoming_events.size > 0 %}
@@ -43,7 +42,7 @@ main-event: 5.hack.gt
             {% for blurb in site.frontpage_blurbs %}
             <div class="article row">
                 <div class="col-7 article-img">
-                    <img src="/assets/frontpage/{{ blurb.linkto}}.jpg"/>
+                    <img src="/assets/frontpage/{{ blurb.image}}.jpg"/>
                 </div>
 
                 <div class="col-5 full-col">

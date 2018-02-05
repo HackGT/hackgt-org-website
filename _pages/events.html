@@ -2,7 +2,7 @@
 layout: main
 title: Events
 permalink: /events/
-theme: light
+theme: dark
 id: events
 js:
     - animatedScrollTo
@@ -77,9 +77,9 @@ footer-js:
                 {% assign csv_name = current_year | append: '-exec' %}
                 {% if site.data[csv_name] %}
                     <h3 class="board">Exec board</h3>
-                    <div class="row">
+                    <div class="row exec-row">
                     {% for exec in site.data[csv_name] %}
-                        <div class="col-2 exec-member">
+                        <div class="exec-member">
                             <img class="exec-member-img" src="{{ exec.image }}"/>
                             <p>{{ exec.name}} <br/> {{ exec.title }}</p>
                         </div>

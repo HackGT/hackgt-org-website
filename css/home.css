@@ -236,7 +236,7 @@ h2 {
 }
 
 .article {
-    margin: 1em auto;
+    margin: 3em auto;
 }
 
 .article:nth-child(odd) > .article-img {
@@ -385,7 +385,7 @@ footer a {
 
 .about-slogan {
     color: white;
-    padding: 0 1.5em;
+    padding: 0 3em;
     margin: 0;
     font-weight: 400;
 }
@@ -463,6 +463,10 @@ footer a {
     top: -0.5em;
     transition: 0.5s all;
     opacity: 0;
+}
+
+.info-chunk p {
+    font-size: 1.17em;
 }
 
 .info-container {
@@ -714,6 +718,10 @@ a.gradient-text.gradient-underline.border-jump {
     color: white;
 }
 
+#contact h2 {
+    font-family: 'Barlow', sans-serif;
+}
+
 .contact-text, .contact-email {
     min-height: 28em !important; /* kind of just guessed this height ?? */
     display: flex;
@@ -777,7 +785,6 @@ a.gradient-text.gradient-underline.border-jump {
         width: 100%;
         text-align: center;
     }
-
 }
 
 @media (max-width:480px) {
@@ -787,13 +794,13 @@ a.gradient-text.gradient-underline.border-jump {
         font-size: 125%;
     }
 
+    #splash-nav > ul {
+        font-size: 0.75em;
+    }
+
     .featured-post .title {
         /* smaller font so it's easier to fit the whole title on a phone */
         font-size: 2em;
-    }
-
-    section {
-        min-height: 125%;
     }
 
     .we-are h1, .info-chunk h1 {
@@ -935,14 +942,24 @@ a.gradient-text.gradient-underline.border-jump {
 .exec-member {
     /*line-height: 0.5em;*/
     text-align: center;
+    /*flex: 1 0 0;*/
+    flex: 1;
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 1em;
 }
 
+.exec-row {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+}
 
 .exec-member-img {
     -webkit-clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
     clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
 
-    width: 100%;
+    /*width: 100%;*/
     background-size: cover;
 }
 
@@ -1081,6 +1098,20 @@ a.gradient-text.gradient-underline.border-jump {
     color: #676767;
 }
 
+#events .row {
+    width: 100%;
+}
+
+.col-7.blurbs {
+    display: block;
+    max-width: 100%;
+}
+
+#events .col-7.blurbs * {
+    width: 90%;
+    padding-left: 1rem;
+}
+
 #year-selector {
     position: fixed;
     right: 5%;
@@ -1128,7 +1159,7 @@ a.gradient-text.gradient-underline.border-jump {
 }
 
 #events p {
-    color: #676767;
+    font-size: 1.05em;
 }
 
 .team-glyphs {
@@ -1235,13 +1266,30 @@ div.post * {
         text-align: left;
     }
 
-    .exec-member {
+    /*.exec-member {
         width: 25%;
+    }*/
+
+    .exec-row * {
+        font-size: 0.9em;
+    }
+
+    .exec-member p {
+        overflow-wrap: break-word;
     }
 
     #splash-nav > h1.big {
         text-align: center;
         float: none;
+        font-size: 1.5em;
+    }
+
+    #splash-nav > h1.big > a {
+        position: relative;
+    }
+
+    #splash-nav > h1.big > a::after {
+        height: 2px;
     }
 
     #splash-nav > ul {
@@ -1262,4 +1310,30 @@ div.post * {
         display: inline;
     }
 
+    #slogan {
+        bottom: 5%;
+    }
+
+}
+
+@media (min-width: 720px) {
+    /*event page changes for larger screens*/
+    #events h2 {
+        font-size: 1.8em;
+    }
+
+    #events p {
+        font-size: 1.15em;
+    }
+
+    #events {
+        position: relative;
+    }
+
+    #events .chevron-container {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
 }

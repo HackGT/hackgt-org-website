@@ -1,7 +1,8 @@
 ---
 title: HackGT is about
 kahuna: " Community"
-linkto: team
+image: team
+linkto: events
 linkmessage: Learn more about our events
 ---
 

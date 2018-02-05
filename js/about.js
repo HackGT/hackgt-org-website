@@ -44,6 +44,9 @@ var widthOffsetRatio = 0.4;
 var distanceFactor = 1.05;
 
 updateHexagonContainerHeight();
+resizeInfoChunks();
+
+window.onresize = resizeInfoChunks;
 
 function updateHexagonContainerHeight() {
     height = footer.offsetTop - hexagonContainer.offsetTop;
@@ -331,4 +334,16 @@ function shuffle(a) {
         a[i] = a[j];
         a[j] = x;
     }
+}
+
+function resizeInfoChunks() {
+    var infoChunks = [].slice.call(document.getElementsByClassName('info-chunk'));
+
+    var maxHeight = 0;
+
+    infoChunks.forEach(function(e){
+        maxHeight = Math.max(maxHeight, e.offsetHeight);
+    });
+
+    infoChunks[0].parentElement.style.minHeight = maxHeight + "px";
 }
