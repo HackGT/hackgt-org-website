@@ -1281,6 +1281,15 @@ div.post * {
     #splash-nav > h1.big {
         text-align: center;
         float: none;
+        font-size: 1.5em;
+    }
+
+    #splash-nav > h1.big > a {
+        position: relative;
+    }
+
+    #splash-nav > h1.big > a::after {
+        height: 2px;
     }
 
     #splash-nav > ul {
