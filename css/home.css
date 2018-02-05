@@ -785,7 +785,6 @@ a.gradient-text.gradient-underline.border-jump {
         width: 100%;
         text-align: center;
     }
-
 }
 
 @media (max-width:480px) {
@@ -793,6 +792,10 @@ a.gradient-text.gradient-underline.border-jump {
     body {
         /* make font readable */
         font-size: 125%;
+    }
+
+    #splash-nav > ul {
+        font-size: 0.75em;
     }
 
     .featured-post .title {
