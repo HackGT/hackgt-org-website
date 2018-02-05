@@ -942,13 +942,24 @@ a.gradient-text.gradient-underline.border-jump {
 .exec-member {
     /*line-height: 0.5em;*/
     text-align: center;
+    /*flex: 1 0 0;*/
+    flex: 1;
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 1em;
+}
+
+.exec-row {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
 }
 
 .exec-member-img {
     -webkit-clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
     clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
 
-    width: 100%;
+    /*width: 100%;*/
     background-size: cover;
 }
 
@@ -1255,8 +1266,12 @@ div.post * {
         text-align: left;
     }
 
-    .exec-member {
+    /*.exec-member {
         width: 25%;
+    }*/
+
+    .exec-row * {
+        font-size: 0.9em;
     }
 
     .exec-member p {
