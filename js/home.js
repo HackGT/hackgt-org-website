@@ -54,6 +54,9 @@ var logoShadow = s.filter(Snap.filter.shadow(0,0,16,logoColor,0.9));
 var useFilters = false;
 
 init();
+setTimeout(() => {
+    onResize();
+}, 100);
 
 window.onwheel = onWheel;
 var parentContainer = document.body;
@@ -71,7 +74,7 @@ function computeOvalPosition(a, b, t, rotation) {
     return {
         x: a * x * cosRotation - b * y * sinRotation,
         y: a * x * sinRotation - b * y * cosRotation
-    }
+    };
 
 }
 
@@ -197,7 +200,6 @@ function init() {
 
     clearInterval(animationInterval);
     animationInterval = setInterval(animateValence, intervalSpeed);
-    
 }
 
 function centerLogo() {
