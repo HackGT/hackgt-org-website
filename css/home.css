@@ -36,10 +36,11 @@ section {
 
 #canvas {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: absolute;
     left: 0;
     top: 0;
+    right: 0;
     z-index: -1;
     background-color: #212121;
 }
@@ -410,9 +411,15 @@ footer a {
 }
 
 .heart {
-    text-align: right;
+    text-align: center;
+    display: inline-grid;
     padding-right: 1em;
     margin: 0;
+}
+
+.blink-heart {
+    font-family: monospace;
+    font-size: 1.1em;
 }
 
 .blink-heart::before {
