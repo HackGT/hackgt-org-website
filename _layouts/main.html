@@ -1,7 +1,7 @@
 <html lang="en">
 	{% include head.html %}
 	<body>
-	 <section  {% if page.theme %}class="{{ page.theme }}"{% endif %} {% if page.id %}id="{{ page.id }}"{% endif %}>
+	 <section class="{% if page.theme %}{{ page.theme }}{% endif %} {% if page.id %}section-{{ page.id }}{% endif %}" {% if page.id %}id="{{ page.id }}"{% endif %}>
 	  	{% include header.html %}
 		{% if page.slogan %}<h3 class="about-slogan">{{ page.slogan }}</h3>{% endif %}
 	  	{{content}}

@@ -7,21 +7,27 @@ body {
     /*font-family: 'Roboto Condensed', sans-serif;*/
     font-family: 'Barlow', sans-serif;
     color: #333;
-    background-color: #0C0D18;
+    /* background-color: #0C0D18; */
+    background-color: #212121;
     height: 100%;
     width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 section {
-    min-height: 100%;
+    max-width: 800px;
     background-color: white;
     position: relative;
     padding: 1em;
 }
 
-section:first-of-type {
+/* section:first-of-type { */
+section {
     background: none;
-    padding: 0;
+    /* padding: 0; */
 }
 
 #canvas {
@@ -31,15 +37,19 @@ section:first-of-type {
     left: 0;
     top: 0;
     z-index: -1;
-    background-color: #0D1020;
+    background-color: #212121;
+}
+
+.slogan-container {
+    height: calc(100vh - 138px);
+    text-align: center;
+    color: white;
 }
 
 #slogan {
     position: absolute;
     left: 50%;
     bottom: 7.5%;
-    text-align: center;
-    color: white;
 }
 
 #slogan > * {
@@ -52,10 +62,28 @@ section:first-of-type {
 
 #slogan > h3 {
     font-weight: 300;
+    font-size: 1.5rem;
+}
+
+p {
+    text-align: justify;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.about-slogan {
+    text-align: justify;
 }
 
 footer {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    max-width: 800px;
 }
 
 footer::before {
@@ -79,17 +107,30 @@ footer {
     -webkit-box-sizing: border-box;
 }*/
 
+.splash-container {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 #splash-nav {
+    max-width: 800px;
     width: 100%;
     color: white;
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 #splash-nav > h1 {
     float: left;
     position: relative;
-    margin: 0.5em;
     font-weight: 400;
+    align-self: flex-start;
+    overflow: hidden;
+    padding-bottom: 0.1rem;
 }
 
 #splash-nav > h1 > a {
@@ -97,17 +138,19 @@ footer {
     text-decoration: none;
 }
 
-#splash-nav > h1 > a::after {
-    height: 4px;
+#splash-nav > h1 > a:hover::after {
+    margin-left: 0.07em;
+    width: 97%;
 }
 
 #splash-nav > ul {
-    /*display: flex;*/
+    /* display: flex; */
     /*flex-direction: row;*/
-    justify-content: space-evenly;
+    /* justify-content: space-between; */
     /* TODO: add a breakpoint where we just display as column;*/
     /*flex-wrap: wrap;*/
-    float: right;
+    /* float: right; */
+    margin: 0;
 }
 
 /*breakpoint at w=633*/
@@ -115,27 +158,28 @@ footer {
 #splash-nav > ul > li {
     display: inline-block;
     text-align: center;
-    padding: 1em 0;
-    margin: 0 1em;
+    /* padding: 1em 0; */
+    padding-bottom: 7px;
+    margin-left: 1em;
     position: relative;
     overflow: hidden;
 }
 
-#splash-nav > ul > li:last-of-type {
-    margin-right: 2em;
-}
+/* #splash-nav > ul > li:last-of-type { */
+/*     margin-right: 2em; */
+/* } */
 
 #splash-nav > ul > li > a {
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.3rem;
     color: #bbb;
     position: relative;
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li > a::after {
+#splash-nav > h1 > a::after, #splash-nav > ul > li > a::after {
     background: linear-gradient(to right, #4AC8EF, #8B54A2);
-    height: 2px;
+    height: 4px;
     position: absolute;
     bottom: -4px;
     left: -100%;
@@ -144,12 +188,12 @@ footer {
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li > a:hover {
+#splash-nav > h1 > a:hover, #splash-nav > ul > li > a:hover {
     color: white;
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li > a:hover::after {
+#splash-nav > h1 > a:hover:after, #splash-nav > ul > li > a:hover::after {
     transition: 0.3s all;
     left: 0%;
 
@@ -175,6 +219,14 @@ footer {
     background-size: 98% 95%;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.gradient-underline {
+    text-decoration: none;
+}
+
+a.gradient-underline {
+    padding: 0.1rem;
 }
 
 .gradient-underline::after {
@@ -255,7 +307,6 @@ h2 {
 
 .article-img > img {
     width: 100%;
-    box-shadow: 4px 4px 16px 1px #aaa;
 }
 
 .article h1 {
@@ -266,6 +317,12 @@ h2 {
     background: linear-gradient(to right, #4AC8EF, #8B54A2);
     color: white;
     padding: 0.2em 0.4em;
+}
+
+.section-home {
+    max-width: none;
+    width: 100%;
+    padding: 0;
 }
 
 #new-events {
@@ -336,11 +393,11 @@ h2 {
 }
 
 footer {
-    background-color: #0D1020;
+    background-color: #151515;
     width: 100%;
-    min-height: 8em;
+    /* min-height: 8em; */
     color: #fefefe;
-    padding-bottom: 0.5em;
+    padding-bottom: 2rem;
 }
 
 .flex-row {
@@ -385,13 +442,14 @@ footer a {
 
 .about-slogan {
     color: white;
-    padding: 0 3em;
     margin: 0;
     font-weight: 400;
+    font-size: 1.5em;
 }
 
 .big {
     font-size: 3em;
+    margin: 0;
 }
 
 .kinda-big {
@@ -426,10 +484,10 @@ footer a {
 }
 
 .info {
-    width: 80%;
+    /* width: 80%; */
     min-height: 50%;
     margin: 0 auto;
-    margin-top: 2em;
+    margin-top: 6em;
 }
 
 .info h1 {
@@ -447,9 +505,12 @@ footer a {
 }
 
 .we-are {
-    text-align: right;
     width: 40%;
     float: left;
+}
+
+.we-are > h1 {
+    text-align: right;
 }
 
 .what-we-are {
@@ -508,7 +569,7 @@ section.light * {
 }
 
 section.dark {
-    background-color: #0C0D18;
+    background-color: #212121;
 }
 
 section.dark * {
@@ -527,7 +588,7 @@ section.dark * {
 #code .about-slogan {
     font-weight: 400;
     padding-bottom: 2em;
-    max-width: 40%;
+    /* max-width: 40%; */
 }
 
 .code-project h1 {
@@ -546,7 +607,7 @@ section.dark * {
 
 .code-project > img {
     width: 100%;
-    box-shadow: 4px 4px 16px 1px #aaa;
+    /* box-shadow: 4px 4px 16px 1px #aaa; */
 }
 
 .row > .code-project {
@@ -566,8 +627,9 @@ section.dark * {
 }
 
 .bar > a {
-    background-color: white;
+    background-color: #212121;
     padding-left: 0.5em;
+    /* text-decoration: none; */
 
     /*
         this is hacky af, forgive me, but z-index wasn't working with ::after's and shit
@@ -591,7 +653,7 @@ section.dark * {
 }
 
 .code-projects {
-    margin: 0 2em;
+    /* margin: 0 2em; */
 }
 
 a.gradient-text.gradient-underline.border-jump {
@@ -714,7 +776,7 @@ a.gradient-text.gradient-underline.border-jump {
 
 /* contact page css */
 #contact {
-    margin: 0 2em;
+    /* margin: 0 2em; */
     color: white;
 }
 
@@ -782,7 +844,7 @@ a.gradient-text.gradient-underline.border-jump {
     /* manually found this breakpoint by trial/error */
     /* make navbar look good and not overflowy */
     #splash-nav > ul {
-        width: 100%;
+        /* width: 100%; */
         text-align: center;
     }
 }
@@ -913,6 +975,14 @@ a.gradient-text.gradient-underline.border-jump {
 
 .year-info, .current-year {
     position: relative;
+}
+
+.exec-member p {
+    text-align: center;
+}
+
+.event-info p {
+    text-align: left;
 }
 
 .year-info h1.gradient-text {
@@ -1293,7 +1363,7 @@ div.post * {
     }
 
     #splash-nav > ul {
-        width: 100%;
+        /* width: 100%; */
         text-align: center;
     }
 
@@ -1316,6 +1386,13 @@ div.post * {
 
 }
 
+@media (max-width: 800px) {
+    section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
 @media (min-width: 720px) {
     /*event page changes for larger screens*/
     #events h2 {
@@ -1331,9 +1408,6 @@ div.post * {
     }
 
     #events .chevron-container {
-        position: absolute;
-        left: 0;
-        bottom: 0;
         width: 100%;
     }
 }
