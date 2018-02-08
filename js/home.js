@@ -108,7 +108,7 @@ function animateValence() {
 }
 
 function updateScrollAmount() {
-    scrollAmount = Math.max(parentContainer.scrollTop / parentContainer.clientHeight, 0);
+    // scrollAmount = Math.max(parentContainer.scrollTop / parentContainer.clientHeight, 0);
 }
 
 function onResize(e) {

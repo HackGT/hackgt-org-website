@@ -12,7 +12,7 @@ footer-js:
 
            <div>
                 <div class="row">
-                    <div class="col-7 blurbs">
+                    <div class="blurbs">
                         {% for blurb in site.event_blurbs %}
                         <h2>{{blurb.title}}</h2>
                         {{blurb.content}}
@@ -72,7 +72,7 @@ footer-js:
                 <div class="col-3 current-year">
                     <h2 class="gradient-underline" id="{{ current_year }}"></h2>
                 </div>
-                <div class="col-8 year-info">
+                <div class="col-9 year-info">
                     <h1 class="gradient-text">Year In Review</h1>
                 {% assign csv_name = current_year | append: '-exec' %}
                 {% if site.data[csv_name] %}
