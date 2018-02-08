@@ -45,7 +45,7 @@ footer-js:
 
             <svg id="canvas" width="100%" height="100%"></svg>
         </section>
-       <section id="about" class="dark">
+       <section id="about" class="dark container">
             {% for blurb in site.frontpage_blurbs %}
             <div class="article row">
                 <div class="col-7 article-img">
@@ -55,7 +55,9 @@ footer-js:
                 <div class="full-col">
                     <h1>{{ blurb.title }}<span class="gradient-text">{{ blurb.kahuna }}</span></h1>
                     {{ blurb.content }}
-                    <h3><a class="gradient-text gradient-underline" href="/{{ blurb.linkto }}">{{ blurb.linkmessage }}</a></h3>
+                    <p>
+                        <a class="gradient-text gradient-underline" href="/{{ blurb.linkto }}">{{ blurb.linkmessage }}</a>
+                    </p>
                 </div>
             </div>
             {% endfor %}

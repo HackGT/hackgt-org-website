@@ -4,10 +4,8 @@
 
 body {
     margin: 0;
-    /*font-family: 'Roboto Condensed', sans-serif;*/
     font-family: 'Barlow', sans-serif;
     color: #333;
-    /* background-color: #0C0D18; */
     background-color: #212121;
     height: 100%;
     width: 100%;
@@ -18,16 +16,18 @@ body {
 }
 
 section {
-    max-width: 800px;
     background-color: white;
     position: relative;
-    padding: 1em;
+    padding: 1em 0px;
 }
 
-/* section:first-of-type { */
+.no-left-right-space {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 section {
     background: none;
-    /* padding: 0; */
 }
 
 #canvas {
@@ -66,7 +66,6 @@ section {
 }
 
 p {
-    text-align: justify;
     font-size: 1.2rem;
     line-height: 1.5;
 }
@@ -77,13 +76,15 @@ p {
 
 footer {
     position: relative;
+}
+
+footer > .container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .footer-content {
-    max-width: 800px;
 }
 
 footer::before {
@@ -95,28 +96,22 @@ footer::before {
     height: 4px;
     background: linear-gradient(to right, #4AC8EF, #8B54A2);
 }
-/*
-footer {
-    border-image: linear-gradient(to right, #4AC8EF, #8B54A2);
-    border-top: 4px solid transparent;
-    border-image-slice: 1;
-    box-sizing: border-box;
-    -webkit-border-image: -webkit-linear-gradient(to right, #4AC8EF, #8B54A2);
-    -webkit-border-top: 4px solid transparent;
-    -webkit-border-image-slice: 1;
-    -webkit-box-sizing: border-box;
-}*/
+
+#home .splash-container {
+    max-width: 90%;
+}
 
 .splash-container {
     margin-top: 2rem;
     margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
 #splash-nav {
-    max-width: 800px;
     width: 100%;
     color: white;
     display: flex;
@@ -129,7 +124,6 @@ footer {
     position: relative;
     font-weight: 400;
     align-self: flex-start;
-    overflow: hidden;
     padding-bottom: 0.1rem;
 }
 
@@ -139,35 +133,38 @@ footer {
 }
 
 #splash-nav > h1 > a:hover::after {
+    opacity: 1;
+    transition: 0.5s all;
+}
+
+#splash-nav > h1 > a::after {
     margin-left: 0.07em;
     width: 97%;
+    background: linear-gradient(to right, #4AC8EF, #8B54A2);
+    height: 4px;
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    content: "";
+    bottom: 0px;
+    opacity: 0;
+    transition: 0.5s all;
 }
 
 #splash-nav > ul {
-    /* display: flex; */
-    /*flex-direction: row;*/
-    /* justify-content: space-between; */
     /* TODO: add a breakpoint where we just display as column;*/
-    /*flex-wrap: wrap;*/
-    /* float: right; */
     margin: 0;
+    padding: 0;
 }
-
-/*breakpoint at w=633*/
 
 #splash-nav > ul > li {
     display: inline-block;
     text-align: center;
-    /* padding: 1em 0; */
     padding-bottom: 7px;
     margin-left: 1em;
     position: relative;
     overflow: hidden;
 }
-
-/* #splash-nav > ul > li:last-of-type { */
-/*     margin-right: 2em; */
-/* } */
 
 #splash-nav > ul > li > a {
     text-decoration: none;
@@ -177,23 +174,23 @@ footer {
     transition: 0.5s all;
 }
 
-#splash-nav > h1 > a::after, #splash-nav > ul > li > a::after {
+#splash-nav > ul > li > a::after {
     background: linear-gradient(to right, #4AC8EF, #8B54A2);
     height: 4px;
     position: absolute;
-    bottom: -4px;
     left: -100%;
     width: 100%;
+    bottom: -4px;
     content: "";
     transition: 0.5s all;
 }
 
-#splash-nav > h1 > a:hover, #splash-nav > ul > li > a:hover {
+#splash-nav > ul > li > a:hover {
     color: white;
     transition: 0.5s all;
 }
 
-#splash-nav > h1 > a:hover:after, #splash-nav > ul > li > a:hover::after {
+#splash-nav > ul > li > a:hover::after {
     transition: 0.3s all;
     left: 0%;
 
@@ -293,12 +290,12 @@ h2 {
 
 .article:nth-child(odd) > .article-img {
     float: left;
-    margin-left: -1em;
+    margin-left: 0;
 }
 
 .article:nth-child(even) > .article-img {
     float: right;
-    margin-right: -1em;
+    margin-right: 0;
 }
 
 .article-img {
@@ -395,7 +392,6 @@ h2 {
 footer {
     background-color: #151515;
     width: 100%;
-    /* min-height: 8em; */
     color: #fefefe;
     padding-bottom: 2rem;
 }
@@ -458,7 +454,6 @@ footer a {
 
 #transition-buttons {
     width: 100%;
-    /*text-align: center;*/
     text-align: left;
     display: inline-block;
     z-index: 100;
@@ -484,7 +479,6 @@ footer a {
 }
 
 .info {
-    /* width: 80%; */
     min-height: 50%;
     margin: 0 auto;
     margin-top: 6em;
@@ -588,7 +582,6 @@ section.dark * {
 #code .about-slogan {
     font-weight: 400;
     padding-bottom: 2em;
-    /* max-width: 40%; */
 }
 
 .code-project h1 {
@@ -607,7 +600,6 @@ section.dark * {
 
 .code-project > img {
     width: 100%;
-    /* box-shadow: 4px 4px 16px 1px #aaa; */
 }
 
 .row > .code-project {
@@ -629,7 +621,6 @@ section.dark * {
 .bar > a {
     background-color: #212121;
     padding-left: 0.5em;
-    /* text-decoration: none; */
 
     /*
         this is hacky af, forgive me, but z-index wasn't working with ::after's and shit
@@ -649,11 +640,6 @@ section.dark * {
     left: 0px;
     top: -0.2em;
     content: '';
-    /*display: inline-block;*/
-}
-
-.code-projects {
-    /* margin: 0 2em; */
 }
 
 a.gradient-text.gradient-underline.border-jump {
@@ -776,7 +762,6 @@ a.gradient-text.gradient-underline.border-jump {
 
 /* contact page css */
 #contact {
-    /* margin: 0 2em; */
     color: white;
 }
 
@@ -844,7 +829,6 @@ a.gradient-text.gradient-underline.border-jump {
     /* manually found this breakpoint by trial/error */
     /* make navbar look good and not overflowy */
     #splash-nav > ul {
-        /* width: 100%; */
         text-align: center;
     }
 }
@@ -1010,9 +994,7 @@ a.gradient-text.gradient-underline.border-jump {
 }
 
 .exec-member {
-    /*line-height: 0.5em;*/
     text-align: center;
-    /*flex: 1 0 0;*/
     flex: 1;
     flex-grow: 1;
     flex-basis: 0;
@@ -1029,7 +1011,6 @@ a.gradient-text.gradient-underline.border-jump {
     -webkit-clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
     clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
 
-    /*width: 100%;*/
     background-size: cover;
 }
 
@@ -1330,15 +1311,11 @@ div.post * {
         font-weight: 400;
         /* so the left float for gradient fix doesn't muck up the h2 positioning*/
         clear: both;
-        
+
         position: static;
         width: auto;
         text-align: left;
     }
-
-    /*.exec-member {
-        width: 25%;
-    }*/
 
     .exec-row * {
         font-size: 0.9em;
@@ -1363,7 +1340,6 @@ div.post * {
     }
 
     #splash-nav > ul {
-        /* width: 100%; */
         text-align: center;
     }
 
@@ -1384,13 +1360,6 @@ div.post * {
         bottom: 5%;
     }
 
-}
-
-@media (max-width: 800px) {
-    section {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
 }
 
 @media (min-width: 720px) {

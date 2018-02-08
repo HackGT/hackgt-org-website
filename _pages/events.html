@@ -10,12 +10,26 @@ footer-js:
     - events
 ---
 
-           <div>
+            <div id="year-selector">
+                <ul>
+                    {% assign sorted_events = (site.events | sort: 'event_date') %}
+                    {% for event in sorted_events reversed %}
+                    {% assign year_int = event.event_date | date: '%Y' | plus: 0 %}
+                     {% if year_int != current_year_selector %}
+                        <li {% unless current_year_selector %}class="active"{% endunless %}><a href="#{{ year_int }}">{{ year_int }}</a></li>
+                       {% assign current_year_selector = year_int %}
+                      {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+
                 <div class="row">
-                    <div class="blurbs">
+                    <div class="col-12 blurbs">
                         {% for blurb in site.event_blurbs %}
                         <h2>{{blurb.title}}</h2>
+                        <p>
                         {{blurb.content}}
+                        </p>
                         {% endfor %}
                     </div>
 
@@ -39,25 +53,11 @@ footer-js:
                     {% endif %}
                 </div>
 
-            </div>
-
             <p class="chevron-container"><span class="chevron"></span></p>
 
         </section>
 
-        <section class="dark">
-            <div id="year-selector">
-                <ul>
-                    {% assign sorted_events = (site.events | sort: 'event_date') %}
-                    {% for event in sorted_events reversed %}
-                    {% assign year_int = event.event_date | date: '%Y' | plus: 0 %}
-                     {% if year_int != current_year_selector %}
-                        <li {% unless current_year_selector %}class="active"{% endunless %}><a href="#{{ year_int }}">{{ year_int }}</a></li>
-                       {% assign current_year_selector = year_int %}
-                      {% endif %}
-                    {% endfor %}
-                </ul>
-            </div>
+        <section class="dark container">
         {% assign sorted_events = (site.events | sort: 'event_date') %}
         {% for event in sorted_events reversed %}
         {% assign year_int = event.event_date | date: '%Y' | plus: 0 %}
@@ -94,7 +94,7 @@ footer-js:
 
          {% endif %}
                        <div class="event">
-                            
+
                             <div class="row">
                                 <div class="col-12 event-title">
                                     <h1>{{ event.title }}</h1>
