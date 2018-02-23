@@ -24,7 +24,7 @@ footer-js:
             </div>
 
                 <div class="row">
-                    <div class="col-12 blurbs">
+                    <div class="col-7 blurbs">
                         {% for blurb in site.event_blurbs %}
                         <h2>{{blurb.title}}</h2>
                         <p>
@@ -42,7 +42,7 @@ footer-js:
 
                                 <div class="upcoming-event" event-date="{{ event.event_date | date: '%B %d' }}">
                                 <!-- we have to make another div instead of simply an image/a tag here because img's don't work with after tags bc w3 is trash -->
-                                    <a href="{{ event.website }}">
+                                    <a href="{% if event.website %}{{ event.website }}{% else %}#{% endif %}">
                                         <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>
                                     </a>
                                 </div>
