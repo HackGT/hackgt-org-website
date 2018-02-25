@@ -1226,7 +1226,7 @@ a.gradient-text.gradient-underline.border-jump {
 }
 
 div.post * {
-    color: #333;
+    color: white;
 }
 
 .post > p.tag {
@@ -1262,7 +1262,6 @@ div.post * {
 .article-links > a > img {
     text-align: right;
     width: 25%;
-    filter: brightness(0);
 }
 
 .article-links > a.fb > img {

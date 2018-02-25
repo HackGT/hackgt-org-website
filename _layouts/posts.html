@@ -2,15 +2,17 @@
 layout: main
 ---
 
-<div class="blog-page">
-<center>
-        <h1>{{ page.title }}</h1>
-        <h3>{{ page.date | date_to_string }}</h3>
-</center>
-<div class="container">
+            <div class="row">
+                <div class="col-2 article-links">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://hack.gt/{{ page.url }}" class="fb"><img src="/assets/icons/Facebook.svg"/></a>
+                    <a href="https://twitter.com/intent/tweet?url=https://hack.gt/{{ page.url }}"><img src="/assets/icons/Twitter.svg"/></a>
+                    <a href="https://www.linkedin.com/cws/share?url=https://hack.gt/{{ page.url }}"><img src="/assets/icons/LinkedIn.svg"/></a>
+                </div>
 
-	<div style="margin-left:15%">
-        {{ content }}
-    </div>
-</div>]
-</div>
+                <div class="col-8 post">
+                    <h1>{{ page.title }}</h1>
+                    <p class="author">{{ page.author }} / {{ page.date | date: '%B %d, %Y' }}</p>
+
+                    {{ page.content }}
+                </div>
+            </div>
