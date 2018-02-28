@@ -40,12 +40,9 @@ footer-js:
                             <div class="upcoming-events">
                                 {% for event in sorted_upcoming limit:2 %}
 
-                                <div class="upcoming-event" event-date="{{ event.event_date | date: '%B %d' }}">
-                                <!-- we have to make another div instead of simply an image/a tag here because img's don't work with after tags bc w3 is trash -->
-                                    <a href="{% if event.website %}{{ event.website }}{% else %}#{% endif %}">
-                                        <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>
-                                    </a>
-                                </div>
+                                <a href="{% if event.website %}  https://{{ event.website }}{% else %}#{% endif %}">
+                                    <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>
+                                </a>
                                 {% endfor %}
                             </div>
 
