@@ -337,17 +337,17 @@ h2 {
     transform: scale(1.1) rotate(2deg);
 }
 
-#new-events .col-10 {
+#new-events .col-12 {
     float: right;
 }
 
-#new-events .col-10 > a {
+#new-events .col-12 > a {
     display: block;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
 }
 
 #new-events .gradient-box {
-    margin-bottom: 0;
+    margin-bottom: 0.5em;
 }
 
 #recent-posts {
@@ -918,43 +918,23 @@ a.gradient-text.gradient-underline.border-jump {
     text-align: center;
 }
 
-.upcoming-event > a > img {
-    max-width: 50%;
-    z-index: 5;
-    position: relative;
+.upcoming-events > a > img {
+    max-width: 100%;
     box-shadow: 8px 8px 32px 1px #666;
+    margin-bottom: 1.5em;
 }
 
-.upcoming-event {
+.upcoming-events a, .upcoming-events img {
     position: relative;
-    margin-bottom: 1em;
+    transition: 0.3s all;
 }
 
-.upcoming-event::before {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 600;
-    content: "\00a0\00a0" attr(event-date);
-    text-transform: uppercase;
-    text-align: left;
-    white-space: pre;
-    color: white;
-    position: absolute;
-    width: 25%;
-    height: 4em;
-    line-height: 4em;
-    /*
-    ^ the hacky way we have to vertically center the text, because vertical-align doesn't do the trick
-    */
-    left: 0;
-    top: 50%;
-    transform: translate(0, -50%);
-    background: linear-gradient(to left, #4AC8EF, #8B54A2);
-    z-index: 0;
-    transition: 0.5s;
+.upcoming-events a {
+    display: block;
 }
 
-.upcoming-event:hover::before {
-    width: 100%;
+.upcoming-events a:hover {
+    transform: scale(1.1) rotate(2deg);
 }
 
 .year-info, .current-year {
