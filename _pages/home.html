@@ -25,7 +25,7 @@ footer-js:
                     <h3 class="gradient-box">Upcoming Events</h3>
                     <div class="row">
                         <div class="col-12">
-                            {% assign sorted_upcoming = (site.upcoming_events | sort: 'event_date' | reverse) %}
+                            {% assign sorted_upcoming = (site.upcoming_events | sort: 'event_date') %}
                             {% for event in sorted_upcoming %}
                             <a href="{% if event.website %} https://{{event.website}} {% else %} # {% endif %}">
                                 <img src="/assets/events/{{ event.title | downcase | replace: ' ', '-' }}.png"/>

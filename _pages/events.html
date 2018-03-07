@@ -34,7 +34,7 @@ footer-js:
                     </div>
 
                     {% if site.upcoming_events.size > 0 %}
-                        {% assign sorted_upcoming = (site.upcoming_events | sort: 'event_date' | reverse) %}
+                        {% assign sorted_upcoming = (site.upcoming_events | sort: 'event_date') %}
                         <div class="col-5 events-preview">
                             <h2 class="gradient-underline">Upcoming Events</h2>
                             <div class="upcoming-events">
