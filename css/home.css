@@ -718,7 +718,7 @@ a.gradient-text.gradient-underline.border-jump {
     border-image-slice: 1;
 }
 
-.blog-post > img {
+.blog-post > a > img {
     width: 100%;
 }
 
