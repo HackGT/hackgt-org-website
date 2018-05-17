@@ -1327,7 +1327,7 @@ div.post * {
     }
 
     .article-links > a > img, .article-links > a.fb > img  {
-        height: 5%;
+        height: 2em;
         text-align: center;
     }
 
