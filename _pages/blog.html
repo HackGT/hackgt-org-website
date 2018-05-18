@@ -8,7 +8,7 @@ js:
 ---
 <div id="blog">
 
-<!--     <div class="row">
+    <!-- <div class="row">
     	{% for featured_post in site.posts limit: 2 %}
         <a href="{{ featured_post.url }}">
             <div class="col-6 featured-post">
@@ -18,10 +18,10 @@ js:
             </div>
         </a>
         {% endfor %}
-    </div> -->
+    </div>
     <div class="row">
 
-<!--         <div class="col-4">
+        <div class="col-4">
             <h2 id="blog-topics">Explore some HackGTopics</h2>
         </div>
 
@@ -35,24 +35,24 @@ js:
 
         <div class="col-2 topic">
             <h2><a href="#">Operations</a></h2>
-        </div> -->
+        </div>
 
-    </div>
+    </div> -->
         {% assign size = site.posts | size %}
-        {% assign columns = 2 %}
+        {% assign columns = 1 %}
         <div class="row">
             {% for column_counter in (0..columns) %}
             <div class="col-6">
             {% assign counter = 0 %}
             {% for post in site.posts %}
-            {% assign mod = counter | modulo: 3 %}
+            {% assign mod = counter | modulo: 2 %}
             {% if mod == column_counter %}
                 <div class="blog-post">
                     <a href="{{ post.url }}"><img src="/assets/blog/{{ post.image }}"/></a>
                     <div class="preview">
                         <h2 class="title"><a href="{{ post.url }}">{{ post.title}}</a></h2>
-                        <p class="description">{{ post.content | truncatewords: 50 }} </p>
                         <h3>By {{ post.author }}</h3>
+                        <p class="description">{{ post.content | strip_html | truncatewords: 50 }} </p>
                     </div>
                 </div>
             {% endif %}
