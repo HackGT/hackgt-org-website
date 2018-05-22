@@ -718,7 +718,7 @@ a.gradient-text.gradient-underline.border-jump {
     border-image-slice: 1;
 }
 
-.blog-post > img {
+.blog-post > a > img {
     width: 100%;
 }
 
@@ -1327,7 +1327,7 @@ div.post * {
     }
 
     .article-links > a > img, .article-links > a.fb > img  {
-        height: 5%;
+        height: 2em;
         text-align: center;
     }
 
