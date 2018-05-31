@@ -144,6 +144,7 @@ function emptyCanvas() {
     hexagons = [];
 }
 
+var logoDownloadTriggered = false;
 function init() {
     
     if (s) {
@@ -185,15 +186,19 @@ function init() {
     }
 
     if (!logo) {
-        // note, when adding an SVG, make sure the height/width/viewbox attributes from the top svg node are removed from the actual .svg file
-        Snap.load('./assets/hackgt.svg', function(loadedFragment) {
-            s.append(loadedFragment);
-            logo = s.select('#hackgt');
-            // useFilters && logo.attr({filter: lightShadow});
-            logo.attr({filter: logoShadow});
-            logo.attr({fill: logoColor});
-            centerLogo();
-        });
+        if (!logoDownloadTriggered) {
+            // Don't trigger another download if we're still waiting on the network
+            logoDownloadTriggered = true;
+            // note, when adding an SVG, make sure the height/width/viewbox attributes from the top svg node are removed from the actual .svg file
+            Snap.load('./assets/hackgt.svg', function(loadedFragment) {
+                s.append(loadedFragment);
+                logo = s.select('#hackgt');
+                // useFilters && logo.attr({filter: lightShadow});
+                logo.attr({filter: logoShadow});
+                logo.attr({fill: logoColor});
+                centerLogo();
+            });
+        }
     } else {
         centerLogo();
     }
