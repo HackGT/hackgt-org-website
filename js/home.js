@@ -108,6 +108,7 @@ function animateValence() {
     }
 
     timer += (baseDeltaT + easedOutScrollAmount * deltaDeltaT);
+    animationInterval = window.requestAnimationFrame(animateValence);
 }
 
 function updateScrollAmount() {
@@ -203,8 +204,10 @@ function init() {
         centerLogo();
     }
 
-    clearInterval(animationInterval);
-    animationInterval = setInterval(animateValence, intervalSpeed);
+    if (animationInterval) {
+        window.cancelAnimationFrame(animationInterval);
+    }
+    animationInterval = window.requestAnimationFrame(animateValence);
 }
 
 function centerLogo() {
