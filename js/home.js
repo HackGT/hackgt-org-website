@@ -22,8 +22,6 @@ var radiusMax = Math.min(width / radiusMaxRatio, height / radiusMaxRatio);
 
 var center = {x: width / 2, y: height / 2};
 
-var logoCenterOffsetRatio = 0.85;
-
 var numHexagons = 15;
 var hexagonMinSize = 10;
 var hexagonMaxSize = 20;
@@ -43,12 +41,7 @@ var intervalSpeed = 1000/fps;
 var baseDeltaT = 0.005;
 var deltaDeltaT = -0.005;
 
-var logo = null;
-
-var logoColor = "#e5fbff";
-
 var shadow = s.filter(Snap.filter.shadow(0,0,8,"#dddddd",0.9));
-var logoShadow = s.filter(Snap.filter.shadow(0,0,16,logoColor,0.9));
 
 // the shadows actually skullfuck your battery life, so probs not gonna use them bc my fan get so loud
 var useFilters = false;
@@ -145,7 +138,6 @@ function emptyCanvas() {
     hexagons = [];
 }
 
-var logoDownloadTriggered = false;
 function init() {
     
     if (s) {
@@ -186,45 +178,10 @@ function init() {
         hexagons.push(hexagon);
     }
 
-    if (!logo) {
-        if (!logoDownloadTriggered) {
-            // Don't trigger another download if we're still waiting on the network
-            logoDownloadTriggered = true;
-            // note, when adding an SVG, make sure the height/width/viewbox attributes from the top svg node are removed from the actual .svg file
-            Snap.load('./assets/hackgt.svg', function(loadedFragment) {
-                s.append(loadedFragment);
-                logo = s.select('#hackgt');
-                // useFilters && logo.attr({filter: lightShadow});
-                logo.attr({filter: logoShadow});
-                logo.attr({fill: logoColor});
-                centerLogo();
-            });
-        }
-    } else {
-        centerLogo();
-    }
-
     if (animationInterval) {
         window.cancelAnimationFrame(animationInterval);
     }
     animationInterval = window.requestAnimationFrame(animateValence);
-}
-
-function centerLogo() {
-    // logo.transform('s1,1T0,0');
-    logo.transform('');
-
-    var bb = logo.getBBox();
-    var dx = center.x - bb.cx;
-    var dy = (center.y - bb.cy) * logoCenterOffsetRatio;
-
-    var scaleAmount = (Math.min(width, height) / 3) / Math.max(bb.w, bb.h);
-
-    logo.transform('s' + scaleAmount + ',' + scaleAmount + 'T'+dx+','+dy);
-
-    // note, this doesn't add another logo, it just pushed the logo to the 'top', so the little
-    // hexagons render behind it
-    s.append(logo);
 }
 
 function createNormalPolygon(radius, degree) {
