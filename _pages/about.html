@@ -61,6 +61,35 @@ footer-js:
             </h3>
         </div>
     </div>
+
+    <div class="row">
+        {% assign numPics = 42 %}
+        {% assign picsPerCol = numPics | divided_by: 4.0 | ceil %}
+        {% assign picsPerColMinusOne = picsPerCol | minus: 1 %}
+
+        {% for num in (0..numPics) %}
+            {% assign mod = num | modulo: picsPerCol %}
+
+            {% if mod == 0 %}
+            <div class="col-3">
+            {% endif %}
+
+            <div class="member-pic" data-silly="/assets/members/silly{{num | times: 2}}.jpg">
+                <img src="/assets/members/pic{{num | times: 2}}.jpg" class="normal"/>
+                <img src="/assets/members/goofy{{num | times: 2}}.jpg" class="silly"/>
+            </div>
+
+            {% if mod == picsPerColMinusOne %}
+            </div>
+            {% endif %}
+        {% endfor %}
+        {% assign remainder = numPics | modulo: picsPerCol %}
+
+        {% if remainder != 0 %}
+        </div>
+        {% endif %}
+    </div>
+
     <br/>
     <br/>
     <br/>
