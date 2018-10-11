@@ -1,4 +1,0 @@
-FROM ruby:2.4.1
-
-WORKDIR /src
-CMD "./docker_resources/build.sh"

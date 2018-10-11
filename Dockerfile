@@ -1,3 +1,7 @@
-FROM nginx:alpine
+FROM ruby:2.4.1
+WORKDIR /workspace
+ADD . .
+RUN "./docker_resources/build.sh"
 
-COPY _site/ /usr/share/nginx/html/
+FROM nginx:stable-alpine
+COPY --from=0 /workspace/_site/ /usr/share/nginx/html/
