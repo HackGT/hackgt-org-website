@@ -1394,6 +1394,7 @@ Also css attr for background image urls is also broken >:(((
 .silly {
     position: absolute;
     top: -105%;
+    left: 0;
 }
 
 .member-pic:hover .silly {
