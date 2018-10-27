@@ -1,7 +1,7 @@
 ---
 title: HackGTeeny 3
 event_date: 2017-01-21
-website: https://www.facebook.com/events/1423501884432400/
+website: https://spring2017.teeny.hack.gt/
 photos: https://www.facebook.com/pg/HackGT/photos/?tab=album&album_id=951303141636199
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: HackGTeeny 4
 event_date: 2017-09-16
-website: https://teeny.hack.gt/
+website: https://fall2017.teeny.hack.gt/
 devpost: https://hackgteeny-2017.devpost.com/
 ---
 
