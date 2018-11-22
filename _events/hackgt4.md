@@ -2,7 +2,7 @@
 title: HackGT 4 New Heights
 event_date: 2017-10-13
 website: https://fall2017.hack.gt/
-photos: https://www.facebook.com/pg/HackGT/photos/?tab=album&album_id=1168723576560820
+photos: https://www.facebook.com/pg/TheHackGT/photos/?tab=album&album_id=1168723576560820
 devpost: https://hackgt2017.devpost.com
 press:
     HackGT Demonstrates the Future is Bright for Software Programming: https://www.huffingtonpost.com/entry/hackgt-demonstrates-the-future-is-bright-for-software_us_5a01c353e4b085d72ae06d1e
