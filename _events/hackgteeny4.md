@@ -5,4 +5,4 @@ website: https://fall2017.teeny.hack.gt/
 devpost: https://hackgteeny-2017.devpost.com/
 ---
 
-HackGTeeny 4 was focused on taking HackGTeeny to the next level. This event brought in over 200 participants for a 12-hour hackathon centered around the education and application of fundamental computer science concepts. 
+After listening to participant feedback, HackGT decided to complement our main HackGT event with a series of beginner workshops to introduce critical skills for application development. At the event, we offered a 5 hour hands-on, mentor-guided workshops for students with introductory coding experience.

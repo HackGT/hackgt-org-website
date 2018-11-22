@@ -2,7 +2,7 @@
 title: Catalyst
 event_date: 2017-04-15
 website: https://catalyst2017.hack.gt/
-photos: https://www.facebook.com/pg/HackGT/photos/?tab=album&album_id=1012272148872631
+photos: https://www.facebook.com/pg/TheHackGT/photos/?tab=album&album_id=1012272148872631
 press:
     HackGT's New 'Catalyst' Brings Computer Skills to the Underserved: http://www.techsquareatl.com/stories/hackgtcatalyst
 ---
