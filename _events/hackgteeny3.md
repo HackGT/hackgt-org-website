@@ -2,8 +2,7 @@
 title: HackGTeeny 3
 event_date: 2017-01-21
 website: https://spring2017.teeny.hack.gt/
-photos: https://www.facebook.com/pg/HackGT/photos/?tab=album&album_id=951303141636199
+photos: https://www.facebook.com/pg/TheHackGT/photos/?tab=album&album_id=951303141636199
 ---
 
-After listening to participant feedback, HackGT decided to complement our main HackGT event with a series of beginner workshops to introduce critical skills for application development. At the event, we offered a 5 hour hands-on, mentor-guided workshops for students with introductory coding experience.
-
+HackGTeeny 3 was focused on taking HackGTeeny to the next level. This event brought in over 200 participants for a 12-hour hackathon centered around the education and application of fundamental computer science concepts. 
