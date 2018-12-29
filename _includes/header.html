@@ -1,24 +1,58 @@
 <div class="splash-container row">
     <div id="splash-nav" class="col-12">
-        <h1 class="big">
-            <a href="/">HackGT</a>
+        <a href="#menu"
+           class="menu-toggle"
+           id="menu-toggle"
+           aria-expanded="false"
+           aria-controls="menu"
+           aria-label="Open menu">
+            <img src="/assets/icons/hamburger-icon-light.svg"
+                 aria-hidden="true">
+        </a>
+
+        <h1 class="header">
+            <a href="#menu-toggle">HackGT</a>
         </h1>
-        <ul>
-            <li>
-                <a href="/about">About</a>
-            </li>
-            <li>
-                <a href="/events">Events</a>
-            </li>
-            <li>
-                <a href="/code">Code</a>
-            </li>
-            <li>
-            <a href="/blog">Blog</a>
-            </li>
-            <li>
-                <a href="/contact">Contact</a>
-            </li>
-        </ul>
+
+        <nav id="menu"
+             class="menu"
+             role="navigation"
+             aria-expanded="false"
+             aria-label="Menu">
+            <a href="/"
+               class="menu-close"
+               id="menu-close"
+               role="button"
+               aria-expanded="false"
+               aria-controls="menu"
+               aria-label="Close menu">
+                <img src="/assets/icons/cross-light.svg"
+                     aria-hidden="true">
+            </a>
+
+            <ul>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+                <li>
+                    <a href="/events">Events</a>
+                </li>
+                <li>
+                    <a href="/code">Code</a>
+                </li>
+                <li>
+                    <a href="/blog">Blog</a>
+                </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        <a href="#menu-toggle"
+           class="backdrop" 
+           tabindex="-1"
+           aria-hidden="true" 
+           hidden></a>
     </div>
 </div>

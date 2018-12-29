@@ -106,6 +106,11 @@ footer::before {
     background: linear-gradient(to right, #4AC8EF, #8B54A2);
 }
 
+.header{
+    font-size: 3em;
+    margin: 0;
+}
+
 .splash-container {
     margin-top: 2rem;
     margin-bottom: 3rem;
@@ -156,13 +161,13 @@ footer::before {
     transition: 0.5s all;
 }
 
-#splash-nav > ul {
+#splash-nav > nav > ul {
     /* TODO: add a breakpoint where we just display as column;*/
     margin: 0;
     padding: 0;
 }
 
-#splash-nav > ul > li {
+#splash-nav > nav > ul > li {
     display: inline-block;
     text-align: center;
     padding-bottom: 7px;
@@ -171,7 +176,7 @@ footer::before {
     overflow: hidden;
 }
 
-#splash-nav > ul > li > a {
+#splash-nav > nav > ul > li > a {
     text-decoration: none;
     font-size: 1.3rem;
     color: #bbb;
@@ -179,7 +184,7 @@ footer::before {
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li > a::after {
+#splash-nav > nav > ul > li > a::after {
     background: linear-gradient(to right, #4AC8EF, #8B54A2);
     height: 4px;
     position: absolute;
@@ -190,15 +195,183 @@ footer::before {
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li > a:hover {
+#splash-nav > nav > ul > li > a:hover {
     color: white;
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li > a:hover::after {
+#splash-nav > nav > ul > li > a:hover::after {
     transition: 0.3s all;
     left: 0%;
+}
 
+@media (max-width: 768px){
+
+
+.splash-container {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    width: 100%;
+
+}
+
+#splash-nav {
+    color: white;
+}
+
+#splash-nav > h1 {
+    position: relative;
+    font-weight: 400;
+    margin-left: 1rem;
+    margin-right: 10rem;
+}
+
+.menu-toggle{
+    display: inline-block;
+    padding: 0.75rem 15px;
+    line-height: 1em;
+    font-size: 1em;
+    color: #333;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus{
+    color: #c00;
+}
+
+.menu{
+    position: absolute;
+    left: -200px;
+    top: 0;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: visible;
+    transition: left 0.3s ease, 
+                box-shadow 0.3s ease;
+    z-index: 999;
+}
+
+.menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 2.5em 0 0 ;
+    /* Hide shadow w/ -8px while 'closed'*/
+    -webkit-box-shadow: -8px 0 8px rgba(0,0,0,0.5);
+    -moz-box-shadow: -8px 0 8px rgba(0,0,0,0.5);
+    box-shadow: -8px 0 8px rgba(0,0,0,0.5);
+    min-height: 100%;
+    width: 200px;
+    background: #1a1a1a;
+}
+
+.menu a{
+    display: block;
+    padding: 0.75em 1em;
+    line-height: 1em;
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #383838;
+}
+
+.menu li:first-child a{
+    border-top: 1px solid #383838;
+}
+
+.menu a:hover,
+.menu a:focus{
+    background: #333;
+    text-decoration: underline;
+}
+
+.menu .menu-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.menu:target,
+.menu[aria-expanded="true"] {
+  left: 0;
+  outline: none;
+  -moz-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+  -webkit-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+  box-shadow: 3px 0 12px rgba(0,0,0,.25);
+}
+
+.menu:target .menu-close,
+.menu[aria-expanded="true"] .menu-close {
+  z-index: 1001;
+}
+
+.menu:target ul,
+.menu[aria-expanded="true"] ul {
+  position: relative;
+  z-index: 1000;
+}
+
+.menu:target + .backdrop,
+.menu[aria-expanded="true"] + .backdrop {
+  position: absolute;
+  display: block;  
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  background: #000;
+  background: rgba(0,0,0,.85);
+  cursor: default;
+}
+
+@supports (position: fixed) {
+  .menu,
+  .menu:target + .backdrop,
+  .menu[aria-expanded="true"] + .backdrop {
+    position: fixed;
+  }
+}
+
+}
+
+@media (min-width: 768px) {
+  .menu-toggle,
+  .menu .menu-close {
+    display: none;
+  }
+  
+  /* Undo positioning of off-canvas menu */
+  .menu {
+    position: relative;
+    left: auto;
+    top: auto;
+    height: auto;
+  }
+  
+  .menu ul {
+    display: flex;
+    
+    /* Undo off-canvas styling */
+    padding: 0;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+    height: auto;
+    width: auto;
+    background: none;
+  }
+  
+  .menu a {
+    color: #06c;
+    border: 0 !important; /* Remove borders from off-canvas styling */
+  }
+  
+  .menu a:hover,
+  .menu a:focus {
+    background: none; /* Remove background from off-canvas styling */
+    color: #c00;
+  }
 }
 
 #year-selector li.active > a, .gradient-text {
@@ -830,23 +1003,12 @@ a.gradient-text.gradient-underline.border-jump {
 
 /* media queries */
 
-@media (max-width:633px) {
-    /* manually found this breakpoint by trial/error */
-    /* make navbar look good and not overflowy */
-    #splash-nav > ul {
-        text-align: center;
-    }
-}
 
 @media (max-width:480px) {
     /* smartphones, Android phones, landscape iPhone */
     body {
         /* make font readable */
         font-size: 125%;
-    }
-
-    #splash-nav > ul {
-        font-size: 0.75em;
     }
 
     .featured-post .title {
@@ -1307,20 +1469,6 @@ div.post * {
 
     .exec-member p {
         overflow-wrap: break-word;
-    }
-
-    #splash-nav > h1.big {
-        text-align: center;
-        float: none;
-        font-size: 1.5em;
-    }
-
-    #splash-nav > h1.big > a {
-        position: relative;
-    }
-
-    #splash-nav > h1.big > a::after {
-        height: 2px;
     }
 
     #splash-nav > ul {
