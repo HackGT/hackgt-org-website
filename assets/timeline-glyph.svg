@@ -12,7 +12,7 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Group" transform="translate(-10.000000, 0.000000)">
             <polygon id="Polygon" fill="url(#linearGradient-1)" points="80 0 149.282032 40 149.282032 120 80 160 10.7179677 120 10.7179677 40"></polygon>
-            <polygon id="Polygon" fill="#000000" points="79.693575 18 133.38715 49 133.38715 111 79.693575 142 26 111 26 49"></polygon>
+            <polygon id="Polygon" fill="#212121" points="79.693575 18 133.38715 49 133.38715 111 79.693575 142 26 111 26 49"></polygon>
         </g>
     </g>
 </svg>

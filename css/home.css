@@ -171,7 +171,7 @@ footer::before {
     overflow: hidden;
 }
 
-#splash-nav > ul > li > a {
+#splash-nav > ul > li .navlink {
     text-decoration: none;
     font-size: 1.3rem;
     color: #bbb;
@@ -179,7 +179,7 @@ footer::before {
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li > a::after {
+#splash-nav > ul > li .navlink::after {
     background: linear-gradient(to right, #4AC8EF, #8B54A2);
     height: 4px;
     position: absolute;
@@ -190,18 +190,18 @@ footer::before {
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li > a:hover {
+#splash-nav > ul > li .navlink:hover {
     color: white;
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li > a:hover::after {
+#splash-nav > ul > li .navlink:hover::after {
     transition: 0.3s all;
     left: 0%;
 
 }
 
-#year-selector li.active > a, .gradient-text {
+#year-selector li.active .navlink, .gradient-text {
     position: relative;
     color: white;
     background: linear-gradient(to right, #4AC8EF, #8B54A2);
@@ -976,6 +976,8 @@ a.gradient-text.gradient-underline.border-jump {
 .current-year > h2::before {
     /* this way we don't need to put the same year in the id as in the h2 body, bc we need it in id for scroll */
     content: attr(id);
+    font-family: Barlow;
+    font-weight: normal;
 }
 
 .exec-member {
@@ -1089,7 +1091,7 @@ a.gradient-text.gradient-underline.border-jump {
     left: -13.5em;
     text-align: right;
     width: 10em;
-    color: #8A55A1;
+    color: #49C7EE;
 }
 
 .event-title > h1 {

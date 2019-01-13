@@ -13,6 +13,10 @@ var durations = [10000, 9800, 8500];
 
 var hexagons = [];
 
+var currentPage = document.getElementById('navcontact');
+currentPage.style.fontWeight = 'bold';
+currentPage.style.color = 'white';
+
 function init() {
     for (var i = 0; i < hexagons.length; i++) {
         var hex = hexagons[i];
