@@ -15,7 +15,6 @@ var currentPage = document.getElementById('navevents');
 currentPage.style.fontWeight = 'bold';
 currentPage.style.color = 'white';
 
-
 yearSelector.querySelectorAll('a').forEach(function(link, index) {
     (function(link, index){
         link.onclick = function(e) {
