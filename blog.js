@@ -1,0 +1,1 @@
+var currentElement = document.getElementById("hello");
