@@ -1,3 +1,2 @@
-var currentPage = document.getElementById('navblogpost');
-currentPage.style.fontWeight = 'bold';
-currentPage.style.color = 'white';
+var pageUrl = window.location.pathname;
+setCurrentPage(pageUrl);

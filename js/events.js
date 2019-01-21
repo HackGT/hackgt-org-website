@@ -11,9 +11,8 @@ var yearSectionElements = getAllYearSectionElements();
 var scrolling = false;
 var currentTimeout;
 
-var currentPage = document.getElementById('navevents');
-currentPage.style.fontWeight = 'bold';
-currentPage.style.color = 'white';
+var pageUrl = window.location.pathname;
+setCurrentPage(pageUrl);
 
 yearSelector.querySelectorAll('a').forEach(function(link, index) {
     (function(link, index){
@@ -24,7 +23,7 @@ yearSelector.querySelectorAll('a').forEach(function(link, index) {
             if (scrolling) {
                 return;
             }
-            
+
             var element = yearSectionElements[index];
 
             var pos = getPosition(element);

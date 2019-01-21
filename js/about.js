@@ -48,9 +48,12 @@ resizeInfoChunks();
 
 window.onresize = resizeInfoChunks;
 
-var currentPage = document.getElementById('navabout');
-currentPage.style.fontWeight = 'bold';
-currentPage.style.color = 'white';
+var pageUrl = window.location.pathname;
+setCurrentPage(pageUrl);
+
+// var currentPage = document.getElementById('navabout');
+// currentPage.style.fontWeight = 'bold';
+// currentPage.style.color = 'white';
 
 function updateHexagonContainerHeight() {
     height = footer.offsetTop - hexagonContainer.offsetTop;
@@ -111,11 +114,11 @@ function revealChunk(chunkNum) {
                 var chunk = chunks[i];
 
                 currentTimeout = setTimeout(function() {
-                    // chunk.classList.remove('hidden');    
+                    // chunk.classList.remove('hidden');
                     chunk.classList.add('visible-info-chunk');
                 }, animationTime * animationWaitRatio);
             })(i);
-            
+
             button.classList.add('active-button');
         }
     }
@@ -147,7 +150,7 @@ function scrollChunks(keyCode) {
 
     currentIndex += buttonCount;
     currentIndex %= buttonCount;
-    
+
     revealChunk(currentIndex);
 }
 
@@ -163,7 +166,7 @@ function handleKeypress(e) {
 document.onkeydown = handleKeypress;
 
 function placeHexagons(i) {
-    
+
     // we'll do cool hexagon stuff l8r
     return;
 
@@ -285,7 +288,7 @@ function moveHexagonToPosition(hexagonImageElement, position, fromCenter) {
 }
 
 function getHexagonSize(hexagonImageElement) {
-    
+
     return {
         x: hexagonImageElement.width,
         y: hexagonImageElement.height

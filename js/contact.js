@@ -13,9 +13,8 @@ var durations = [10000, 9800, 8500];
 
 var hexagons = [];
 
-var currentPage = document.getElementById('navcontact');
-currentPage.style.fontWeight = 'bold';
-currentPage.style.color = 'white';
+var pageUrl = window.location.pathname;
+setCurrentPage(pageUrl);
 
 function init() {
     for (var i = 0; i < hexagons.length; i++) {
@@ -37,7 +36,7 @@ function createHexagons() {
         });
 
         var bbox = hex.getBBox();
-        
+
         for (var i = 0; i < offsets.length; i++) {
             var curr = hex.clone();
             s.append(curr);
