@@ -107,11 +107,11 @@ function revealChunk(chunkNum) {
                 var chunk = chunks[i];
 
                 currentTimeout = setTimeout(function() {
-                    // chunk.classList.remove('hidden');    
+                    // chunk.classList.remove('hidden');
                     chunk.classList.add('visible-info-chunk');
                 }, animationTime * animationWaitRatio);
             })(i);
-            
+
             button.classList.add('active-button');
         }
     }
@@ -143,7 +143,7 @@ function scrollChunks(keyCode) {
 
     currentIndex += buttonCount;
     currentIndex %= buttonCount;
-    
+
     revealChunk(currentIndex);
 }
 
@@ -159,7 +159,7 @@ function handleKeypress(e) {
 document.onkeydown = handleKeypress;
 
 function placeHexagons(i) {
-    
+
     // we'll do cool hexagon stuff l8r
     return;
 
@@ -281,7 +281,7 @@ function moveHexagonToPosition(hexagonImageElement, position, fromCenter) {
 }
 
 function getHexagonSize(hexagonImageElement) {
-    
+
     return {
         x: hexagonImageElement.width,
         y: hexagonImageElement.height

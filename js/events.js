@@ -20,7 +20,7 @@ yearSelector.querySelectorAll('a').forEach(function(link, index) {
             if (scrolling) {
                 return;
             }
-            
+
             var element = yearSectionElements[index];
 
             var pos = getPosition(element);

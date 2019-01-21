@@ -33,7 +33,7 @@ function createHexagons() {
         });
 
         var bbox = hex.getBBox();
-        
+
         for (var i = 0; i < offsets.length; i++) {
             var curr = hex.clone();
             s.append(curr);

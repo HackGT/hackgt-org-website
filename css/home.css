@@ -201,6 +201,11 @@ footer::before {
 
 }
 
+.page-selected{
+  font-weight: bold;
+  color: white;
+}
+
 #year-selector li.active > a, .gradient-text {
     position: relative;
     color: white;
@@ -707,8 +712,8 @@ a.gradient-text.gradient-underline.border-jump {
     background: linear-gradient(to right, #4AC8EF,  #8B54A2 34%, #fff 65%);
     background-size: 300% 100%;
     background-position:right bottom;
-    transition:all .8s ease;   
-    content: ""; 
+    transition:all .8s ease;
+    content: "";
     z-index: 2;
 }
 
@@ -753,8 +758,8 @@ a.gradient-text.gradient-underline.border-jump {
     height: 2px;
     width: 96%;
     content: "";
-    left: 2%; 
-    bottom: 15%;   
+    left: 2%;
+    bottom: 15%;
 }
 
 .topic a {
@@ -976,6 +981,8 @@ a.gradient-text.gradient-underline.border-jump {
 .current-year > h2::before {
     /* this way we don't need to put the same year in the id as in the h2 body, bc we need it in id for scroll */
     content: attr(id);
+    font-family: Barlow;
+    font-weight: normal;
 }
 
 .exec-member {
@@ -1089,7 +1096,7 @@ a.gradient-text.gradient-underline.border-jump {
     left: -13.5em;
     text-align: right;
     width: 10em;
-    color: #8A55A1;
+    color: #49C7EE;
 }
 
 .event-title > h1 {
