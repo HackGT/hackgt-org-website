@@ -10,3 +10,6 @@ const setCurrentPage = (pageUrl) => {
   const element = document.getElementById(routeToId[pageUrl]);
   element.classList.add("page-selected");
 }
+
+var pageUrl = window.location.pathname;
+setCurrentPage(pageUrl);

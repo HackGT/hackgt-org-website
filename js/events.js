@@ -11,9 +11,6 @@ var yearSectionElements = getAllYearSectionElements();
 var scrolling = false;
 var currentTimeout;
 
-var pageUrl = window.location.pathname;
-setCurrentPage(pageUrl);
-
 yearSelector.querySelectorAll('a').forEach(function(link, index) {
     (function(link, index){
         link.onclick = function(e) {

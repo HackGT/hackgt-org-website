@@ -13,9 +13,6 @@ var durations = [10000, 9800, 8500];
 
 var hexagons = [];
 
-var pageUrl = window.location.pathname;
-setCurrentPage(pageUrl);
-
 function init() {
     for (var i = 0; i < hexagons.length; i++) {
         var hex = hexagons[i];

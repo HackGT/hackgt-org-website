@@ -48,13 +48,6 @@ resizeInfoChunks();
 
 window.onresize = resizeInfoChunks;
 
-var pageUrl = window.location.pathname;
-setCurrentPage(pageUrl);
-
-// var currentPage = document.getElementById('navabout');
-// currentPage.style.fontWeight = 'bold';
-// currentPage.style.color = 'white';
-
 function updateHexagonContainerHeight() {
     height = footer.offsetTop - hexagonContainer.offsetTop;
     width = hexagonContainer.scrollWidth;
