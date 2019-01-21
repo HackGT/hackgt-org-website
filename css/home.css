@@ -171,7 +171,7 @@ footer::before {
     overflow: hidden;
 }
 
-#splash-nav > ul > li .navlink {
+#splash-nav > ul > li > a {
     text-decoration: none;
     font-size: 1.3rem;
     color: #bbb;
@@ -179,7 +179,7 @@ footer::before {
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li .navlink::after {
+#splash-nav > ul > li > a::after {
     background: linear-gradient(to right, #4AC8EF, #8B54A2);
     height: 4px;
     position: absolute;
@@ -190,12 +190,12 @@ footer::before {
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li .navlink:hover {
+#splash-nav > ul > li > a:hover {
     color: white;
     transition: 0.5s all;
 }
 
-#splash-nav > ul > li .navlink:hover::after {
+#splash-nav > ul > li > a:hover::after {
     transition: 0.3s all;
     left: 0%;
 
@@ -206,7 +206,7 @@ footer::before {
   color: white;
 }
 
-#year-selector li.active .navlink, .gradient-text {
+#year-selector li.active > a, .gradient-text {
     position: relative;
     color: white;
     background: linear-gradient(to right, #4AC8EF, #8B54A2);
