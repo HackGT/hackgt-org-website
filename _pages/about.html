@@ -11,7 +11,8 @@ footer-js:
     - about
 ---
 <div class="info">
-    <div id="glyphs">
+
+     <div id="glyphs">
         {% assign who_list = "" %}
         {% assign what_list = "" %}
         {% assign first = 0 %}
@@ -24,11 +25,23 @@ footer-js:
         {% assign who_list = who_list | append: team.who %}
         {% assign what_list = what_list | append: team.content %}
         <div class="team-glyphs {% if first == 0 %}team-glyphs-active{% assign first = 1 %}{% endif %}">
-                {% for member in site.data[team_data] %}
-                    <img src="/assets/members/{{ team.title | downcase }}/{{ member.name | downcase | replace: ' ', '-' }}.jpg" class="hexagon-img"/>
-                {% endfor %}
+                    <h3 class="hexagon-img"> </h3>
         </div>
         {% endfor %}
+    </div>
+    <div class="team-info-container">
+        <!--Make the text smaller, make it appear where it's supposed to-->
+        {% assign counter = 0 %}
+        {% assign who_list_parsed = who_list | split: ',' %}
+        {% assign what_list_parsed = what_list | split: '|' %}
+        {% for what in what_list_parsed %}
+        
+        <div class="team-info">
+            <p>{{what}}<p>
+        </div>
+        {% assign counter = counter | plus: 1 %}
+        {% endfor %}
+
     </div>
     <div class="we-are">
         <h1 class="kinda-big">We are&nbsp;</h1>
@@ -39,17 +52,17 @@ footer-js:
         {% assign who_list_parsed = who_list | split: ',' %}
         {% assign what_list_parsed = what_list | split: '|' %}
         {% for who in who_list_parsed %}
+        
         <div class="info-chunk">
-            <h1 class="kinda-big gradient-text what-we-are">{{ who }}</h1>
-            <p>{{ what_list_parsed[counter] }}</p>
+            <h1 class="kinda-big gradient-text what-we-are">{{who}}</h1>
         </div>
         {% assign counter = counter | plus: 1 %}
         {% endfor %}
         <div id="transition-buttons">
 
-            <!-- procedurally append divs here for each info-chunk-->
+           
         </div>
-    </div>
+    </div> 
 
     <div class="row">
         <div class="col-12">
@@ -61,9 +74,15 @@ footer-js:
             </h3>
         </div>
     </div>
-
+    <br/>
     <div class="row">
-        {% assign numPics = 43 %}
+
+        <div class="col-12">
+            <br/>
+        <h3 class="about-slogan">Exec</h3>
+        <hr>
+        </div>
+        {% assign numPics = 6 %}
         {% assign picsPerCol = numPics | divided_by: 4.0 | ceil %}
         {% assign picsPerColMinusOne = picsPerCol | minus: 1 %}
 
@@ -74,9 +93,9 @@ footer-js:
             <div class="col-3">
             {% endif %}
 
-            <div class="member-pic" data-silly="/assets/members/silly{{num | times: 2}}.jpg">
-                <img src="/assets/members/pic{{num | times: 2}}.jpg" class="normal"/>
-                <img src="/assets/members/goofy{{num | times: 2}}.jpg" class="silly"/>
+            <div class="member-pic">
+                <img src="/assets/members/exec/pic{{num}}.jpg" class="normal"/>
+
             </div>
 
             {% if mod == picsPerColMinusOne %}
@@ -85,10 +104,141 @@ footer-js:
         {% endfor %}
         {% assign remainder = numPics | modulo: picsPerCol %}
 
-        {% if remainder != 0 %}
         </div>
-        {% endif %}
     </div>
+
+    <div class="row">
+            <div class="col-12">
+                    <h3 class="about-slogan">Design</h3>
+                    <hr>
+                    <p>The Design Team is the pioneer for eye-catching and compelling marketing for the organization. Through effective branding, unique event theming, and user friendly interfaces, HackGT is able to offer exclusive and meaningful experiences that enrich the community. </p>
+            </div>
+        <div class="col-3">
+            <div class ="member-pic">
+                <img src="/assets/members/design/pic0.jpg" class="normal"/>
+            </div>
+            <div class ="member-pic">
+                <img src="/assets/members/design/pic1.jpg" class="normal"/>
+        </div>
+    </div>
+        {% assign numPics = 4 %}
+        {% assign picsPerCol = numPics | divided_by: 4.0 | ceil %}
+        {% assign picsPerColMinusOne = picsPerCol | minus: 1 %}
+        {% assign numPics = 2 %}
+        {% for num in (0..numPics) %}
+            {% assign mod = num | modulo: picsPerCol %}
+
+            {% if mod == 0 %}
+            <div class="col-3">
+            {% endif %}
+        
+            <div class="member-pic">
+                <img src="/assets/members/design/pic{{num | plus: 2}}.jpg" class="normal"/>
+
+            </div>
+            
+
+            {% if mod == picsPerColMinusOne %}
+            </div>
+            {% endif %}
+        {% endfor %}
+        {% assign remainder = numPics | modulo: picsPerCol %}
+
+        </div>
+    </div>
+
+    <div class="row">
+            <div class="col-12">
+                    <h3 class="about-slogan">Marketing</h3>
+                    <hr>
+                    </div>
+        {% assign numPics = 8 %}
+        {% assign picsPerCol = numPics | divided_by: 4.0 | ceil %}
+        {% assign picsPerColMinusOne = picsPerCol | minus: 1 %}
+
+        {% for num in (0..numPics) %}
+            {% assign mod = num | modulo: picsPerCol %}
+
+            {% if mod == 0 %}
+            <div class="col-3">
+            {% endif %}
+
+            <div class="member-pic">
+                <img src="/assets/members/marketing/pic{{num}}.jpg" class="normal"/>
+
+            </div>
+
+            {% if mod == picsPerColMinusOne %}
+            </div>
+            {% endif %}
+        {% endfor %}
+        {% assign remainder = numPics | modulo: picsPerCol %}
+
+        </div>
+    </div>
+
+    <div class="row">
+            <div class="col-12">
+                    <h3 class="about-slogan">Operations</h3>
+                    <hr>
+                    </div>
+        {% assign numPics = 14 %}
+        {% assign picsPerCol = numPics | divided_by: 4.0 | ceil %}
+        {% assign picsPerColMinusOne = picsPerCol | minus: 1 %}
+
+        {% for num in (0..numPics) %}
+            {% assign mod = num | modulo: picsPerCol %}
+
+            {% if mod == 0 %}
+            <div class="col-3">
+            {% endif %}
+
+            <div class="member-pic">
+                <img src="/assets/members/ops/pic{{num}}.jpg" class="normal"/>
+
+            </div>
+
+            {% if mod == picsPerColMinusOne %}
+            </div>
+            {% endif %}
+        {% endfor %}
+        {% assign remainder = numPics | modulo: picsPerCol %}
+
+        </div>
+    </div>
+
+    <div class="row">
+            <div class="col-12">
+                    <h3 class="about-slogan">Technology</h3>
+                    <hr>
+                    </div>
+        {% assign numPics = 15 %}
+        {% assign picsPerCol = numPics | divided_by: 4.0 | ceil %}
+        {% assign picsPerColMinusOne = picsPerCol | minus: 1 %}
+
+        {% for num in (0..numPics) %}
+            {% assign mod = num | modulo: picsPerCol %}
+
+            {% if mod == 0 %}
+            <div class="col-3">
+            {% endif %}
+
+            <div class="member-pic">
+                <img src="/assets/members/tech/pic{{num}}.jpg" class="normal"/>
+
+            </div>
+
+            {% if mod == picsPerColMinusOne %}
+            </div>
+            {% endif %}
+        {% endfor %}
+        {% assign remainder = numPics | modulo: picsPerCol %}
+
+        </div>
+    </div>
+
+
+    
 
     <br/>
     <br/>
