@@ -531,11 +531,11 @@ footer a {
 }
 
 .team-info {
-    position: absolute;
+    position: relative;
     left: 0;
     top: -0.5em;
     transition: 0.5s all;
-    opacity: 0;
+    display: none;
 }
 
 .info-chunk p {
@@ -559,7 +559,7 @@ footer a {
     opacity: 1;
 }
 .visible-team-info {
-    opacity: 1;
+    display: block;
 }
 
 .hexagon-img {
