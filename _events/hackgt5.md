@@ -1,7 +1,7 @@
 ---
 title: HackGT 5 Dare to Venture
 event_date: 2018-10-19
-website: https://2018.hack.gt/
+website: https://fall2018.hack.gt/
 photos: https://www.facebook.com/pg/TheHackGT/photos/?tab=album&album_id=1549297701836737
 devpost: https://hackgt2018.devpost.com
 ---
