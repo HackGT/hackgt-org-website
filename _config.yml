@@ -35,6 +35,7 @@ exclude:
 collections:
   - homepage
   - events
+  - privacy
   - upcoming_events
   - event_blurbs
   - members
