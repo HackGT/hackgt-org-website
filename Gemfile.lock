@@ -77,7 +77,7 @@ DEPENDENCIES
   jekyll-livereload
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.5.1p57
 
 BUNDLED WITH
    2.0.1
