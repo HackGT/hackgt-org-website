@@ -1,6 +1,6 @@
 ---
-title: HackGTeeny 6
-event_date: 2019-09-14
+title: HackGTeeny 5
+event_date: 2018-09-29
 website: https://teeny.hack.gt/
 photos: https://www.facebook.com/pg/TheHackGT/photos/?tab=album&album_id=1595671387199368
 ---
