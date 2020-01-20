@@ -10,4 +10,4 @@ press:
     
 ---
 
-For Catalyst 2019, we re-wrote our event curriculum in partnership with student organizations at Georgia Tech. At the event, we paired over 100 mentors with 200+ high school students from the Atlanta area. Students were able to pick from four curriculum tracks: hardware, software, design, and gaming to explore throughout the day.
+For Catalyst 2019, we re-wrote our event curriculum in partnership with student organizations at Georgia Tech. At the event, we paired over 100 mentors with 200+ high school students from the Atlanta area. Students were able to pick from four curriculum tracks to explore throughout the day.
