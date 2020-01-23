@@ -8,4 +8,4 @@ press:
 devpost: https://horizons2019.devpost.com/
 ---
 
- Horizons was HackGT's first Art + Tech makeathon and a celebration of the arts community at Georgia Tech. At Horizons, participants were challenged to create projects integrating art and technology that related to the prompt "Tell me a story".
+ Horizons was HackGT's first Art + Tech makeathon and a celebration of the arts community at Georgia Tech. At Horizons, participants were challenged to create projects integrating art and technology that related to the prompt "Tell me a story". In addition to the makeathon, Horizons featured student arts organizations, digital media and music deparments, and artists on Georgia Tech's campus and the general Atlanta area. 
