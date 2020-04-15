@@ -1,5 +1,5 @@
 ---
-title: Horizons
+title: Horizons 2019
 event_date: 2019-04-05
 website: https://horizons.hack.gt/
 photos: https://www.facebook.com/pg/TheHackGT/photos/?tab=album&album_id=1836527559780415

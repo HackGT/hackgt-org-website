@@ -1002,6 +1002,8 @@ a.gradient-text.gradient-underline.border-jump {
 .exec-member-img {
     -webkit-clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
     clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
+    width: 150px;
+    height: 150px;
 
     background-size: cover;
 }
