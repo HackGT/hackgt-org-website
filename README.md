@@ -1,5 +1,5 @@
 # hackgt-org-website
-Stateless, Dateless, Flawless
+Stateless, Dateless, Flawless 
 
 ## Configure Jekyll
 ```BASH
