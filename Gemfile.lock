@@ -15,7 +15,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.5)
     fastercsv (1.5.5)
-    ffi (1.9.18)
+    ffi (1.11.3)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
     i18n (0.9.1)
