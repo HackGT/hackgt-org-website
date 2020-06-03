@@ -51,15 +51,21 @@ footer-js:
        <section id="about" class="dark container">
             {% for blurb in site.frontpage_blurbs %}
             <div class="article row">
+                {% if blurb.image %}
                 <div class="col-7 article-img">
                     <img src="/assets/frontpage/{{ blurb.image}}.jpg"/>
                 </div>
+                {% endif %}
 
                 <div class="full-col">
                     <h1>{{ blurb.title }}<span class="gradient-text">{{ blurb.kahuna }}</span></h1>
                     {{ blurb.content }}
                     <p>
+                        {% if blurb.linkto contains 'http' %}
+                        <a class="gradient-text gradient-underline" href="{{ blurb.linkto }}">{{ blurb.linkmessage }}</a>
+                        {% else %}
                         <a class="gradient-text gradient-underline" href="/{{ blurb.linkto }}">{{ blurb.linkmessage }}</a>
+                        {% endif %}
                     </p>
                 </div>
             </div>
