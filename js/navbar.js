@@ -3,8 +3,8 @@ const routeToId = {
   '/events/': 'navevents',
   '/code/': 'navcode',
   '/blog/': 'navblogpost',
-  '/contact/': 'navcontact',
   '/privacy/': 'navprivacy',
+  '/contact/': 'navcontact',
 }
 
 const setCurrentPage = (pageUrl) => {
