@@ -4,7 +4,7 @@ const routeToId = {
   '/code/': 'navcode',
   '/blog/': 'navblogpost',
   '/privacy/': 'navprivacy',
-  '/hackgt7/': 'navhackgt7',
+  '/fallevents/': 'navhfallevents',
   '/contact/': 'navcontact',
 }
 
