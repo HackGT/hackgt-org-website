@@ -1276,6 +1276,10 @@ div.post * {
     margin-bottom: 2em;
 }
 
+.hackgt7 h1 a {
+    text-decoration: none;
+}
+
 @media (max-width: 719px) {
 
     .article-img {
