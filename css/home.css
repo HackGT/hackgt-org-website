@@ -530,7 +530,19 @@ footer a {
     opacity: 0;
 }
 
+.team-info {
+    position: relative;
+    left: 0;
+    top: -0.5em;
+    transition: 0.5s all;
+    display: none;
+}
+
 .info-chunk p {
+    font-size: 1.17em;
+}
+
+.team-info p {
     font-size: 1.17em;
 }
 
@@ -539,8 +551,15 @@ footer a {
     width: 60%;
 }
 
+.team-info-container {
+    position: static;
+}
+
 .visible-info-chunk {
     opacity: 1;
+}
+.visible-team-info {
+    display: block;
 }
 
 .hexagon-img {
@@ -1399,25 +1418,8 @@ Also css attr for background image urls is also broken >:(((
     width: 100%;
 }
 
-.normal, .silly {
-    transition: 0.25s all;
-}
-
 .normal {
     position: relative;
     top: 0;
 }
 
-.silly {
-    position: absolute;
-    top: -105%;
-    left: 0;
-}
-
-.member-pic:hover .silly {
-    top: 0%;
-}
-
-.member-pic:hover .normal {
-    top: 10em;
-}

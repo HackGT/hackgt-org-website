@@ -2,6 +2,8 @@ var transitionButtons = document.getElementById('transition-buttons');
 
 var chunks = document.getElementsByClassName('info-chunk');
 
+var infos = document.getElementsByClassName('team-info');
+
 var hexagonContainer = document.getElementById('glyphs');
 
 var teams = document.getElementsByClassName('team-glyphs');
@@ -95,20 +97,24 @@ function revealChunk(chunkNum) {
 
     for (var i = 0; i < chunks.length; i++) {
         var chunk = chunks[i];
+        var info = infos[i];
         var button = transitionButtons.children[i];
 
         if (i != chunkNum) {
             // chunk.classList.add('hidden');
             chunk.classList.remove('visible-info-chunk');
             button.classList.remove('active-button');
+            info.classList.remove('visible-team-info');
         } else {
             clearTimeout(currentTimeout);
             (function(i) {
                 var chunk = chunks[i];
+                var info = infos[i];
 
                 currentTimeout = setTimeout(function() {
                     // chunk.classList.remove('hidden');
                     chunk.classList.add('visible-info-chunk');
+                    info.classList.add('visible-team-info');
                 }, animationTime * animationWaitRatio);
             })(i);
 
